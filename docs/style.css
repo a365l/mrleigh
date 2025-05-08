@@ -123,6 +123,11 @@ nav a {
     margin-left: 100px;
 }
 
+.rightNavEle svg {
+    transform: translateY(-10px);
+    position: absolute;
+}
+
 .navListSpacerRight {
     margin-right: 25px;
     margin-left: 60px;
@@ -333,7 +338,7 @@ nav a {
 
 #websiteservicesPageHeader  {
     font-family: "Jost", "Helvetica Neue", Helvetica, Arial, Sans-serif;
-    font-size: 5rem;
+    font-size: 4.5rem;
     font-weight: 600;
     color: rgb(71, 71, 71);
     letter-spacing: -3.5px;
@@ -343,7 +348,7 @@ nav a {
 #websiteservicesPage h3 {
     font-family: "jost", "Helvetica Neue", Helvetica, Arial, Sans-serif;
     font-size: 2.25rem;
-    font-weight: 300;
+    font-weight: 400;
     color: rgb(71, 71, 71);
     transform: translateY(-5vh);
 }

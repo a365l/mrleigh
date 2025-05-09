@@ -1,0 +1,546 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Julius+Sans+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Julius+Sans+One&family=Xanh+Mono:ital@0;1&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+html {
+    scroll-behavior: smooth
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    animation: fadeIn 1s ease-in-out;
+}
+
+b {
+    font-weight: 400;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.spacer {
+    border-bottom: 1.5px solid rgb(71, 71, 71); 
+    width: 80%;
+    margin: auto;
+}
+
+
+
+nav {
+    position: relative; /* changed from absolute */
+    width: 100vw;
+    /* Remove fixed height */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* allows children to move if needed */
+    z-index: 999; /* keeps it above content */
+}
+
+#logoImg {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    left: 50%;  
+    top: 10px;
+    z-index: 9999;
+    transform: translateX(-50%); 
+}
+
+/* fix this media query makes it only apply on device with cursor so no bug on mobile*/
+
+@media (hover: hover) {
+    /* Hover-specific styles */
+    #logoImg:hover {
+      a;
+    }
+  }
+
+@keyframes navUlSlide {
+    from {
+      margin-top: 7.5%;
+    }
+    to {
+      margin-top: 6%;
+    }
+}
+
+
+nav ul.mainNav {
+    list-style: none;
+    margin-top: 6%;
+    animation: navUlSlide 0.5s ease-in-out;
+}
+
+nav ul.mainNav li {
+    font-family: 'Julius Sans One';
+    font-size: 1.5rem;
+    font-weight: 200;
+    display: inline-block;
+    transition: all 0.5s;
+}
+
+
+
+ul.mainNav li:hover {
+      font-size: 1.6rem;
+      transition: all 0.5s;
+}
+
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+.leftNavEle {
+    margin-right: 100px;
+}
+
+.rightNavEle {
+    margin-left: 100px;
+}
+
+.rightNavEle svg {
+    transform: translateY(-10px);
+    position: absolute;
+}
+
+.leftNavEle svg {
+    transform: translateY(-10px);
+    position: absolute;
+}
+
+.dropdown-root svg {
+  transition: all 0.5s ease;
+}
+
+.dropdown-root:hover svg {
+    transform: scale(1.025);
+}
+
+ul.dropdown {
+    position: absolute;
+    margin-top: 7.5px;
+    background-color: rgb(164, 171, 183);
+    width:250px;
+    padding-top: 5px;
+    text-align: center;
+    z-index: 9999;
+    border-radius: 15px;
+    box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    0 8px 16px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+li.dropdown-root {
+    padding-bottom: 7.5px;
+}
+
+ul.dropdown li {
+    display: block;
+    position: relative;
+    margin-top: 7.5px;
+    margin-bottom: 7.5px;
+    font-family: "Courier Prime";
+}
+
+
+ul.mainNav li.dropdown-root:hover ul.dropdown{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    display: block;
+
+}
+
+.navListSpacerRight {
+    margin-right: 25px;
+    margin-left: 60px;
+}
+
+.navListSpacerLeft {
+    margin-left: 25px;
+    margin-right: 100px;
+}
+
+@media screen and (max-width: 1024px) {
+    .navListSpacerLeft {
+        margin-right: 30px;
+    }
+
+    .navListSpacerRight {
+        margin-left: 30px;
+    }
+
+    nav ul {
+        margin-top: 8%;
+    }
+
+
+  }
+
+#backToTopBtn {
+    transition: all 0.5s;
+    opacity: 0;
+    position: fixed;
+    bottom: 20px; 
+    right: 30px; 
+    z-index: 99; 
+    margin: 15px;
+    border: none; 
+    outline: none; 
+    background-color: rgb(68, 83, 156);
+    color: white;
+    cursor: pointer; 
+    padding: 25px; 
+    border-radius: 30px; 
+    font-size: 18px; 
+    font-family: 'raleway';
+  }
+  
+  #backToTopBtn:hover {
+    background-color: #643ca4; 
+    transition: all 0.5s;
+    border-radius: 25px;
+    padding: 27.5px;
+  }
+  
+
+#landingPage {
+    position: absolute;
+    display: flex;
+    top: 30vh;
+    z-index: 500;
+    width: 100%;
+    height: 70vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#landingPage h1 {
+    margin-bottom: 25vh;
+    font-size: 5rem;
+    font-family: 'Xanh Mono';
+    letter-spacing: 2px;
+    font-weight: 100;
+    white-space: nowrap;
+    border-right: 4px solid black;
+    color: rgb(39, 39, 39);
+
+    
+}
+
+#downArrow {
+    position: absolute;
+    margin-top: 250px;   
+    width: 50px
+}
+
+/* About me */
+
+#aboutmePage {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top:100vh;
+    
+}
+
+.aboutH1 {
+    font-family: "jost", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+    font-size: 5rem;
+    font-weight: 600;
+    color: rgb(71, 71, 71);
+    letter-spacing: -3.5px;
+    padding-left:200px;
+    padding-top: 45px;
+}
+
+
+
+#aboutmePage h2{
+    font-family: "jost", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+    font-size: 2.25rem;
+    font-weight: 400;
+    color: rgb(71, 71, 71);
+    padding-left: 200px;
+}
+
+#home_icon {
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 1,
+  'opsz' 24
+}
+
+#aboutmePage p {
+    font-family: "jost", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: rgb(71, 71, 71);
+    padding-left: 200px;
+}
+
+#profileImg {
+    float: right;
+    border-radius: 50%;
+    max-width: 250px;
+    height: auto;
+    margin-top: 2.5%;
+    transform: translateX(-5vw);
+}
+
+@media screen and (max-width: 1010px) {
+    #profileImg {
+        max-width: 200px;    
+    }
+
+    #aboutmePage p {
+        height: auto;
+    }
+
+    #aboutmePage {
+        height: auto;
+    }
+
+    #websiteservicesPage {
+        top:230vh;
+    }
+}
+
+#myprojectsButton {
+    text-decoration: none;
+    padding: 5px 20px;
+    background-color: rgb(39, 39, 39);
+    color: white;
+    border-radius: 25px;
+    right:0;
+    bottom: 75px;
+    margin-right: 300px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+}
+
+#myprojectsButton span {
+    font-size: 2rem;
+    color: rgb(189, 192, 206);
+    display: inline-block;
+    overflow-y: hidden;
+    transform: scale(0.7);
+ 
+    
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 40
+}
+
+
+
+ /* Website Services */
+#websiteservicesPage {
+    position: absolute;
+    top: 215vh;
+    display: flex;
+    justify-content: center;
+    /*background: linear-gradient(to top, rgba(158, 200, 255, 75) 50%, #ffffff 100%);   */ 
+    text-align: center;
+    width: 100%;
+    height: auto;
+}
+
+#websiteservicesPageHeader  {
+    font-family: "Jost", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+    font-size: 4.5rem;
+    font-weight: 600;
+    color: rgb(71, 71, 71);
+    letter-spacing: -3.5px;
+    transform: translateY(-2vh);
+}
+
+#websiteservicesPage h3 {
+    font-family: "jost", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+    font-size: 2.25rem;
+    font-weight: 400;
+    color: rgb(71, 71, 71);
+    transform: translateY(-5vh);
+}
+
+#websiteservicesPage p {
+    font-family: 'nunito';
+}
+
+#packageContainer {
+    margin-top:20px;
+    display: inline-flex;
+}
+
+.packages {
+    width:33vw;
+    box-shadow: 0 0 2px rgba(71, 71, 71, 1);
+}
+
+.packages span {
+    float: left;
+    margin-left: 10px;
+    font-family: 'julius sans one';
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(71, 71, 71)
+}
+
+.packages h1 {
+    margin-top: 50px;
+    text-align: center;
+    font-family: 'raleway','jost';
+    font-weight: 600;
+    color: rgb(60, 70, 116);
+    /*color: rgb(35, 39, 49);*/
+    font-weight: 450;
+}
+
+.packages p {
+    font-family: 'raleway','nunito';
+    font-weight: 600;
+    font-size: 1.2rem; 
+    padding: 0 15px;
+}
+
+#packagesIconsContainer {
+    width: 100%;
+    margin-top: 5px;
+    justify-content: center;
+    display: inline-flex;
+}
+
+#packagesIconsContainer img {
+    height: auto;
+    width: 100px;
+    margin-top: 5vh;
+    margin-left: 13vw;
+    margin-right: 13vw;
+    position: relative;
+    /*display: none;*/
+}
+
+#websiteservicesPageInfo {
+    margin: 0;
+    padding: 0;
+    transform: translateX(-15%);
+}
+
+#paragraphWebPackages {
+    font-size: 1.25rem;
+}
+
+/* conact me page */
+
+#contactmePage {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 315vh;
+    overflow-y: hidden;
+}
+
+@media screen and (max-width: 1075px) {
+    #contactmePage {
+        top:335vh;
+    }
+}
+
+#contactmePage img {
+    margin: 50px auto;
+    margin-top: 30px;
+    display: block;
+    width: 50px;
+    height: auto;
+}
+
+#contactmePage h1 {
+    text-align: center;
+    font-family: 'jost', 'Helvetica';
+    font-weight: 400;
+    color: rgb(71, 71, 71);
+    font-size: 2.7rem;
+    margin-top: -40px;
+}
+
+#contactmePage h2 {
+    text-align: center;
+    font-family: 'Jost', Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: rgb(39, 39, 39);
+}
+
+#contactmePageBlockContainer {
+    width: 100%;
+    margin-top: 1%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#contactmePageBlockContainer h3 {
+    font-weight: 600;
+    font-family: 'jost';
+    font-size: 1.25rem;
+}
+
+#contactmePageBlockContainer p {
+    font-family: 'courier prime';
+}
+
+.contactmePageBlock { 
+    border: 2px solid rgba(71, 71, 71, 0.2);
+    border-radius: 15px;
+    margin: 25px;
+    padding: 50px;
+    transition: all 1s;
+}
+
+.contactmePageBlockIcon {
+    border: 2px solid rgba(71, 71, 71, 0.2);
+    padding: 5px;
+    border-radius: 12.5px;
+}

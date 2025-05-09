@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=home_pin" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=handyman" />
+        <script src="script.js" defer></script> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alfred Leigh | Portfolio Home</title>
+    </head> 
+
+
+    <body>        
+        <nav>
+            <a href="index.html"><img alt="logo" src="./assets/logo.png" id="logoImg"></a>
+            
+            <ul class="leftNavEle mainNav" >
+                <li><a href="./index.html#aboutmePage">About me</a></li>
+                <li class="navListSpacerLeft dropdown-root">
+                    <a href="index.html#websiteservicesPage">
+                        my services <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#474747"><path d="M480-344 240-584l43-43 197 197 197-197 43 43-240 240Z"/></svg>
+                    </a>
+                    <ul class="dropdown" style="width: 250px; transform: translateX(-30px);">
+                        <li><a href="#">Website Services</a></li>
+                        <li><a href="#">ECU Remap Service</a></li>
+                        <li><a href="#" style="font-size:1.25rem;">See All...</a></li>
+                    </ul>   
+                </li>
+            </ul>
+
+            <ul class="rightNavEle mainNav">
+                <li class="navListSpacerRight"><a href="index.html#contactmePage">Contact me</a></li>
+                
+                <li class="dropdown-root">
+                    <a href="index.html#projects">
+                        My Projects <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#474747"><path d="M480-344 240-584l43-43 197 197 197-197 43 43-240 240Z"/></svg>
+                    </a>
+                    
+                    <ul class="dropdown" style="position: absolute; transform: translate(-30px);">
+                        <li><a href="#">Rasp-Pi E-Bike Cockpit</a></li>
+                        <li><a href="#">C1101 Radio-Freq Tool</a></li>
+                        <li><a href="#" style="font-size:1.25rem;">See All...</a></li>
+                    </ul>   
+                    
+                </li>
+            </ul>
+
+            <button id="backToTopBtn" title="Go to top">To Top</button>
+        </nav>
+
+        <main>
+            <div id="landingPage">
+                <h1 id="typewriterHeading">.</h1>
+                <img src="./assets/downArrow.svg" id="downArrow" alt="continue"/>
+            </div> 
+            <div id="aboutmePage">
+                <img id="profileImg" src="./assets/gym.JPEG"/>
+
+                <h1 class="aboutH1">about.</h1>
+                <h2>I'm a student residing in London, Great Britain.<img id="home_icon" class="material-symbols-outlined" src="./assets/home_pin.svg"/></h2>
+ 
+                
+                    
+                <p>Born in the 2010s, my fascination with technology ignited at a young age.<br> At nine, I delved into <b>C++</b> programming, laying the foundation for my coding journey.<br> By ten, I had embraced <b>Python</b>, expanding my programming repertoire.<br> The following year, I ventured into web development, educating my self on <b>HTML and CSS</b>.<br> At twelve, I explored mobile app development grasping the basics of <b>Kotlin</b>.<br> My newley unlocked technical skillset allowed me to pursue personal projects,<br>encompassing proficiency in a multitude of sectors including: <br>- <b>linux systems, embedned systems, pentesting and server manegment</b> - <br>reflecting my commitment to computer systems.<br></p>
+                <!--
+                <p>Born in 2010s, I have always been facinated by technology.<br>
+                Dating back to when I was just nine years old, I had always been a computer wizz.
+                </p>-->
+                <!--<a id="myprojectsButton" href="index.html#myprojects"><span class="material-symbols-outlined">handyman</span></a> !-->
+
+            </div>
+
+            <div id="websiteservicesPage">
+                <div id="packagesContainer">
+                    <h1 id="websiteservicesPageHeader">Website Services.</h1>
+                    <h3><b style="font-weight: 450; font-size:2.35rem;">Proffesional</b> websites at affordable costs.</h3>
+                    <!--<hr class="spacer"></hr>!-->
+                    <h3 style="font-size: 1.5rem; margin-top: 5px;">Portfolios, Informational Sites, Booking Pages...</h3>
+                    <!--<h3>!!!! Add detials about Refferal Discounts - program websites for bussiness goran and find popele online</h3>-->
+                    <div id="packagesIconsContainer">
+                        <img src="./assets/speach_icon.svg">
+                        <img src="./assets/construction_icon.svg">
+                        <img src="./assets/complete_icon.svg">
+                    </div>
+                    <div id="packageContainer" > 
+                        <div class="packages" id="package1">
+                            <span>01.</span>
+                            <h1>You tell me what your need.</h1>
+                            <p>Give me a rough idea of what your looking for, features you need, desings you like...</h2>
+                           
+                            
+                        </div>
+                        <div  class="packages" id="package2">
+                            <span>02.</span>
+                            <h1>I custom code your site.</h1>
+                            <p>I will get busy programming and bringing your ideas to life. Keeping you updated along the way, allowing tweaks and changes to be implemnted as we go!</h2>
+                           
+                        </div>
+                        <div  class="packages" id="package3">
+                            <span>03.</span>
+                            <h1>You decide if you like it.</h1>
+                            <p>After a bit of work we will have a finsihed product. Now you can decide if you would like to take ownership.</h2>
+                        </div>
+                        
+                        
+                        
+                    </div>
+                    
+                    <!--
+                    <p id="paragraphWebPackages">I'm an independant hobbiest looking to build my portfolio...<br>In simple terms, I will do my best to create a Proffesional website, <br>all the while keeping prices low <br>- just the opportunity to make your sites is worth more to me than the money!<br>Im building my resume, and helping you create your websites<br>Win - Win!</p>
+                    <h1>No fuss, pay me when it's done</h1>
+                    <h2>Give me and idea of what your looking for, I'll make it happen<br>If you like what you see - it will be yours, If you don't - no worries.</h2>
+                    -->
+                </div>
+                
+            </div>
+
+            <div id="contactmePage">
+                <img src="./assets/contact_page.svg">
+                <h1>Get in contact with me</h1>
+                <h2>Let me know how we can help eachother.</h2>
+
+                <div id="contactmePageBlockContainer">
+                    <div class="contactmePageBlock">
+                        <img class="contactmePageBlockIcon" src="assets/mail.svg">
+                        
+
+                        <h3 style="margin-bottom: 15px;">My personal email</h3>
+                        <p>Drop me a message.</p>
+                        <p class="underline">alfxzmail@gmail.com</p>
+                    </div>
+
+
+                    <div class="contactmePageBlock">
+                        <img class="contactmePageBlockIcon" src="assets/phone.svg">
+
+                        <h3 style="margin-bottom: 15px;">My personal number</h3>
+                        <p>Drop me a call/whatsapp.</p>
+                        <p class="underline">+44 7940464999</p>
+                    </div> 
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

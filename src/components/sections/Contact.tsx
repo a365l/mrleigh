@@ -204,14 +204,14 @@ const Contact = () => {
               Whether you have a question or just want to say hi, feel free to reach out!
             </ContactText>
             <ContactEmail 
-              href="mailto:your.email@example.com"
+              href="mailto:alfie@alfred-leigh.co.uk"
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-label="Send me an email at your.email@example.com"
             >
               <FaEnvelope aria-hidden="true" />
-              <span>your.email@example.com</span>
+              <span>alfie@alfred-leigh.co.uk</span>
             </ContactEmail>
             <SocialLinks 
               variants={itemVariants}
@@ -219,7 +219,7 @@ const Contact = () => {
               aria-label="Social media links"
             >
               <SocialLink 
-                href="https://github.com"
+                href="https://github.com/mrleigh"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -5 }}

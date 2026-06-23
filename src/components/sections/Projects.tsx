@@ -111,6 +111,15 @@ const ProjectTitle = styled.h3`
   font-weight: 600;
 `;
 
+const ProjectSubtitle = styled.p`
+  color: ${theme.colors.accent};
+  margin-bottom: ${theme.spacing.sm};
+  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+  line-height: 1.6;
+  font-style: italic;
+  opacity: 0.9;
+`;
+
 const ProjectDescription = styled.p`
   color: ${theme.colors.textLight};
   margin-bottom: ${theme.spacing.lg};
@@ -178,12 +187,12 @@ const ProjectLinks = styled.div`
 const projects = [
   {
     id: 1,
-    title: "Project One",
-    description: "A full-stack web application with real-time features and modern UI/UX design.",
+    title: "Modular Quadcopter — First-Principles Engineering Design & Build",
+    subtitle: "A fully documented engineering project: from first principal governing equations and trade studies through CNC and carbon fibre manufacture to flight test validation — built as a portfolio for elite aerospace and mechanical engineering entry.",
     image: "https://via.placeholder.com/400x200",
-    techStack: ["React", "Node.js", "MongoDB", "Socket.IO"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
+    techStack: ["Structural Analysis", "Propulsion Design", "Composites Manufacturing", "Systems Engineering", "Embedded Software"],
+    githubUrl: "https://github.com/a365l/quadcopter-project",
+    liveUrl: "",
   },
   {
     id: 2,
@@ -252,7 +261,12 @@ const Projects = () => {
               />
               <ProjectContent>
                 <ProjectTitle id={`project-title-${project.id}`}>{project.title}</ProjectTitle>
-                <ProjectDescription>{project.description}</ProjectDescription>
+                {'subtitle' in project && project.subtitle && (
+                  <ProjectSubtitle>{project.subtitle}</ProjectSubtitle>
+                )}
+                {'description' in project && project.description && (
+                  <ProjectDescription>{project.description}</ProjectDescription>
+                )}
                 <TechStack role="list" aria-label={`Technologies used in ${project.title}`}>
                   {project.techStack.map((tech) => (
                     <TechTag key={tech} role="listitem">{tech}</TechTag>
@@ -268,15 +282,17 @@ const Projects = () => {
                     <FaGithub aria-hidden="true" />
                     <span className="sr-only">GitHub repository</span>
                   </a>
-                  <a 
-                    href={project.liveUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    aria-label={`Visit ${project.title} live site`}
-                  >
-                    <FaExternalLinkAlt aria-hidden="true" />
-                    <span className="sr-only">Live site</span>
-                  </a>
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Visit ${project.title} live site`}
+                    >
+                      <FaExternalLinkAlt aria-hidden="true" />
+                      <span className="sr-only">Live site</span>
+                    </a>
+                  )}
                 </ProjectLinks>
               </ProjectContent>
             </ProjectCard>

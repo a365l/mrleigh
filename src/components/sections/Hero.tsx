@@ -130,7 +130,7 @@ export const Hero = () => {
               Hi, I'm Alfred
             </Title>
             <Subtitle role="heading" aria-level={3}>
-              Full Stack Developer
+              Mechatronics Engineer
             </Subtitle>
             <Description role="paragraph">
              I’m at my best solving hard problems by designing and building clean, reliable systems that perform in the real world - it's what keeps me engaged.

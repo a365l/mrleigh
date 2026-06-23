@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { theme } from '../../styles/theme';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import droneImg from '../../assets/droneimg.png';
 
 const ProjectsSection = styled.section`
   min-height: 100vh;
@@ -189,7 +190,7 @@ const projects = [
     id: 1,
     title: "Modular Quadcopter — First-Principles Engineering Design & Build",
     subtitle: "A fully documented engineering project: from first principal governing equations and trade studies through CNC and carbon fibre manufacture to flight test validation — built as a portfolio for elite aerospace and mechanical engineering entry.",
-    image: "https://via.placeholder.com/400x200",
+    image: droneImg,
     techStack: ["Structural Analysis", "Propulsion Design", "Composites Manufacturing", "Systems Engineering", "Embedded Software"],
     githubUrl: "https://github.com/a365l/quadcopter-project",
     liveUrl: "",

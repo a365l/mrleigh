@@ -208,7 +208,7 @@ const Contact = () => {
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              aria-label="Send me an email at your.email@example.com"
+              aria-label="Send me an email at alfie@alfred-leigh.co.uk"
             >
               <FaEnvelope aria-hidden="true" />
               <span>alfie@alfred-leigh.co.uk</span>
@@ -219,7 +219,7 @@ const Contact = () => {
               aria-label="Social media links"
             >
               <SocialLink 
-                href="https://github.com/mrleigh"
+                href="https://github.com/a365l"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -5 }}
@@ -230,7 +230,7 @@ const Contact = () => {
                 <span className="sr-only">GitHub</span>
               </SocialLink>
               <SocialLink 
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/alfie-leigh-b02ba1385"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -5 }}

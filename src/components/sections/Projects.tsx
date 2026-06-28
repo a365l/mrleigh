@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { theme } from '../../styles/theme';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import droneImg from '../../assets/droneimg.png';
+import ebikeImg from '../../assets/ebikeimg.jpg';
 
 const ProjectsSection = styled.section`
   min-height: 100vh;
@@ -185,7 +186,18 @@ const ProjectLinks = styled.div`
   }
 `;
 
-const projects = [
+interface Project {
+  id: number;
+  title: string;
+  subtitle?: string;
+  description?: string;
+  image: string;
+  techStack: string[];
+  githubUrl: string;
+  liveUrl: string;
+}
+
+const projects: Project[] = [
   {
     id: 1,
     title: "Modular Quadcopter — First-Principles Engineering Design & Build",
@@ -197,12 +209,12 @@ const projects = [
   },
   {
     id: 2,
-    title: "Project Two",
-    description: "Mobile-first e-commerce platform with seamless payment integration.",
-    image: "https://via.placeholder.com/400x200",
-    techStack: ["Next.js", "TypeScript", "Stripe", "Tailwind"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
+    title: "Enduro Electric Motorcycle — DIY Build",
+    subtitle: "Full ground-up build of a 72V electric enduro motorcycle — custom battery, QS205 hub motor, Fardriver ND72450 controller, hand-crimped high-voltage wiring, and three phases of iteration from proof-of-concept to a performance drivetrain.",
+    image: ebikeImg,
+    techStack: ["High Voltage Electronics", "BLDC Motor Control", "Fardriver ND72450", "QS Motor QS205", "HV Wiring & Crimping", "Battery Systems"],
+    githubUrl: "https://github.com/a365l/enduro-emotorcycle-build",
+    liveUrl: "",
   },
 ];
 

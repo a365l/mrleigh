@@ -200,8 +200,8 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "Modular Quadcopter — First-Principles Engineering Design & Build",
-    subtitle: "A fully documented engineering project: from first principal governing equations and trade studies through CNC and carbon fibre manufacture to flight test validation — built as a portfolio for elite aerospace and mechanical engineering entry.",
+    title: "Modular Quadcopter - First-Principles Engineering Design & Build",
+    subtitle: "A fully documented engineering project: from first-principles governing equations and trade studies through CNC and carbon fibre manufacture to flight test validation - built as a portfolio for elite aerospace and mechanical engineering entry.",
     image: droneImg,
     techStack: ["Structural Analysis", "Propulsion Design", "Composites Manufacturing", "Systems Engineering", "Embedded Software"],
     githubUrl: "https://github.com/a365l/quadcopter-project",
@@ -209,8 +209,8 @@ const projects: Project[] = [
   },
   {
     id: 2,
-    title: "Enduro Electric Motorcycle — DIY Build",
-    subtitle: "Full ground-up build of a 72V electric enduro motorcycle — custom battery, QS205 hub motor, Fardriver ND72450 controller, hand-crimped high-voltage wiring, and three phases of iteration from proof-of-concept to a performance drivetrain.",
+    title: "Enduro Electric Motorcycle - DIY Build",
+    subtitle: "Full ground-up build of a 72V electric enduro motorcycle - custom battery, QS205 hub motor, Fardriver ND72450 controller, hand-crimped high-voltage wiring, and three phases of iteration from proof-of-concept to a performance drivetrain.",
     image: ebikeImg,
     techStack: ["High Voltage Electronics", "BLDC Motor Control", "Fardriver ND72450", "QS Motor QS205", "HV Wiring & Crimping", "Battery Systems"],
     githubUrl: "https://github.com/a365l/enduro-emotorcycle-build",

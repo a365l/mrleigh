@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { theme } from '../../styles/theme';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
 import droneImg from '../../assets/droneimg.png';
 import ebikeImg from '../../assets/ebikeimg.jpg';
 
@@ -164,20 +165,39 @@ const TechTag = styled.span`
   }
 `;
 
+const CaseStudyLink = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: ${theme.spacing.sm};
+  background: ${theme.colors.gradient.accent};
+  color: ${theme.colors.textDark};
+  font-weight: 600;
+  padding: ${theme.spacing.sm} ${theme.spacing.md};
+  border-radius: 50px;
+  margin-top: auto;
+  transition: all ${theme.transitions.default};
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(246, 177, 122, 0.3);
+  }
+`;
+
 const ProjectLinks = styled.div`
   display: flex;
   gap: ${theme.spacing.md};
-  margin-top: auto;
   padding-top: ${theme.spacing.md};
+  margin-top: ${theme.spacing.md};
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  
+
   a {
     color: ${theme.colors.accent};
     font-size: clamp(1rem, 2vw, 1.2rem);
     transition: all ${theme.transitions.default};
     padding: ${theme.spacing.xs};
     border-radius: 4px;
-    
+
     &:hover {
       color: ${theme.colors.light};
       background: ${theme.colors.glass.card};
@@ -188,6 +208,7 @@ const ProjectLinks = styled.div`
 
 interface Project {
   id: number;
+  slug: string;
   title: string;
   subtitle?: string;
   description?: string;
@@ -200,6 +221,7 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
+    slug: "quadcopter",
     title: "Modular Quadcopter - First-Principles Engineering Design & Build",
     subtitle: "A fully documented engineering project: from first-principles governing equations and trade studies through CNC and carbon fibre manufacture to flight test validation - built as a portfolio for elite aerospace and mechanical engineering entry.",
     image: droneImg,
@@ -209,6 +231,7 @@ const projects: Project[] = [
   },
   {
     id: 2,
+    slug: "enduro-motorcycle",
     title: "Enduro Electric Motorcycle - DIY Build",
     subtitle: "Full ground-up build of a 72V electric enduro motorcycle - custom battery, QS205 hub motor, Fardriver ND72450 controller, hand-crimped high-voltage wiring, and three phases of iteration from proof-of-concept to a performance drivetrain.",
     image: ebikeImg,
@@ -285,6 +308,13 @@ const Projects = () => {
                     <TechTag key={tech} role="listitem">{tech}</TechTag>
                   ))}
                 </TechStack>
+                <CaseStudyLink
+                  to={`/projects/${project.slug}`}
+                  aria-label={`View full case study for ${project.title}`}
+                >
+                  View Case Study
+                  <FaArrowRight aria-hidden="true" />
+                </CaseStudyLink>
                 <ProjectLinks>
                   <a 
                     href={project.githubUrl} 

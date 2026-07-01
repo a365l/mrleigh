@@ -54,6 +54,17 @@
     </noscript>
   </head>
   <body>
+    <script>
+      // GitHub Pages SPA redirect: restore the real path saved by 404.html
+      // before React Router mounts. See: https://github.com/rafgraph/spa-github-pages
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== window.location.pathname) {
+          history.replaceState(null, '', redirect);
+        }
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

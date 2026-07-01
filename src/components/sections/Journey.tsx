@@ -17,6 +17,7 @@ import {
   FaGlobe,
   FaChevronDown,
 } from 'react-icons/fa';
+import firstBuildImg from '../../assets/journey-first-build.jpg';
 import firstSolderImg from '../../assets/journey-first-solder.jpg';
 import linuxNetworkingImg from '../../assets/journey-linux-networking.jpg';
 import roboscanPartsImg from '../../assets/journey-roboscan-parts.jpg';
@@ -102,6 +103,9 @@ const milestones: Milestone[] = [
     title: 'First Build',
     description: 'Built my first computer with my dad - the spark that started everything.',
     icon: <FaDesktop aria-hidden="true" />,
+    photos: [
+      { src: firstBuildImg, caption: 'Building my first computer with my dad.' },
+    ],
   },
   {
     id: 'first-code',

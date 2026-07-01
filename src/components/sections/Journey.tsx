@@ -140,6 +140,17 @@ const milestones: Milestone[] = [
     ],
   },
   {
+    id: 'family-business',
+    age: 'Age 7',
+    title: 'Learning the Trade',
+    description: "Helping out at my dad's export yard - stripping down plant machinery and running industrial equipment, years before I could even drive.",
+    icon: <FaTractor aria-hidden="true" />,
+    photos: [
+      { src: familyYard1Img, caption: 'Working on an excavator engine on the yard.' },
+      { src: familyYard2Img, caption: 'Running the jet washer on-site.' },
+    ],
+  },
+  {
     id: 'first-code',
     age: 'Age 11',
     title: 'First Code',
@@ -186,17 +197,6 @@ const milestones: Milestone[] = [
       { src: roboscanPartsImg, caption: 'Got all the parts to build it - Pi Pico, breadboard, LCD, jumper wires.' },
       { src: roboscanDeviceImg, caption: 'Alive on the breadboard: the boot menu running on the LCD.' },
       { src: roboscanAliveImg, caption: 'Working, and running its boot menu.' },
-    ],
-  },
-  {
-    id: 'family-business',
-    age: 'Ongoing',
-    title: 'Learning the Trade',
-    description: "Helping out at my dad's export yard - stripping and diagnosing plant machinery, running industrial equipment, and picking up hands-on mechanical experience no classroom teaches.",
-    icon: <FaTractor aria-hidden="true" />,
-    photos: [
-      { src: familyYard1Img, caption: 'Working on an excavator engine on the yard.' },
-      { src: familyYard2Img, caption: 'Running the jet washer on-site.' },
     ],
   },
   {

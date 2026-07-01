@@ -16,18 +16,30 @@ import {
   FaCoins,
   FaGlobe,
   FaChevronDown,
+  FaLightbulb,
+  FaTractor,
+  FaCouch,
 } from 'react-icons/fa';
+import firstSparkImg from '../../assets/journey-first-spark.jpg';
+import firstBuildImg from '../../assets/journey-first-build.jpg';
 import firstSolderImg from '../../assets/journey-first-solder.jpg';
 import linuxNetworkingImg from '../../assets/journey-linux-networking.jpg';
+import realToolsImg from '../../assets/journey-real-tools.jpg';
 import roboscanPartsImg from '../../assets/journey-roboscan-parts.jpg';
 import roboscanDeviceImg from '../../assets/journey-roboscan-device.jpg';
+import roboscanAliveImg from '../../assets/journey-roboscan-alive.jpg';
+import familyYard1Img from '../../assets/journey-family-yard-1.jpg';
+import familyYard2Img from '../../assets/journey-family-yard-2.jpg';
 import pcBuild1Img from '../../assets/journey-pc-build-1.jpg';
 import pcBuild2Img from '../../assets/journey-pc-build-2.jpg';
 import repair1Img from '../../assets/journey-repair-1.jpg';
 import repair2Img from '../../assets/journey-repair-2.jpg';
+import repair3Img from '../../assets/journey-hardware-repair-3.jpg';
 import cryptoBotImg from '../../assets/journey-crypto-bot.jpg';
 import nftImg from '../../assets/journey-nft.jpg';
 import webAppImg from '../../assets/journey-webapp.jpg';
+import diyAssembly1Img from '../../assets/journey-diy-assembly-1.jpg';
+import diyAssembly2Img from '../../assets/journey-diy-assembly-2.jpg';
 
 interface EvidencePhoto {
   src: string;
@@ -70,6 +82,7 @@ const sideProjects: SideProject[] = [
     photos: [
       { src: repair1Img, caption: 'A laptop motherboard out for inspection.' },
       { src: repair2Img, caption: 'Full teardown, down to the chassis.' },
+      { src: repair3Img, caption: 'Mid-repair, magnifier goggles on.' },
     ],
   },
   {
@@ -93,15 +106,38 @@ const sideProjects: SideProject[] = [
     icon: <FaGlobe aria-hidden="true" />,
     photos: [{ src: webAppImg, caption: 'A small goal-tracking app I put together.' }],
   },
+  {
+    id: 'diy-assembly',
+    title: 'DIY Assembly',
+    description: 'Flat-pack furniture and equipment builds, just for the practice reading a manual and getting it right.',
+    icon: <FaCouch aria-hidden="true" />,
+    photos: [
+      { src: diyAssembly1Img, caption: 'Bunk bed frame assembly.' },
+      { src: diyAssembly2Img, caption: 'Putting together an outdoor gym rig.' },
+    ],
+  },
 ];
 
 const milestones: Milestone[] = [
   {
+    id: 'first-spark',
+    age: 'Age 5',
+    title: 'First Spark',
+    description: "Pulling apart an electronics kit on the floor, years before I knew what any of it meant. Looking back, this is where it actually started.",
+    icon: <FaLightbulb aria-hidden="true" />,
+    photos: [
+      { src: firstSparkImg, caption: 'The earliest evidence I could find - an electronics kit, fully wired up.' },
+    ],
+  },
+  {
     id: 'first-build',
     age: 'Age 6',
     title: 'First Build',
-    description: 'Built my first computer with my dad - the spark that started everything.',
+    description: 'Built my first computer with my dad and brother - my first real hands-on engineering.',
     icon: <FaDesktop aria-hidden="true" />,
+    photos: [
+      { src: firstBuildImg, caption: 'The original build, with my dad and brother.' },
+    ],
   },
   {
     id: 'first-code',
@@ -136,6 +172,9 @@ const milestones: Milestone[] = [
     title: 'Real Tools',
     description: 'Upgraded to a Weller WE soldering station and got comfortable with micro-soldering and microcontrollers like the ESP32 and Pi Pico.',
     icon: <FaMicrochip aria-hidden="true" />,
+    photos: [
+      { src: realToolsImg, caption: 'Micro-soldering a laptop motherboard under magnification.' },
+    ],
   },
   {
     id: 'roboscan',
@@ -146,6 +185,18 @@ const milestones: Milestone[] = [
     photos: [
       { src: roboscanPartsImg, caption: 'Got all the parts to build it - Pi Pico, breadboard, LCD, jumper wires.' },
       { src: roboscanDeviceImg, caption: 'Alive on the breadboard: the boot menu running on the LCD.' },
+      { src: roboscanAliveImg, caption: 'Working, and running its boot menu.' },
+    ],
+  },
+  {
+    id: 'family-business',
+    age: 'Ongoing',
+    title: 'Learning the Trade',
+    description: "Helping out at my dad's export yard - stripping and diagnosing plant machinery, running industrial equipment, and picking up hands-on mechanical experience no classroom teaches.",
+    icon: <FaTractor aria-hidden="true" />,
+    photos: [
+      { src: familyYard1Img, caption: 'Working on an excavator engine on the yard.' },
+      { src: familyYard2Img, caption: 'Running the jet washer on-site.' },
     ],
   },
   {
@@ -474,7 +525,7 @@ const Journey = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           Engineering hasn't been a subject I studied - it's been a hobby I never put down.
-          Here's how it grew from a first computer build into the projects on this page today.
+          Here's how it grew from a kid pulling apart an electronics kit into the projects on this page today.
         </SectionSubtitle>
 
         <TimelineList role="list">

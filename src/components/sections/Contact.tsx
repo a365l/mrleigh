@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { theme } from '../../styles/theme';
-import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const ContactSection = styled.section`
   position: relative;
@@ -239,17 +239,6 @@ const Contact = () => {
               >
                 <FaLinkedin aria-hidden="true" />
                 <span className="sr-only">LinkedIn</span>
-              </SocialLink>
-              <SocialLink 
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ y: -5 }}
-                role="listitem"
-                aria-label="Follow me on Twitter"
-              >
-                <FaTwitter aria-hidden="true" />
-                <span className="sr-only">Twitter</span>
               </SocialLink>
             </SocialLinks>
           </ContactContent>

@@ -223,7 +223,7 @@ const projects: Project[] = [
     id: 1,
     slug: "quadcopter",
     title: "Modular Quadcopter - First-Principles Engineering Design & Build",
-    subtitle: "A fully documented engineering project: from first-principles governing equations and trade studies through CNC and carbon fibre manufacture to flight test validation - built as a portfolio for elite aerospace and mechanical engineering entry.",
+    subtitle: "An in-progress engineering project: first-principles governing equations and trade studies driving a build heading toward CNC and carbon fibre manufacture and flight test validation - documented in full as a portfolio for elite aerospace and mechanical engineering entry.",
     image: droneImg,
     techStack: ["Structural Analysis", "Propulsion Design", "Composites Manufacturing", "Systems Engineering", "Embedded Software"],
     githubUrl: "https://github.com/a365l/quadcopter-project",

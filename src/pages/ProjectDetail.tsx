@@ -405,40 +405,44 @@ const ProjectDetail = () => {
         </div>
       </Section>
 
-      <Section>
-        <div className="container">
-          <SectionTitle initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            Build Timeline
-          </SectionTitle>
-          <Timeline initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-            {project.timeline.map((phase) => (
-              <TimelineItem key={phase.phase} variants={fadeUp}>
-                <TimelinePhaseLabel>Phase {phase.phase}</TimelinePhaseLabel>
-                <TimelineTitle>{phase.title}</TimelineTitle>
-                <TimelineDescription>{phase.description}</TimelineDescription>
-              </TimelineItem>
-            ))}
-          </Timeline>
-        </div>
-      </Section>
+      {project.timeline.length > 0 && (
+        <Section>
+          <div className="container">
+            <SectionTitle initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              Build Timeline
+            </SectionTitle>
+            <Timeline initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
+              {project.timeline.map((phase) => (
+                <TimelineItem key={phase.phase} variants={fadeUp}>
+                  <TimelinePhaseLabel>Phase {phase.phase}</TimelinePhaseLabel>
+                  <TimelineTitle>{phase.title}</TimelineTitle>
+                  <TimelineDescription>{phase.description}</TimelineDescription>
+                </TimelineItem>
+              ))}
+            </Timeline>
+          </div>
+        </Section>
+      )}
 
-      <Section>
-        <div className="container">
-          <SectionTitle initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            Challenges & Solutions
-          </SectionTitle>
-          <ChallengesGrid initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-            {project.challenges.map((item) => (
-              <ChallengeCard key={item.challenge} variants={fadeUp}>
-                <ChallengeLabel>Challenge</ChallengeLabel>
-                <ChallengeText>{item.challenge}</ChallengeText>
-                <ChallengeLabel>Solution</ChallengeLabel>
-                <ChallengeText>{item.solution}</ChallengeText>
-              </ChallengeCard>
-            ))}
-          </ChallengesGrid>
-        </div>
-      </Section>
+      {project.challenges.length > 0 && (
+        <Section>
+          <div className="container">
+            <SectionTitle initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              Challenges & Solutions
+            </SectionTitle>
+            <ChallengesGrid initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
+              {project.challenges.map((item) => (
+                <ChallengeCard key={item.challenge} variants={fadeUp}>
+                  <ChallengeLabel>Challenge</ChallengeLabel>
+                  <ChallengeText>{item.challenge}</ChallengeText>
+                  <ChallengeLabel>Solution</ChallengeLabel>
+                  <ChallengeText>{item.solution}</ChallengeText>
+                </ChallengeCard>
+              ))}
+            </ChallengesGrid>
+          </div>
+        </Section>
+      )}
 
       {project.outcomeImage && (
         <Section>

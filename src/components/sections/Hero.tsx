@@ -130,10 +130,10 @@ export const Hero = () => {
               Hi, I'm Alfred
             </Title>
             <Subtitle role="heading" aria-level={3}>
-              Mechatronics Engineer
+              Aspiring Aerospace Engineer
             </Subtitle>
             <Description role="paragraph">
-             I’m at my best solving hard problems by designing and building clean, reliable systems that perform in the real world - it's what keeps me engaged.
+             I design and build real hardware from first principles - currently a from-scratch quadcopter and a 72V electric enduro motorcycle. Solving hard problems with clean, reliable systems that perform in the real world is what keeps me engaged.
             </Description>
             <SocialLinks role="list" aria-label="Social media links">
               <a 

@@ -44,21 +44,21 @@ export const projectDetails: ProjectDetail[] = [
     summary:
       'An in-progress engineering project: designing a quadcopter from first-principles governing equations and trade studies, working toward CNC and carbon fibre manufacture and flight test validation - documented in full as a portfolio for elite aerospace and mechanical engineering entry. Currently in the specification and analysis phase.',
     stats: [
-      { label: 'Status', value: 'Week 1 of 10 - Planning' },
+      { label: 'Status', value: 'Week 2 of 10 - Analysis' },
       { label: 'Design Method', value: 'First-Principles' },
       { label: 'Target Manufacture', value: 'CNC Aluminium + Carbon Fibre' },
       { label: 'Discipline', value: 'Aerospace / Mechanical' },
     ],
     techStack: ['Structural Analysis', 'Propulsion Design', 'Composites Manufacturing', 'Systems Engineering', 'Embedded Software'],
     highlights: [
-      'Wrote a full Product Design Specification with 13 quantified performance requirements (hover stability, thrust-to-weight, all-up weight, arm resonance margin) before touching CAD',
+      'Wrote a full Product Design Specification with 15 quantified requirements (hover stability, thrust-to-weight, all-up weight, arm resonance margin) before touching CAD',
       'Scaffolded a first-principles calculation set covering propulsion momentum theory, arm resonance, bolt preload, CG/inertia, and sandwich panel bending, each to be validated experimentally as the build progresses',
       'Running early trade studies on CNC-commit timing, prop-in-vs-out orientation, frame diameter vs prop size, and clamp material to de-risk decisions before committing budget',
       'Met with researchers at Imperial College London to pressure-test the project’s feasibility before scaling up scope',
     ],
     timeline: [
-      { phase: '01', title: 'Concept & Requirements', description: 'In progress since June 2026. PDS drafted with 13 quantified requirements, feasibility discussed with Imperial College London researchers, budget (~£700) and 10-week timeline constraints set.' },
-      { phase: '02', title: 'Analysis & Design', description: 'Not yet started. Propulsion, structural, and controls calculations are scaffolded and pending completion.' },
+      { phase: '01', title: 'Concept & Requirements', description: 'Complete. PDS drafted with 15 quantified requirements, feasibility discussed with Imperial College London researchers, budget (~£700) and 10-week timeline constraints set.' },
+      { phase: '02', title: 'Analysis & Design', description: 'In progress. Starting with propulsion momentum-theory sizing and the coupled frame-diameter vs prop-size trade study (Decision #1).' },
       { phase: '03', title: 'Manufacture', description: 'Not yet started. CNC machining and composite layup planned for later in the build.' },
       { phase: '04', title: 'Assembly & Bench Test', description: 'Not yet started.' },
       { phase: '05', title: 'Flight Test & Iteration', description: 'Not yet started.' },
@@ -97,7 +97,7 @@ export const projectDetails: ProjectDetail[] = [
       { challenge: 'The Surron thumb throttle’s wire assignments didn’t match the Fardriver’s throttle input pin-for-pin.', solution: 'Mapped every wire by hand before crimping anything, then built a small adapter harness to bridge the two.' },
     ],
     outcomeImage: enduroFinalImg,
-    outcomeText: 'The finished build: custom battery, hub motor, and controller fully integrated into a running enduro platform - ready for trail testing.',
+    outcomeText: 'The finished build: custom battery, hub motor, and controller fully integrated - bench-tested with predictions of ~55 mph and ~3.6 s 0-30 derived from first principles, ready for the first instrumented trail ride.',
     githubUrl: 'https://github.com/a365l/enduro-emotorcycle-build',
   },
 ];

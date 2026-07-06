@@ -28,12 +28,17 @@
     <meta property="og:url" content="https://alfred-leigh.co.uk/">
     <meta property="og:title" content="Alfred Leigh - Aspiring Aerospace Engineer">
     <meta property="og:description" content="Aspiring aerospace engineer building real hardware from first principles: a from-scratch quadcopter and a 72V electric enduro motorcycle. Full engineering documentation on GitHub.">
+    <meta property="og:image" content="https://alfred-leigh.co.uk/og-image.jpg">
+    <meta property="og:image:width" content="1408">
+    <meta property="og:image:height" content="768">
+    <meta property="og:image:alt" content="Modular quadcopter - first-principles engineering design and build by Alfred Leigh">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary">
+    <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://alfred-leigh.co.uk/">
     <meta property="twitter:title" content="Alfred Leigh - Aspiring Aerospace Engineer">
     <meta property="twitter:description" content="Aspiring aerospace engineer building real hardware from first principles: a from-scratch quadcopter and a 72V electric enduro motorcycle. Full engineering documentation on GitHub.">
+    <meta property="twitter:image" content="https://alfred-leigh.co.uk/og-image.jpg">
 
     <!-- Theme Color for Mobile Browsers -->
     <meta name="theme-color" content="#F6B17A">
@@ -63,7 +68,20 @@
         }
       })();
     </script>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Static fallback: replaced by React on load; visible to crawlers and no-JS clients -->
+      <div style="background:#2A2D3E;color:#F6F6F6;min-height:100vh;padding:3rem 1.5rem;font-family:system-ui,sans-serif;line-height:1.6">
+        <main style="max-width:720px;margin:0 auto">
+          <h1>Alfred Leigh — Aspiring Aerospace Engineer</h1>
+          <p>Year 12 student (Maths, Further Maths, Physics, Computer Science) designing and building real hardware from first principles.</p>
+          <ul>
+            <li><a href="https://github.com/a365l/quadcopter-project" style="color:#F6B17A">First-principles quadcopter</a> — PDS with 15 quantified requirements, momentum-theory propulsion sizing, trade studies, heading for CNC + carbon-fibre manufacture and flight-test validation.</li>
+            <li><a href="https://github.com/a365l/enduro-emotorcycle-build" style="color:#F6B17A">72V enduro e-motorcycle</a> — QS205 hub motor, Fardriver ND72450 controller, custom battery pack, three photo-documented build phases.</li>
+          </ul>
+          <p>Full engineering documentation on <a href="https://github.com/a365l" style="color:#F6B17A">GitHub</a> · <a href="mailto:alfie@alfred-leigh.co.uk" style="color:#F6B17A">alfie@alfred-leigh.co.uk</a></p>
+        </main>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

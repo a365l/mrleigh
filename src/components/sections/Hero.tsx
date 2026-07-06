@@ -5,6 +5,7 @@ import { lazy, Suspense } from 'react';
 const FaGithub = lazy(() => import('react-icons/fa').then(mod => ({ default: mod.FaGithub })));
 const FaLinkedin = lazy(() => import('react-icons/fa').then(mod => ({ default: mod.FaLinkedin })));
 const FaEnvelope = lazy(() => import('react-icons/fa').then(mod => ({ default: mod.FaEnvelope })));
+const FaFileDownload = lazy(() => import('react-icons/fa').then(mod => ({ default: mod.FaFileDownload })));
 
 const HeroSection = styled.section`
   min-height: calc(100vh - 4.5rem);
@@ -76,6 +77,35 @@ const Subtitle = styled.h2`
   font-weight: 500;
 `;
 
+const MetaLine = styled.p`
+  animation: ${fadeUpKeyframes} 0.5s ease-out 0.3s forwards;
+  opacity: 0;
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+  color: ${theme.colors.accent};
+  font-weight: 500;
+  margin-bottom: ${theme.spacing.md};
+`;
+
+const CVButton = styled.a`
+  animation: ${fadeUpKeyframes} 0.5s ease-out 0.5s forwards;
+  opacity: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: ${theme.spacing.sm};
+  background: ${theme.colors.gradient.accent};
+  color: ${theme.colors.textDark};
+  font-weight: 600;
+  padding: ${theme.spacing.sm} ${theme.spacing.lg};
+  border-radius: 50px;
+  margin-bottom: ${theme.spacing.lg};
+  transition: all ${theme.transitions.default};
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(246, 177, 122, 0.3);
+  }
+`;
+
 const Description = styled.p`
   animation: ${fadeUpKeyframes} 0.5s ease-out 0.4s forwards;
   opacity: 0;
@@ -132,9 +162,18 @@ export const Hero = () => {
             <Subtitle role="heading" aria-level={3}>
               Aspiring Aerospace Engineer
             </Subtitle>
+            <MetaLine>
+              Year 12 - Maths, Further Maths, Physics & Computer Science
+            </MetaLine>
             <Description role="paragraph">
              I design and build real hardware from first principles - currently a from-scratch quadcopter and a 72V electric enduro motorcycle. Solving hard problems with clean, reliable systems that perform in the real world is what keeps me engaged.
             </Description>
+            <CVButton href="/Alfred-Leigh-CV.pdf" download aria-label="Download my CV as a PDF">
+              <Suspense fallback={<div style={{ width: '1rem', height: '1rem' }} />}>
+                <FaFileDownload aria-hidden="true" />
+              </Suspense>
+              Download CV
+            </CVButton>
             <SocialLinks role="list" aria-label="Social media links">
               <a 
                 href="https://github.com/a365l" 

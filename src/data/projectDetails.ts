@@ -42,9 +42,9 @@ export const projectDetails: ProjectDetail[] = [
     tagline: 'First-Principles Engineering Design & Build',
     heroImage: droneImg,
     summary:
-      'An in-progress engineering project: designing a quadcopter from first-principles governing equations and trade studies, working toward CNC and carbon fibre manufacture and flight test validation - documented in full as a portfolio for elite aerospace and mechanical engineering entry. Currently in the specification and analysis phase.',
+      'An in-progress engineering project: designing a quadcopter from first-principles governing equations and trade studies, working toward CNC and carbon fibre manufacture and flight test validation - documented end-to-end, from specification through analysis, manufacture, and flight test.',
     stats: [
-      { label: 'Status', value: 'Week 2 of 10 - Analysis' },
+      { label: 'Status', value: 'Analysis phase - flight test autumn 2026' },
       { label: 'Design Method', value: 'First-Principles' },
       { label: 'Target Manufacture', value: 'CNC Aluminium + Carbon Fibre' },
       { label: 'Discipline', value: 'Aerospace / Mechanical' },

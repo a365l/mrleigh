@@ -3,26 +3,24 @@ import { motion } from 'framer-motion';
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import { theme } from '../../styles/theme';
-import { 
-  FaReact, 
-  FaNodeJs,  
-  FaDocker,
-  
+import {
+  FaCode,
+  FaMicrochip,
+  FaCogs,
+  FaBolt,
+  FaTachometerAlt,
+  FaProjectDiagram,
+  FaBug,
+  FaShieldAlt,
+  FaClipboardCheck,
 } from 'react-icons/fa';
-import { 
+import {
   SiJavascript,
   SiPython,
   SiLinux,
   SiCplusplus,
-  SiArduino, 
-  SiPowers,
+  SiArduino,
   SiEspressif,
-  SiFlask,
-  SiFigma,
-  SiVim,
-  SiCircleci,
-  SiJest,
-
 } from 'react-icons/si';
 
 const SkillsSection = styled.section`
@@ -161,32 +159,32 @@ const SkillItem = styled(motion.div)`
 const skillCategories = [
   {
     title: 'Software & Systems',
-    icon: <FaReact />,
+    icon: <FaCode />,
     skills: [
-      { name: 'Python', icon: <SiPython />, description: 'Scripting, automation, data handling, rapid prototyping' },
-      { name: 'C/C++', icon: <SiCplusplus />, description: 'Embedded systems, performance-critical logic' },
-      { name: 'JavaScript', icon: <SiJavascript />, description: 'Application logic, tooling, interfaces' },
-      { name: 'Linux', icon: <SiLinux />, description: 'Development environments, system-level debugging' },
+      { name: 'Python', icon: <SiPython />, description: 'Scripting, automation, engineering calcs, rapid prototyping' },
+      { name: 'C/C++', icon: <SiCplusplus />, description: 'Embedded firmware on ESP32 and Pi Pico' },
+      { name: 'JavaScript', icon: <SiJavascript />, description: 'This site - React, TypeScript, Vite' },
+      { name: 'Linux', icon: <SiLinux />, description: 'Development environments, networking, system-level debugging' },
     ],
   },
   {
     title: 'Hardware & Embedded',
-    icon: <FaNodeJs />,
+    icon: <FaMicrochip />,
     skills: [
-      { name: 'Embedded Electronics', icon: <SiArduino />, description: 'Wiring, fault isolation, component integration' },
-      { name: 'Power Systems', icon: <SiPowers />, description: 'Lithium batteries, BMS interaction, high-current safety' },
-      { name: 'Micro\nControllers', icon: <SiEspressif />, description: 'Firmware-level thinking, I/O, real-world constraints' },
-      { name: 'Diagnostics', icon: <SiFlask />, description: 'Multimeter use, systematic debugging under load' },
+      { name: 'Embedded Electronics', icon: <SiArduino />, description: 'Roboscan RF/NFC/IR multi-tool - wiring, fault isolation, integration' },
+      { name: 'Power Systems', icon: <FaBolt />, description: '72V battery pack, BMS, high-current safety on the enduro build' },
+      { name: 'Micro\nControllers', icon: <SiEspressif />, description: 'ESP32 and Pi Pico - firmware, I/O, real-world constraints' },
+      { name: 'Diagnostics', icon: <FaTachometerAlt />, description: 'Multimeter-first fault-finding - caught a shorted controller before it was ever powered' },
     ],
   },
   {
     title: 'Systems & Engineering',
-    icon: <FaDocker />,
+    icon: <FaCogs />,
     skills: [
-      { name: 'System Designs', icon: <SiFigma />, description: 'Interfaces, failure modes, maintainability' },
-      { name: 'Debugging', icon: <SiVim />, description: 'Isolating faults across hardware and software' },
-      { name: 'Reliability', icon: <SiCircleci />, description: 'Weather exposure, vibration, long-term use' },
-      { name: 'Testing', icon: <SiJest />, description: 'Real-world validation, stress and edge cases' },
+      { name: 'System Design', icon: <FaProjectDiagram />, description: 'PDS with 15 quantified requirements, written before touching CAD' },
+      { name: 'Debugging', icon: <FaBug />, description: 'Isolating faults across hardware and software' },
+      { name: 'Reliability', icon: <FaShieldAlt />, description: 'Vibration, weather exposure, long-term use on real vehicles' },
+      { name: 'Testing', icon: <FaClipboardCheck />, description: 'Every prediction gets a measurement - test-vs-prediction logs' },
     ],
   },
 ];

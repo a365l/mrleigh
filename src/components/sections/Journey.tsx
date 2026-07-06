@@ -13,7 +13,6 @@ import {
   FaFan,
   FaLaptop,
   FaRobot,
-  FaCoins,
   FaGlobe,
   FaChevronDown,
   FaLightbulb,
@@ -36,7 +35,6 @@ import repair1Img from '../../assets/journey-repair-1.jpg';
 import repair2Img from '../../assets/journey-repair-2.jpg';
 import repair3Img from '../../assets/journey-hardware-repair-3.jpg';
 import cryptoBotImg from '../../assets/journey-crypto-bot.jpg';
-import nftImg from '../../assets/journey-nft.jpg';
 import webAppImg from '../../assets/journey-webapp.jpg';
 import diyAssembly1Img from '../../assets/journey-diy-assembly-1.jpg';
 import diyAssembly2Img from '../../assets/journey-diy-assembly-2.jpg';
@@ -88,16 +86,9 @@ const sideProjects: SideProject[] = [
   {
     id: 'automation-bots',
     title: 'Automation & Bots',
-    description: 'Writing Python bots for automation and trading, including a live crypto bot.',
+    description: 'Writing Python bots for automation and algorithmic trading, including one that ran live against real market data.',
     icon: <FaRobot aria-hidden="true" />,
-    photos: [{ src: cryptoBotImg, caption: 'Making a crypto bot.' }],
-  },
-  {
-    id: 'crypto-web3',
-    title: 'Crypto & Web3',
-    description: 'Minted my first NFT and explored how wallets and smart contracts work.',
-    icon: <FaCoins aria-hidden="true" />,
-    photos: [{ src: nftImg, caption: 'First NFT, minted and confirmed.' }],
+    photos: [{ src: cryptoBotImg, caption: 'Trading bot in development.' }],
   },
   {
     id: 'web-apps',

@@ -163,7 +163,7 @@ export const Hero = () => {
               Aspiring Aerospace Engineer
             </Subtitle>
             <MetaLine>
-              Year 12 - Maths, Further Maths, Physics & Computer Science
+              Year 12 - Maths, Further Maths, Physics & Computer Science · 9 GCSEs, four grade 8s
             </MetaLine>
             <Description role="paragraph">
              I design and build real hardware from first principles - currently a from-scratch quadcopter and a 72V electric enduro motorcycle. Solving hard problems with clean, reliable systems that perform in the real world is what keeps me engaged.

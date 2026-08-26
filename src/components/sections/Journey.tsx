@@ -18,6 +18,7 @@ import {
   FaLightbulb,
   FaTractor,
   FaCouch,
+  FaGraduationCap,
 } from 'react-icons/fa';
 import firstSparkImg from '../../assets/journey-first-spark.jpg';
 import firstBuildImg from '../../assets/journey-first-build.jpg';
@@ -189,6 +190,13 @@ const milestones: Milestone[] = [
       { src: roboscanDeviceImg, caption: 'Alive on the breadboard: the boot menu running on the LCD.' },
       { src: roboscanAliveImg, caption: 'Working, and running its boot menu.' },
     ],
+  },
+  {
+    id: 'gcse-results',
+    age: 'Age 16',
+    title: 'GCSE Results',
+    description: 'Nine GCSEs, eight of them grade 7 or above - including grade 8s in Maths, Physics, Chemistry and Computer Science. Enough to take Maths, Further Maths, Physics and Computer Science at A-level.',
+    icon: <FaGraduationCap aria-hidden="true" />,
   },
   {
     id: 'first-principles',

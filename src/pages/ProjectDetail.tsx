@@ -4,6 +4,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { FaGithub, FaExternalLinkAlt, FaCheckCircle } from 'react-icons/fa';
 import { theme } from '../styles/theme';
 import { ProjectLayout } from '../components/layout/ProjectLayout';
+import EngineeringLog from '../components/sections/EngineeringLog';
 import { getProjectBySlug } from '../data/projectDetails';
 
 const fadeUp = {
@@ -409,7 +410,7 @@ const ProjectDetail = () => {
         <Section>
           <div className="container">
             <SectionTitle initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              Build Timeline
+              Programme Phases
             </SectionTitle>
             <Timeline initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
               {project.timeline.map((phase) => (
@@ -422,6 +423,10 @@ const ProjectDetail = () => {
             </Timeline>
           </div>
         </Section>
+      )}
+
+      {project.engineeringLog && project.engineeringLog.length > 0 && (
+        <EngineeringLog entries={project.engineeringLog} />
       )}
 
       {project.challenges.length > 0 && (

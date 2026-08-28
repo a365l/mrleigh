@@ -1,6 +1,7 @@
 import droneImg from '../assets/droneimg.png';
 import ebikeImg from '../assets/ebikeimg.jpg';
 import enduroFinalImg from '../assets/enduro-final.jpg';
+import { quadcopterEngineeringLog, type LogEntry } from './engineeringLog';
 
 export interface StatItem {
   label: string;
@@ -28,6 +29,7 @@ export interface ProjectDetail {
   techStack: string[];
   highlights: string[];
   timeline: TimelinePhase[];
+  engineeringLog?: LogEntry[];
   challenges: ChallengeItem[];
   outcomeImage?: string;
   outcomeText?: string;
@@ -63,6 +65,7 @@ export const projectDetails: ProjectDetail[] = [
       { phase: '04', title: 'Assembly & Bench Test', description: 'Not yet started.' },
       { phase: '05', title: 'Flight Test & Iteration', description: 'Not yet started.' },
     ],
+    engineeringLog: quadcopterEngineeringLog,
     challenges: [],
     githubUrl: 'https://github.com/a365l/quadcopter-project',
   },

@@ -239,7 +239,7 @@ export const BookingForm = () => {
     // No Web3Forms key yet — fall back to the visitor's email client.
     if (!tutoringConfig.web3formsAccessKey) {
       const body = encodeURIComponent(summaryLines().join('\n'));
-      const subject = encodeURIComponent('Tutoring enquiry — alfred-leigh.co.uk');
+      const subject = encodeURIComponent('Tutoring enquiry via alfred-leigh.co.uk');
       window.location.href = `mailto:${tutoringConfig.email}?subject=${subject}&body=${body}`;
       setStatus('sent');
       return;
@@ -252,7 +252,7 @@ export const BookingForm = () => {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           access_key: tutoringConfig.web3formsAccessKey,
-          subject: 'New tutoring enquiry — alfred-leigh.co.uk',
+          subject: 'New tutoring enquiry via alfred-leigh.co.uk',
           from_name: form.name,
           email: form.email,
           role: form.role,
@@ -285,7 +285,7 @@ export const BookingForm = () => {
             Book a free first session
           </SectionTitle>
           <StatusPanel initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h3>Thanks — enquiry on its way</h3>
+            <h3>Thanks, your enquiry is on its way</h3>
             <p>
               I'll reply within 24 hours, usually sooner, and the first step
               will be arranging the free diagnostic session at a time that
@@ -478,7 +478,7 @@ export const BookingForm = () => {
             <StatusPanel error initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <h3>That didn't send</h3>
               <p>
-                Sorry — something went wrong. Please email me directly at{' '}
+                Sorry, something went wrong. Please email me directly at{' '}
                 <a href={`mailto:${tutoringConfig.email}`}>{tutoringConfig.email}</a>{' '}
                 and I'll get straight back to you.
               </p>
@@ -488,7 +488,7 @@ export const BookingForm = () => {
           <MicroCopy>
             Under 16? Please ask a parent or guardian to send this, or include
             their contact details. Your details are only used to reply to this
-            enquiry — nothing else.
+            enquiry, nothing else.
           </MicroCopy>
         </FormCard>
       </div>

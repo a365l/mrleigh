@@ -11,7 +11,7 @@ import { BookingForm } from '../components/tutoring/BookingForm';
 import { faqs, stations, tutoringSections } from '../data/tutoring';
 
 const DEFAULT_TITLE = 'Alfred Leigh - Aspiring Aerospace Engineer';
-const PAGE_TITLE = 'GCSE Tutoring — Maths, Physics & Computer Science | Alfred Leigh';
+const PAGE_TITLE = 'GCSE Maths, Physics & CS Tutoring in Epping | Alfred Leigh';
 
 // Structured data for Google: the tutoring service + FAQ rich results.
 // Injected at runtime (Google renders JS); static meta lives in the
@@ -24,13 +24,14 @@ const buildJsonLd = () => ({
       name: 'GCSE Tutoring with Alfred Leigh',
       serviceType: 'Tutoring',
       description:
-        'GCSE tutoring in Maths, Physics and Computer Science — online, or in person near Central line stations from Epping to Woodford. Free diagnostic first session.',
+        'GCSE tutoring in Maths, Physics and Computer Science from an Epping-based Year 12. Online, or in person along the eastern Central line from Epping to Woodford. Free diagnostic first session.',
       url: 'https://alfred-leigh.co.uk/tutoring',
       provider: {
         '@type': 'Person',
         name: 'Alfred Leigh',
         url: 'https://alfred-leigh.co.uk/',
         email: 'alfie@alfred-leigh.co.uk',
+        homeLocation: { '@type': 'Place', name: 'Epping, Essex' },
       },
       areaServed: stations.map((s) => ({ '@type': 'Place', name: `${s}, London` })),
     },

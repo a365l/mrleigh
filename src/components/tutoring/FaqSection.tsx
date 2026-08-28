@@ -114,7 +114,7 @@ export const FaqSection = () => {
                   <p>“{t.quote}”</p>
                   <footer>
                     {t.name}
-                    {t.detail ? ` — ${t.detail}` : ''}
+                    {t.detail ? `, ${t.detail}` : ''}
                   </footer>
                 </TestimonialCard>
               ))}

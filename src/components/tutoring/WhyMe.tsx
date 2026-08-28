@@ -32,16 +32,16 @@ const CardLink = styled(Link)`
 const cards = [
   {
     title: 'The grades are recent',
-    text: 'Nine GCSEs in June 2026: grade 8s in Maths, Physics, Chemistry and Computer Science. Not a decade-old memory of the course — the current specifications, the actual papers, sat months ago.',
+    text: 'Nine GCSEs in June 2026: grade 8s in Maths, Physics, Chemistry and Computer Science. Not a decade-old memory of the course. These are the current specifications and the actual papers, sat months ago.',
   },
   {
     title: 'I structure everything',
-    text: 'I design and build real engineering projects — a from-scratch quadcopter, a 72V electric motorcycle — and document every decision, equation and mistake in public. That is the skill I bring to revision: turning a messy spec into a clear, ordered plan.',
+    text: 'I design and build real engineering projects, a from-scratch quadcopter and a 72V electric motorcycle, and I document every decision, equation and mistake in public. That is the skill I bring to revision: turning a messy spec into a clear, ordered plan.',
     link: { to: '/projects/quadcopter', label: 'Read the engineering log →' },
   },
   {
     title: 'Close enough to remember',
-    text: 'I remember exactly which topics feel impossible, and what actually fixed them — because it was months ago, not years. Explanations from someone who just made the same climb.',
+    text: 'I remember exactly which topics feel impossible, and what actually fixed them, because it was months ago, not years. Explanations from someone who just made the same climb.',
   },
 ];
 

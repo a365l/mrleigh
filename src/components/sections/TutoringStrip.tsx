@@ -73,7 +73,8 @@ export const TutoringStrip = () => (
       >
         <p>
           <strong>I also tutor.</strong> GCSE Maths, Physics &amp; Computer
-          Science — online or along the Central line. First session free.
+          Science, online or along the eastern Central line. First session
+          free.
         </p>
         <StripLink to="/tutoring">Tutoring →</StripLink>
       </StripCard>

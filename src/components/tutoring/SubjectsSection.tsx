@@ -77,7 +77,7 @@ export const SubjectsSection = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          Specialising in STEM — these are the subjects with a grade 8 and a
+          Specialising in STEM: these are the subjects with a grade 8 and a
           real project behind them.
         </SectionIntro>
         <LeadGrid

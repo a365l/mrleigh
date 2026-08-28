@@ -79,10 +79,11 @@ export const TutoringHero = () => (
         <Eyebrow variants={fadeUp}>GCSE Tutoring</Eyebrow>
         <Headline variants={fadeUp}>Revision, engineered.</Headline>
         <Sub variants={fadeUp}>
-          I'm Alfred — a Year 12 studying Maths, Further Maths, Physics and
-          Computer Science. I sat my GCSEs in June 2026, and I tutor Maths,
-          Physics and Computer Science the way I run my engineering projects:
-          structured, documented, and honest about what's working.
+          I'm Alfred, a Year 12 from Epping studying Maths, Further Maths,
+          Physics and Computer Science. I sat my GCSEs in June 2026, and I
+          tutor Maths, Physics and Computer Science the way I run my
+          engineering projects: structured, documented, and honest about
+          what's working.
         </Sub>
         <Buttons variants={fadeUp}>
           <AccentButton href="#book" whileTap={{ scale: 0.96 }}>
@@ -93,9 +94,9 @@ export const TutoringHero = () => (
           </GhostRouterLink>
         </Buttons>
         <TrustStrip variants={fadeUp} aria-label="Key facts">
-          <li>Four grade 8s — Maths, Physics, Chemistry, Computer Science</li>
-          <li>Sat June 2026 — current specs</li>
-          <li>Online, or in person on the Central line</li>
+          <li>Four grade 8s: Maths, Physics, Chemistry, Computer Science</li>
+          <li>Sat June 2026, current specs</li>
+          <li>Online, or in person on the eastern Central line</li>
           <li>First session free</li>
         </TrustStrip>
       </motion.div>

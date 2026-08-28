@@ -41,7 +41,7 @@ export const subjects: Subject[] = [
 ];
 
 export const primaryNote =
-  'Primary and KS3 maths and science also available — just mention it in the form.';
+  'Primary and KS3 maths and science are also available. Just mention it in the form.';
 
 export interface Tier {
   id: string;
@@ -62,7 +62,7 @@ export const tiers: Tier[] = [
     tagline: 'Pay as you go. Bring what is confusing; I teach it until it is not.',
     includes: [
       'One-hour sessions, online or in person',
-      'No commitment — book one at a time',
+      'No commitment, book one at a time',
       'Short written recap after every session',
     ],
   },
@@ -74,7 +74,7 @@ export const tiers: Tier[] = [
     tagline: 'Weekly sessions plus the full revision scaffold, built for the student.',
     includes: [
       'Four weekly sessions',
-      'Spec-mapped topic breakdown — what to fix, in what order',
+      'Spec-mapped topic breakdown: what to fix, in what order',
       'A flashcard deck built for the student',
       'Work set between sessions',
       'Progress tracked against the plan',
@@ -108,13 +108,13 @@ const boardList =
     : tutoringConfig.examBoards[0];
 
 const boardsAnswer = tutoringConfig.examBoards.length
-  ? `I sat ${boardList} papers myself in June 2026, and I teach to whichever specification your school uses — just name the board in the enquiry form.`
-  : 'Whichever your school uses — name the board in the enquiry form and I will teach to that exact specification. I sat my own GCSEs in June 2026, so the current courses are fresh.';
+  ? `I sat ${boardList} papers myself in June 2026, and I teach to whichever specification your school uses. Just name the board in the enquiry form.`
+  : 'Whichever your school uses. Name the board in the enquiry form and I will teach to that exact specification. I sat my own GCSEs in June 2026, so the current courses are fresh.';
 
 export const faqs: Faq[] = [
   {
     q: 'Who does the teaching?',
-    a: 'Me — Alfred, a Year 12 student taking Maths, Further Maths, Physics and Computer Science. Not an agency, no middleman: the person you enquire with is the person who turns up.',
+    a: 'Me. I am Alfred, a Year 12 taking Maths, Further Maths, Physics and Computer Science at sixth form in Debden. Not an agency, no middleman: the person you enquire with is the person who turns up.',
   },
   {
     q: 'What happens in the free first session?',
@@ -130,11 +130,11 @@ export const faqs: Faq[] = [
   },
   {
     q: 'How do online sessions work?',
-    a: 'Video call with a shared whiteboard — the student needs a laptop or tablet and a quiet spot. Anything we write or build during the session is shared afterwards, along with the recap.',
+    a: 'Video call with a shared whiteboard. The student needs a laptop or tablet and a quiet spot. Anything we write or build during the session is shared afterwards, along with the recap.',
   },
   {
     q: 'What does it cost, and how do I pay?',
-    a: 'The first session is always free. After that, the prices above are confirmed with you before anything is booked — no surprises. Payment is per session or monthly by bank transfer, and sessions cancelled with 24 hours’ notice are never charged.',
+    a: 'The first session is always free. After that, the prices above are confirmed with you before anything is booked, so there are no surprises. Payment is per session or monthly by bank transfer, and sessions cancelled with 24 hours’ notice are never charged.',
   },
 ];
 

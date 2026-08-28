@@ -7,9 +7,9 @@ import { resolve } from 'node:path';
 const dist = resolve(process.cwd(), 'dist');
 let html = readFileSync(resolve(dist, 'index.html'), 'utf8');
 
-const TITLE = 'GCSE Tutoring — Maths, Physics & Computer Science | Alfred Leigh';
+const TITLE = 'GCSE Maths, Physics & CS Tutoring in Epping | Alfred Leigh';
 const DESC =
-  'GCSE tutoring in Maths, Physics and Computer Science from a Year 12 who sat the exams in June 2026 (four grade 8s). Online, or in person near Central line stations from Epping to Woodford. Free diagnostic first session.';
+  'GCSE tutoring in Maths, Physics and Computer Science from an Epping-based Year 12 who sat the exams in June 2026 with four grade 8s. Online, or in person along the eastern Central line from Epping to Woodford. Free first session.';
 const URL = 'https://alfred-leigh.co.uk/tutoring';
 
 const swaps = [

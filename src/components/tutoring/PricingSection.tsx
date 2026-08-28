@@ -138,7 +138,7 @@ export const PricingSection = () => (
         whileInView="visible"
         viewport={{ once: true }}
       >
-        Three levels, priced by what you actually get — an hour, a month of
+        Three levels, priced by what you actually get: an hour, a month of
         structure, or a full exam campaign.
       </SectionIntro>
       {tutoringConfig.slotsBanner && (
@@ -181,7 +181,7 @@ export const PricingSection = () => (
         viewport={{ once: true }}
       >
         <strong>The first session is always free.</strong> Prices are confirmed
-        with you before anything is booked — no surprises.
+        with you before anything is booked. No surprises.
       </FreeNote>
     </div>
   </Section>

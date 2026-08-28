@@ -71,7 +71,7 @@ const DiagnosticCard = styled(GlassCard)`
 const steps = [
   {
     title: 'Send an enquiry',
-    text: 'Fill in the form below — two minutes. A parent or guardian is part of the conversation from the very first message.',
+    text: 'Fill in the form below. It takes about two minutes, and there is no commitment at this stage.',
   },
   {
     title: 'Free diagnostic session',
@@ -113,11 +113,11 @@ export const HowItWorks = () => (
           ))}
         </Steps>
         <DiagnosticCard variants={fadeUp}>
-          <h3>The first session is free — and it's a diagnostic, not a taster</h3>
+          <h3>The first session is free, and it's a diagnostic, not a taster</h3>
           <p>
             You leave with the one-page plan either way: weak topics, the order
             to fix them, and what I'd do about each. Keep it, use it yourself,
-            or book more sessions — your call.
+            or book more sessions. Your call.
           </p>
         </DiagnosticCard>
       </motion.div>

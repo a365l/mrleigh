@@ -123,7 +123,8 @@ export const CoverageSection = () => (
         whileInView="visible"
         viewport={{ once: true }}
       >
-        In person along the Central line, or online from anywhere.
+        I live in Epping and go to school in Debden, so this stretch of the
+        eastern Central line is home turf. Online works from anywhere.
       </SectionIntro>
       <RouteStrip
         variants={fadeUp}
@@ -149,7 +150,7 @@ export const CoverageSection = () => (
         <Mode variants={fadeUp}>
           <h3>In person</h3>
           <p>
-            Within about 15 minutes of the stations above — at the student's
+            Within about 15 minutes of the stations above, at the student's
             home with a parent or guardian present, or in a local library.
           </p>
         </Mode>

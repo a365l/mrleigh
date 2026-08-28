@@ -138,7 +138,7 @@ const ProgressBar = styled(motion.div)`
   }
 `;
 
-const sections = [
+const defaultSections = [
   { id: 'hero', name: 'Home' },
   { id: 'journey', name: 'Journey' },
   { id: 'projects', name: 'Projects' },
@@ -147,8 +147,12 @@ const sections = [
   { id: 'contact', name: 'Contact' }
 ];
 
-export const FloatingNav = () => {
-  const [activeSection, setActiveSection] = useState('hero');
+interface FloatingNavProps {
+  sections?: { id: string; name: string }[];
+}
+
+export const FloatingNav = ({ sections = defaultSections }: FloatingNavProps) => {
+  const [activeSection, setActiveSection] = useState(sections[0]?.id ?? 'hero');
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,

@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 
-const sections = ['hero', 'journey', 'projects', 'skills', 'contact'];
+const defaultSections = ['hero', 'journey', 'projects', 'skills', 'education', 'contact'];
 
-export const useKeyboardNavigation = () => {
+export const useKeyboardNavigation = (sectionIds?: string[]) => {
   useEffect(() => {
+    const sections = sectionIds ?? defaultSections;
     const handleKeyDown = (e: KeyboardEvent) => {
       // Only handle if not typing in an input
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
@@ -47,5 +48,5 @@ export const useKeyboardNavigation = () => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [sectionIds]);
 };

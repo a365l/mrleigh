@@ -1,12 +1,15 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
-import { ReactNode, useEffect } from 'react';
+import { ReactNode, useEffect, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { theme } from '../../styles/theme';
 import { FloatingNav } from '../navigation/FloatingNav';
 import { useKeyboardNavigation } from '../../hooks/useKeyboardNavigation';
 
 interface LayoutProps {
   children: ReactNode;
+  /** Overrides the floating-nav dots + keyboard nav (defaults to homepage sections). */
+  sections?: { id: string; name: string }[];
 }
 
 const LayoutWrapper = styled.div`
@@ -118,6 +121,17 @@ const NavLinks = styled.div`
   @media (max-width: ${theme.breakpoints.sm}) {
     gap: ${theme.spacing.md};
   }
+
+  .nav-accent {
+    color: ${theme.colors.accent};
+    border: 1px solid ${theme.colors.accent}55;
+    border-radius: 20px;
+
+    &:hover {
+      color: ${theme.colors.textDark};
+      background: ${theme.colors.gradient.accent};
+    }
+  }
 `;
 
 const Main = styled.main`
@@ -160,8 +174,9 @@ const Footer = styled.footer`
   }
 `;
 
-export const Layout = ({ children }: LayoutProps) => {
-  useKeyboardNavigation();
+export const Layout = ({ children, sections }: LayoutProps) => {
+  const sectionIds = useMemo(() => sections?.map((s) => s.id), [sections]);
+  useKeyboardNavigation(sectionIds);
 
   useEffect(() => {
     // Add keyboard navigation instructions to console
@@ -192,11 +207,12 @@ export const Layout = ({ children }: LayoutProps) => {
               Portfolio
             </Logo>
             <NavLinks role="list">
-              <a href="#journey" role="listitem" aria-label="Journey section">Journey</a>
-              <a href="#projects" role="listitem" aria-label="Projects section">Projects</a>
-              <a href="#skills" role="listitem" aria-label="Skills section">Skills</a>
-              <a href="#education" role="listitem" aria-label="Education section">Education</a>
-              <a href="#contact" role="listitem" aria-label="Contact section">Contact</a>
+              <a href="/#journey" role="listitem" aria-label="Journey section">Journey</a>
+              <a href="/#projects" role="listitem" aria-label="Projects section">Projects</a>
+              <a href="/#skills" role="listitem" aria-label="Skills section">Skills</a>
+              <a href="/#education" role="listitem" aria-label="Education section">Education</a>
+              <a href="/#contact" role="listitem" aria-label="Contact section">Contact</a>
+              <Link to="/tutoring" role="listitem" aria-label="Tutoring page" className="nav-accent">Tutoring</Link>
             </NavLinks>
           </div>
         </Nav>
@@ -204,7 +220,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <Main id="main-content" role="main" tabIndex={-1}>
         {children}
       </Main>
-      <FloatingNav />
+      <FloatingNav sections={sections} />
       <Footer role="contentinfo">
         <div className="container">
           <p>© {new Date().getFullYear()} Alfie Leigh. All rights reserved.</p>

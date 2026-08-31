@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
-import { ReactNode, useEffect, useMemo } from 'react';
+import { ReactNode, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { theme } from '../../styles/theme';
 import { FloatingNav } from '../navigation/FloatingNav';
@@ -101,7 +101,7 @@ const Logo = styled(motion.div)`
   font-weight: 700;
 `;
 
-const NavLinks = styled.div`
+const NavLinks = styled.div<{ open: boolean }>`
   display: flex;
   gap: ${theme.spacing.lg};
 
@@ -118,10 +118,6 @@ const NavLinks = styled.div`
     }
   }
 
-  @media (max-width: ${theme.breakpoints.sm}) {
-    gap: ${theme.spacing.md};
-  }
-
   .nav-accent {
     color: ${theme.colors.accent};
     border: 1px solid ${theme.colors.accent}55;
@@ -131,6 +127,76 @@ const NavLinks = styled.div`
       color: ${theme.colors.textDark};
       background: ${theme.colors.gradient.accent};
     }
+  }
+
+  @media (max-width: ${theme.breakpoints.md}) {
+    display: ${(props) => (props.open ? 'flex' : 'none')};
+    position: absolute;
+    /* Escape the 90%-wide .container so the panel runs edge to edge,
+       flush with the header's bottom (its md padding). */
+    top: calc(100% + ${theme.spacing.md});
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    flex-direction: column;
+    gap: ${theme.spacing.xs};
+    padding: ${theme.spacing.md} ${theme.spacing.lg} ${theme.spacing.lg};
+    background: rgba(42, 45, 62, 0.97);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+
+    a {
+      padding: ${theme.spacing.md};
+      font-size: 1.05rem;
+    }
+
+    .nav-accent {
+      text-align: center;
+      margin-top: ${theme.spacing.sm};
+    }
+  }
+`;
+
+const MenuButton = styled.button<{ open: boolean }>`
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background ${theme.transitions.default};
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    border-radius: 2px;
+    background: ${theme.colors.light};
+    transition: transform ${theme.transitions.default}, opacity ${theme.transitions.default};
+    transform-origin: center;
+  }
+
+  span:nth-of-type(1) {
+    transform: ${(props) => (props.open ? 'translateY(7px) rotate(45deg)' : 'none')};
+  }
+
+  span:nth-of-type(2) {
+    opacity: ${(props) => (props.open ? 0 : 1)};
+  }
+
+  span:nth-of-type(3) {
+    transform: ${(props) => (props.open ? 'translateY(-7px) rotate(-45deg)' : 'none')};
+  }
+
+  @media (max-width: ${theme.breakpoints.md}) {
+    display: flex;
   }
 `;
 
@@ -177,6 +243,8 @@ const Footer = styled.footer`
 export const Layout = ({ children, sections }: LayoutProps) => {
   const sectionIds = useMemo(() => sections?.map((s) => s.id), [sections]);
   useKeyboardNavigation(sectionIds);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
 
   useEffect(() => {
     // Add keyboard navigation instructions to console
@@ -206,13 +274,24 @@ export const Layout = ({ children, sections }: LayoutProps) => {
             >
               Portfolio
             </Logo>
-            <NavLinks role="list">
-              <a href="/#journey" role="listitem" aria-label="Journey section">Journey</a>
-              <a href="/#projects" role="listitem" aria-label="Projects section">Projects</a>
-              <a href="/#skills" role="listitem" aria-label="Skills section">Skills</a>
-              <a href="/#education" role="listitem" aria-label="Education section">Education</a>
-              <a href="/#contact" role="listitem" aria-label="Contact section">Contact</a>
-              <Link to="/tutoring" role="listitem" aria-label="Tutoring page" className="nav-accent">Tutoring</Link>
+            <MenuButton
+              open={menuOpen}
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-expanded={menuOpen}
+              aria-controls="primary-nav"
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            >
+              <span />
+              <span />
+              <span />
+            </MenuButton>
+            <NavLinks id="primary-nav" role="list" open={menuOpen}>
+              <a href="/#journey" role="listitem" aria-label="Journey section" onClick={closeMenu}>Journey</a>
+              <a href="/#projects" role="listitem" aria-label="Projects section" onClick={closeMenu}>Projects</a>
+              <a href="/#skills" role="listitem" aria-label="Skills section" onClick={closeMenu}>Skills</a>
+              <a href="/#education" role="listitem" aria-label="Education section" onClick={closeMenu}>Education</a>
+              <a href="/#contact" role="listitem" aria-label="Contact section" onClick={closeMenu}>Contact</a>
+              <Link to="/tutoring" role="listitem" aria-label="Tutoring page" className="nav-accent" onClick={closeMenu}>Tutoring</Link>
             </NavLinks>
           </div>
         </Nav>

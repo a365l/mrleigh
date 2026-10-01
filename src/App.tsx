@@ -17,6 +17,7 @@ const Education = lazy(() => import('./components/sections/Education'));
 const Contact = lazy(() => import('./components/sections/Contact'));
 const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
 const Tutoring = lazy(() => import('./pages/Tutoring'));
+const Sk = lazy(() => import('./pages/Sk'));
 
 // Loading fallback component
 const LoadingFallback = styled.div`
@@ -84,6 +85,15 @@ function App() {
             element={
               <Suspense fallback={<LoadingFallback>Loading project...</LoadingFallback>}>
                 <ProjectDetail />
+              </Suspense>
+            }
+          />
+          {/* Unlisted Slovak one-pager: noindex, not linked from anywhere. */}
+          <Route
+            path="/sk"
+            element={
+              <Suspense fallback={<LoadingFallback>Načítava sa...</LoadingFallback>}>
+                <Sk />
               </Suspense>
             }
           />

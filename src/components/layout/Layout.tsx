@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ReactNode, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { theme } from '../../styles/theme';
+import { useSk } from '../../i18n/lang';
 import { FloatingNav } from '../navigation/FloatingNav';
 import { useKeyboardNavigation } from '../../hooks/useKeyboardNavigation';
 
@@ -245,6 +246,9 @@ export const Layout = ({ children, sections }: LayoutProps) => {
   useKeyboardNavigation(sectionIds);
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
+  const sk = useSk();
+  // Section links point at the Slovak home page when rendering under /sk.
+  const home = sk ? '/sk/' : '/';
 
   useEffect(() => {
     // Add keyboard navigation instructions to console
@@ -259,7 +263,7 @@ export const Layout = ({ children, sections }: LayoutProps) => {
   return (
     <LayoutWrapper>
       <SkipLink href="#main-content">
-        Skip to main content
+        {sk ? sk.layout.skip : 'Skip to main content'}
       </SkipLink>
 
       <Header role="banner">
@@ -272,26 +276,26 @@ export const Layout = ({ children, sections }: LayoutProps) => {
               role="heading"
               aria-level={1}
             >
-              Portfolio
+              {sk ? sk.layout.logo : 'Portfolio'}
             </Logo>
             <MenuButton
               open={menuOpen}
               onClick={() => setMenuOpen((v) => !v)}
               aria-expanded={menuOpen}
               aria-controls="primary-nav"
-              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-label={menuOpen ? (sk ? sk.layout.closeMenu : 'Close menu') : (sk ? sk.layout.openMenu : 'Open menu')}
             >
               <span />
               <span />
               <span />
             </MenuButton>
             <NavLinks id="primary-nav" role="list" open={menuOpen}>
-              <a href="/#journey" role="listitem" aria-label="Journey section" onClick={closeMenu}>Journey</a>
-              <a href="/#projects" role="listitem" aria-label="Projects section" onClick={closeMenu}>Projects</a>
-              <a href="/#skills" role="listitem" aria-label="Skills section" onClick={closeMenu}>Skills</a>
-              <a href="/#education" role="listitem" aria-label="Education section" onClick={closeMenu}>Education</a>
-              <a href="/#contact" role="listitem" aria-label="Contact section" onClick={closeMenu}>Contact</a>
-              <Link to="/tutoring" role="listitem" aria-label="Tutoring page" className="nav-accent" onClick={closeMenu}>Tutoring</Link>
+              <a href={`${home}#journey`} role="listitem" aria-label={sk ? sk.layout.nav.journey : 'Journey section'} onClick={closeMenu}>{sk ? sk.layout.nav.journey : 'Journey'}</a>
+              <a href={`${home}#projects`} role="listitem" aria-label={sk ? sk.layout.nav.projects : 'Projects section'} onClick={closeMenu}>{sk ? sk.layout.nav.projects : 'Projects'}</a>
+              <a href={`${home}#skills`} role="listitem" aria-label={sk ? sk.layout.nav.skills : 'Skills section'} onClick={closeMenu}>{sk ? sk.layout.nav.skills : 'Skills'}</a>
+              <a href={`${home}#education`} role="listitem" aria-label={sk ? sk.layout.nav.education : 'Education section'} onClick={closeMenu}>{sk ? sk.layout.nav.education : 'Education'}</a>
+              <a href={`${home}#contact`} role="listitem" aria-label={sk ? sk.layout.nav.contact : 'Contact section'} onClick={closeMenu}>{sk ? sk.layout.nav.contact : 'Contact'}</a>
+              <Link to="/tutoring" role="listitem" aria-label={sk ? sk.layout.nav.tutoring : 'Tutoring page'} className="nav-accent" onClick={closeMenu}>{sk ? sk.layout.nav.tutoring : 'Tutoring'}</Link>
             </NavLinks>
           </div>
         </Nav>
@@ -299,10 +303,15 @@ export const Layout = ({ children, sections }: LayoutProps) => {
       <Main id="main-content" role="main" tabIndex={-1}>
         {children}
       </Main>
-      <FloatingNav sections={sections} />
+      <FloatingNav sections={sections ?? sk?.layout.sections} />
       <Footer role="contentinfo">
         <div className="container">
-          <p>© {new Date().getFullYear()} Alfie Leigh. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Alfie Leigh. {sk ? sk.layout.rights : 'All rights reserved.'}</p>
+          {sk && (
+            <p>
+              <a href="/" style={{ textDecoration: 'underline' }}>{sk.layout.english}</a>
+            </p>
+          )}
         </div>
       </Footer>
     </LayoutWrapper>

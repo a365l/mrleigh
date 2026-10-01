@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { theme } from '../../styles/theme';
+import { useSk } from '../../i18n/lang';
 
 interface ProjectLayoutProps {
   children: ReactNode;
@@ -116,15 +117,17 @@ const Footer = styled.footer`
 `;
 
 export const ProjectLayout = ({ children }: ProjectLayoutProps) => {
+  const sk = useSk();
+
   return (
     <LayoutWrapper>
       <Header role="banner">
         <Nav role="navigation" aria-label="Project navigation">
           <div className="container">
-            <Logo role="heading" aria-level={1}>Portfolio</Logo>
-            <BackLink to="/#projects" aria-label="Back to all projects">
+            <Logo role="heading" aria-level={1}>{sk ? sk.layout.logo : 'Portfolio'}</Logo>
+            <BackLink to={sk ? '/sk/#projects' : '/#projects'} aria-label={sk ? sk.projectDetail.back : 'Back to all projects'}>
               <FaArrowLeft aria-hidden="true" />
-              Back to Projects
+              {sk ? sk.projectDetail.back : 'Back to Projects'}
             </BackLink>
           </div>
         </Nav>
@@ -134,7 +137,7 @@ export const ProjectLayout = ({ children }: ProjectLayoutProps) => {
       </Main>
       <Footer role="contentinfo">
         <div className="container">
-          <p>© {new Date().getFullYear()} Alfred Leigh. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Alfred Leigh. {sk ? sk.layout.rights : 'All rights reserved.'}</p>
         </div>
       </Footer>
     </LayoutWrapper>

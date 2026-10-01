@@ -1,6 +1,6 @@
-// Writes dist/sk/index.html for the unlisted Slovak page, so GitHub Pages
-// serves /sk directly instead of bouncing through the 404.html fallback.
-// The copy is marked noindex and carries no canonical link, and /sk is left
+// Writes static copies of the unlisted Slovak pages (/sk), so GitHub Pages
+// serves them directly instead of bouncing through the 404.html fallback.
+// Each copy is marked noindex and carries no canonical link, and /sk is left
 // out of sitemap.xml on purpose, so search engines never list it.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -50,6 +50,12 @@ if (!html.includes('noindex, nofollow')) {
   throw new Error('postbuild-sk: refusing to write /sk without a noindex tag');
 }
 
-mkdirSync(resolve(dist, 'sk'), { recursive: true });
-writeFileSync(resolve(dist, 'sk', 'index.html'), html);
-console.log('postbuild-sk: wrote dist/sk/index.html (noindex)');
+// The Slovak home page plus one copy per project page (keep in step with the
+// slugs in src/data/projectDetails.ts).
+const pages = ['sk', 'sk/projects/quadcopter', 'sk/projects/enduro-motorcycle'];
+
+for (const page of pages) {
+  mkdirSync(resolve(dist, page), { recursive: true });
+  writeFileSync(resolve(dist, page, 'index.html'), html);
+  console.log(`postbuild-sk: wrote dist/${page}/index.html (noindex)`);
+}

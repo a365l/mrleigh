@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { theme } from '../../styles/theme';
+import { useSk } from '../../i18n/lang';
 import { keyframes } from '@emotion/react';
 import { lazy, Suspense } from 'react';
 const FaGithub = lazy(() => import('react-icons/fa').then(mod => ({ default: mod.FaGithub })));
@@ -151,28 +152,30 @@ const SocialLinks = styled.div`
 `;
 
 export const Hero = () => {
+  const sk = useSk();
+
   return (
     <HeroSection id="hero" role="region" aria-label="Introduction">
       <div className="container">
         <HeroContent>
           <div>
             <Title role="heading" aria-level={2}>
-              Hi, I'm Alfred
+              {sk ? sk.hero.title : "Hi, I'm Alfred"}
             </Title>
             <Subtitle role="heading" aria-level={3}>
-              Aspiring Aerospace Engineer
+              {sk ? sk.hero.subtitle : 'Aspiring Aerospace Engineer'}
             </Subtitle>
             <MetaLine>
-              Year 12 - Maths, Further Maths, Physics & Computer Science · 9 GCSEs, four grade 8s
+              {sk ? sk.hero.meta : 'Year 12 - Maths, Further Maths, Physics & Computer Science · 9 GCSEs, four grade 8s'}
             </MetaLine>
             <Description role="paragraph">
-             I design and build real hardware from first principles - currently a from-scratch quadcopter and a 72V electric enduro motorcycle. Solving hard problems with clean, reliable systems that perform in the real world is what keeps me engaged.
+             {sk ? sk.hero.description : 'I design and build real hardware from first principles - currently a from-scratch quadcopter and a 72V electric enduro motorcycle. Solving hard problems with clean, reliable systems that perform in the real world is what keeps me engaged.'}
             </Description>
             <CVButton href="/Alfred-Leigh-CV.pdf" download aria-label="Download my CV as a PDF">
               <Suspense fallback={<div style={{ width: '1rem', height: '1rem' }} />}>
                 <FaFileDownload aria-hidden="true" />
               </Suspense>
-              Download CV
+              {sk ? sk.hero.cv : 'Download CV'}
             </CVButton>
             <SocialLinks role="list" aria-label="Social media links">
               <a 

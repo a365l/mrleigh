@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { theme } from '../../styles/theme';
+import { useSk } from '../../i18n/lang';
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const ContactSection = styled.section`
@@ -158,6 +159,7 @@ const SocialLink = styled(motion.a)`
 `;
 
 const Contact = () => {
+  const sk = useSk();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -193,15 +195,16 @@ const Contact = () => {
             role="heading"
             aria-level={2}
           >
-            Get In Touch
+            {sk ? sk.contact.heading : 'Get In Touch'}
           </SectionTitle>
           <ContactContent role="article">
             <ContactText 
               variants={itemVariants}
               role="paragraph"
             >
-              I'm always interested in hearing about new projects and opportunities.
-              Whether you have a question or just want to say hi, feel free to reach out!
+              {sk
+                ? sk.contact.text
+                : "I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, feel free to reach out!"}
             </ContactText>
             <ContactEmail 
               href="mailto:alfie@alfred-leigh.co.uk"

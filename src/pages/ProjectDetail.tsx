@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Navigate, useParams } from 'react-router-dom';
 import { FaGithub, FaExternalLinkAlt, FaCheckCircle } from 'react-icons/fa';
 import { theme } from '../styles/theme';
+import { useSk } from '../i18n/lang';
 import { ProjectLayout } from '../components/layout/ProjectLayout';
 import EngineeringLog from '../components/sections/EngineeringLog';
 import { getProjectBySlug } from '../data/projectDetails';
@@ -336,11 +337,15 @@ const CTALinkSecondary = styled(CTALink)`
 
 const ProjectDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const project = slug ? getProjectBySlug(slug) : undefined;
+  const sk = useSk();
+  const base = slug ? getProjectBySlug(slug) : undefined;
 
-  if (!project) {
-    return <Navigate to="/" replace />;
+  if (!base) {
+    return <Navigate to={sk ? '/sk' : '/'} replace />;
   }
+
+  // Under /sk, lay the Slovak text over the English project record.
+  const project = sk ? { ...base, ...sk.projectDetail.projects[base.slug] } : base;
 
   return (
     <ProjectLayout>
@@ -380,7 +385,7 @@ const ProjectDetail = () => {
       <Section>
         <div className="container">
           <SectionTitle initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            Key Highlights
+            {sk ? sk.projectDetail.highlights : 'Key Highlights'}
           </SectionTitle>
           <HighlightsGrid initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
             {project.highlights.map((highlight) => (
@@ -396,7 +401,7 @@ const ProjectDetail = () => {
       <Section>
         <div className="container">
           <SectionTitle initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            Technology & Disciplines
+            {sk ? sk.projectDetail.tech : 'Technology & Disciplines'}
           </SectionTitle>
           <TechStack>
             {project.techStack.map((tech) => (
@@ -410,12 +415,12 @@ const ProjectDetail = () => {
         <Section>
           <div className="container">
             <SectionTitle initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              Programme Phases
+              {sk ? sk.projectDetail.phases : 'Programme Phases'}
             </SectionTitle>
             <Timeline initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
               {project.timeline.map((phase) => (
                 <TimelineItem key={phase.phase} variants={fadeUp}>
-                  <TimelinePhaseLabel>Phase {phase.phase}</TimelinePhaseLabel>
+                  <TimelinePhaseLabel>{sk ? sk.projectDetail.phase : 'Phase'} {phase.phase}</TimelinePhaseLabel>
                   <TimelineTitle>{phase.title}</TimelineTitle>
                   <TimelineDescription>{phase.description}</TimelineDescription>
                 </TimelineItem>
@@ -425,22 +430,39 @@ const ProjectDetail = () => {
         </Section>
       )}
 
-      {project.engineeringLog && project.engineeringLog.length > 0 && (
+      {project.engineeringLog && project.engineeringLog.length > 0 && !sk && (
         <EngineeringLog entries={project.engineeringLog} />
+      )}
+
+      {/* The log is long and deeply technical, so /sk points to the English one. */}
+      {project.engineeringLog && project.engineeringLog.length > 0 && sk && (
+        <Section>
+          <div className="container">
+            <SectionTitle initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              {sk.projectDetail.logHeading}
+            </SectionTitle>
+            <Summary initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+              {sk.projectDetail.logNote}
+            </Summary>
+            <CTASection initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
+              <CTALinkSecondary href={`/projects/${project.slug}`}>{sk.projectDetail.logLink}</CTALinkSecondary>
+            </CTASection>
+          </div>
+        </Section>
       )}
 
       {project.challenges.length > 0 && (
         <Section>
           <div className="container">
             <SectionTitle initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              Challenges & Solutions
+              {sk ? sk.projectDetail.challenges : 'Challenges & Solutions'}
             </SectionTitle>
             <ChallengesGrid initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
               {project.challenges.map((item) => (
                 <ChallengeCard key={item.challenge} variants={fadeUp}>
-                  <ChallengeLabel>Challenge</ChallengeLabel>
+                  <ChallengeLabel>{sk ? sk.projectDetail.challenge : 'Challenge'}</ChallengeLabel>
                   <ChallengeText>{item.challenge}</ChallengeText>
-                  <ChallengeLabel>Solution</ChallengeLabel>
+                  <ChallengeLabel>{sk ? sk.projectDetail.solution : 'Solution'}</ChallengeLabel>
                   <ChallengeText>{item.solution}</ChallengeText>
                 </ChallengeCard>
               ))}
@@ -453,10 +475,10 @@ const ProjectDetail = () => {
         <Section>
           <div className="container">
             <SectionTitle initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              The Outcome
+              {sk ? sk.projectDetail.outcome : 'The Outcome'}
             </SectionTitle>
             <OutcomeFigure initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <OutcomeImage src={project.outcomeImage} alt={`Completed ${project.title}`} />
+              <OutcomeImage src={project.outcomeImage} alt={sk ? project.title : `Completed ${project.title}`} />
               {project.outcomeText && <OutcomeCaption>{project.outcomeText}</OutcomeCaption>}
             </OutcomeFigure>
           </div>
@@ -468,7 +490,7 @@ const ProjectDetail = () => {
           <CTASection initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
             <CTALink href={project.githubUrl} target="_blank" rel="noopener noreferrer">
               <FaGithub aria-hidden="true" />
-              View Source on GitHub
+              {sk ? sk.projectDetail.github : 'View Source on GitHub'}
             </CTALink>
             {project.liveUrl && (
               <CTALinkSecondary href={project.liveUrl} target="_blank" rel="noopener noreferrer">

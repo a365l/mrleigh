@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { theme } from '../../styles/theme';
+import { useSk } from '../../i18n/lang';
 import {
   FaDesktop,
   FaCode,
@@ -503,6 +504,32 @@ const SideProjectThumb = styled.img`
 const Journey = () => {
   const [openId, setOpenId] = useState<string | null>(null);
   const [showMore, setShowMore] = useState(false);
+  const sk = useSk();
+
+  // Under /sk, lay the Slovak text over the English records (same photos).
+  const localMilestones = milestones.map((base) => {
+    const tr = sk?.journey.milestones[base.id];
+    return tr
+      ? {
+          ...base,
+          age: tr.age,
+          title: tr.title,
+          description: tr.description,
+          photos: base.photos?.map((photo, i) => ({ ...photo, caption: tr.captions[i] ?? photo.caption })),
+        }
+      : base;
+  });
+  const localSideProjects = sideProjects.map((base) => {
+    const tr = sk?.journey.sideProjects[base.id];
+    return tr
+      ? {
+          ...base,
+          title: tr.title,
+          description: tr.description,
+          photos: base.photos.map((photo, i) => ({ ...photo, caption: tr.captions[i] ?? photo.caption })),
+        }
+      : base;
+  });
 
   return (
     <JourneySection id="journey" role="region" aria-label="My Journey">
@@ -515,7 +542,7 @@ const Journey = () => {
           role="heading"
           aria-level={2}
         >
-          My Journey
+          {sk ? sk.journey.heading : 'My Journey'}
         </SectionTitle>
         <SectionSubtitle
           initial={{ opacity: 0 }}
@@ -523,12 +550,13 @@ const Journey = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Engineering hasn't been a subject I studied - it's been a hobby I never put down.
-          Here's how it grew from a kid pulling apart an electronics kit into the projects on this page today.
+          {sk
+            ? sk.journey.intro
+            : "Engineering hasn't been a subject I studied - it's been a hobby I never put down. Here's how it grew from a kid pulling apart an electronics kit into the projects on this page today."}
         </SectionSubtitle>
 
         <TimelineList role="list">
-          {milestones.map((milestone, index) => {
+          {localMilestones.map((milestone, index) => {
             const isOpen = openId === milestone.id;
             return (
               <TimelineRow
@@ -551,7 +579,7 @@ const Journey = () => {
                         aria-expanded={isOpen}
                         onClick={() => setOpenId(isOpen ? null : milestone.id)}
                       >
-                        {isOpen ? 'Hide evidence' : 'Show evidence'}
+                        {isOpen ? (sk ? sk.journey.hideEvidence : 'Hide evidence') : (sk ? sk.journey.showEvidence : 'Show evidence')}
                       </PhotoToggle>
                       {isOpen && (
                         <PhotoGallery
@@ -582,7 +610,9 @@ const Journey = () => {
             aria-expanded={showMore}
             onClick={() => setShowMore((prev) => !prev)}
           >
-            {showMore ? 'Hide the smaller side projects' : `A few more side projects (${sideProjects.length})`}
+            {showMore
+              ? (sk ? sk.journey.hideMore : 'Hide the smaller side projects')
+              : (sk ? sk.journey.showMore(sideProjects.length) : `A few more side projects (${sideProjects.length})`)}
             <FaChevronDown aria-hidden="true" />
           </MoreToggle>
 
@@ -593,7 +623,7 @@ const Journey = () => {
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
             >
-              {sideProjects.map((project) => (
+              {localSideProjects.map((project) => (
                 <SideProjectCard key={project.id}>
                   <SideProjectHeader>
                     <SideProjectIcon>{project.icon}</SideProjectIcon>

@@ -80,6 +80,10 @@ nav button.on{color:var(--acc)}
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const b64d = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+/* WebCrypto only works on a secure page, so make sure we're on https */
+if (location.protocol === 'http:' && !['localhost', '127.0.0.1'].includes(location.hostname)) {
+  location.replace(location.href.replace(/^http:/, 'https:'));
+}
 const SNAPSHOT_URL = 'https://gist.githubusercontent.com/a365l/ed47df7859df67c643956bc0ecd27231/raw/snapshot.json';   /* filled in when the page is published */
 const KEY = 'study-tracker-pw';
 let DATA = null, tab = 'due';

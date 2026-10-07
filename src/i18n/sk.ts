@@ -113,7 +113,7 @@ export const sk = {
         captions: [
           'Všetky súčiastky pokope: Pi Pico, kontaktné pole, LCD displej a prepojovacie káble.',
           'Ožilo to na kontaktnom poli: na displeji beží úvodné menu.',
-          'Funguje a zobrazuje úvodné menu.',
+          'Funguje a zobrazuje úvodné menu. Rodinná fotka na stole je rozmazaná z dôvodu súkromia.',
         ],
       },
       'gcse-results': {

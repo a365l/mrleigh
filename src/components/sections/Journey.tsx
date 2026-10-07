@@ -189,7 +189,7 @@ const milestones: Milestone[] = [
     photos: [
       { src: roboscanPartsImg, caption: 'Got all the parts to build it - Pi Pico, breadboard, LCD, jumper wires.' },
       { src: roboscanDeviceImg, caption: 'Alive on the breadboard: the boot menu running on the LCD.' },
-      { src: roboscanAliveImg, caption: 'Working, and running its boot menu.' },
+      { src: roboscanAliveImg, caption: 'Working, and running its boot menu. Family image on desk blurred for privacy reasons.' },
     ],
   },
   {

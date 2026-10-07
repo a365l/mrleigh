@@ -154,10 +154,10 @@ const milestones: Milestone[] = [
     id: 'first-solder',
     age: 'Age 13',
     title: 'First Solder',
-    description: 'Started soldering with a cheap no-name pen, teaching myself the basics one burnt fingertip at a time.',
+    description: 'Just recently upgraded from a cheap no-name pen to a Weller, and was practising on a scrap piece of PCB, teaching myself the basics one burnt fingertip at a time.',
     icon: <FaTools aria-hidden="true" />,
     photos: [
-      { src: firstSolderImg, caption: 'Cheap no-name pen, magnifying glasses, and questionable technique.' },
+      { src: firstSolderImg, caption: 'A Weller soldering pen, magnifying glasses, and questionable technique on a scrap PCB.' },
     ],
   },
   {

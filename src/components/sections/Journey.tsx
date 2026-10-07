@@ -67,7 +67,7 @@ const sideProjects: SideProject[] = [
   {
     id: 'pc-building',
     title: 'PC Building',
-    description: 'Building and watercooling my own PCs, from bare frames to full RGB rigs.',
+    description: 'Locating and repairing faulty parts in PCs, then upgrading them with fresh internals - building and watercooling full rigs from bare frames to finished RGB builds.',
     icon: <FaFan aria-hidden="true" />,
     photos: [
       { src: pcBuild1Img, caption: 'Mid-build: radiator, fans, and cable management.' },

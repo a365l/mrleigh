@@ -135,7 +135,7 @@ export const sk = {
       'pc-building': {
         title: 'Stavba počítačov',
         description:
-          'Staviam si vlastné počítače s vodným chladením, od holej skrinky až po plne podsvietené zostavy.',
+          'Vyhľadávam a opravujem chybné súčiastky v počítačoch a inovujem ich novým vnútrom - stavám a chladím vodou kompletné zostavy, od holej skrinky až po hotové RGB zostavy.',
         captions: ['Uprostred stavby: chladič, ventilátory a uloženie káblov.', 'Hotový podsvietený počítač na stole.'],
       },
       'hardware-repair': {

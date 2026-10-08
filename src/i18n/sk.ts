@@ -12,7 +12,6 @@ export const sk = {
 
   layout: {
     skip: 'Preskočiť na hlavný obsah',
-    logo: 'Portfólio',
     openMenu: 'Otvoriť menu',
     closeMenu: 'Zavrieť menu',
     nav: {
@@ -86,8 +85,8 @@ export const sk = {
         age: '13 rokov',
         title: 'Prvé spájkovanie',
         description:
-          'Začal som spájkovať lacnou neznačkovou spájkovačkou a základy som sa učil sám, jeden popálený prst za druhým.',
-        captions: ['Lacná spájkovačka, zväčšovacie okuliare a pochybná technika.'],
+          'Práve som prešiel z lacnej neznačkovej spájkovačky na základnú spájkovačku Weller a cvičil som na kúsku starej dosky plošných spojov. Základy som sa učil sám, jeden popálený prst za druhým.',
+        captions: ['Cvičenie na starej doske plošných spojov: zväčšovacie okuliare a pochybná technika.'],
       },
       'linux-networking': {
         age: '13 rokov',
@@ -113,7 +112,7 @@ export const sk = {
         captions: [
           'Všetky súčiastky pokope: Pi Pico, kontaktné pole, LCD displej a prepojovacie káble.',
           'Ožilo to na kontaktnom poli: na displeji beží úvodné menu.',
-          'Funguje a zobrazuje úvodné menu. Rodinná fotka na stole je rozmazaná z dôvodu súkromia.',
+          'Funguje, na mojom stole. Rodinná fotka na stole je rozmazaná z dôvodu súkromia.',
         ],
       },
       'gcse-results': {
@@ -127,7 +126,7 @@ export const sk = {
         age: 'Dnes',
         title: 'Inžinierstvo od základných princípov',
         description:
-          'Teraz navrhujem a staviam modulárnu kvadrokoptéru a elektrickú enduro motorku na 72 V. Popri tom sa sám učím postupy profesionálnych inžinierov: špecifikácie výrobku, porovnávacie štúdie a záznamy o poruchách.',
+          'Staviam elektrickú enduro motorku na 72 V a počas strednej školy budem pokračovať na modulárnej kvadrokoptére navrhnutej od základných princípov. Popri tom sa sám učím postupy profesionálnych inžinierov: špecifikácie výrobku, porovnávacie štúdie a záznamy o poruchách.',
         captions: [],
       },
     } as Record<string, { age: string; title: string; description: string; captions: string[] }>,
@@ -135,7 +134,7 @@ export const sk = {
       'pc-building': {
         title: 'Stavba počítačov',
         description:
-          'Vyhľadávam a opravujem chybné súčiastky v počítačoch a inovujem ich novým vnútrom - stavám a chladím vodou kompletné zostavy, od holej skrinky až po hotové RGB zostavy.',
+          'Vyhľadávam a opravujem chybné súčiastky v počítačoch a inovujem ich novým vnútrom - staviam a chladím vodou kompletné zostavy, od holej skrinky až po hotové RGB zostavy.',
         captions: ['Uprostred stavby: chladič, ventilátory a uloženie káblov.', 'Hotový podsvietený počítač na stole.'],
       },
       'hardware-repair': {
@@ -174,19 +173,19 @@ export const sk = {
       quadcopter: {
         title: 'Modulárna kvadrokoptéra: návrh a stavba od základných princípov',
         subtitle:
-          'Rozpracovaný inžiniersky projekt: fyzikálne rovnice a porovnávacie štúdie vedú stavbu, ktorá smeruje k výrobe z hliníka na CNC stroji a z uhlíkových vlákien a k overeniu letovými skúškami. Všetko dokumentujem od začiatku do konca, od špecifikácie a porovnávacích štúdií cez výpočty a záznamy o poruchách až po namerané dáta.',
+          'Dlhodobý inžiniersky projekt, ktorý je teraz pozastavený a budem v ňom pokračovať počas strednej školy: fyzikálne rovnice a porovnávacie štúdie vedú stavbu, ktorá smeruje k výrobe z hliníka na CNC stroji a z uhlíkových vlákien a k overeniu letovými skúškami. Všetko dokumentujem od začiatku do konca, od špecifikácie a porovnávacích štúdií cez výpočty a záznamy o poruchách až po namerané dáta.',
         techStack: ['Analýza konštrukcie', 'Návrh pohonu', 'Výroba kompozitov', 'Systémové inžinierstvo', 'Vstavaný softvér'],
       },
       'enduro-motorcycle': {
         title: 'Elektrická enduro motorka: stavba vlastnými rukami',
         subtitle:
-          'Kompletná stavba elektrickej enduro motorky na 72 V od nuly: batéria na mieru, motor QS205 v náboji kolesa, riadiaca jednotka Fardriver ND72450, ručne krimpované vysokonapäťové káble a tri fázy vylepšovania, od prvého funkčného pokusu až po výkonný pohon.',
+          'Kompletná stavba elektrickej enduro motorky na 72 V od nuly: batéria NBPower 72 V, motor QS205 v náboji kolesa, riadiaca jednotka Fardriver ND72450, ručne krimpované signálne káble a tri fázy vylepšovania, od prvého funkčného pokusu až po výkonný pohon.',
         techStack: [
           'Vysokonapäťová elektronika',
           'Riadenie BLDC motora',
           'Fardriver ND72450',
           'QS Motor QS205',
-          'Vysokonapäťové káble a krimpovanie',
+          'Vysokonapäťové a signálne káble',
           'Batériové systémy',
         ],
       },
@@ -221,7 +220,7 @@ export const sk = {
           { name: 'Návrh systémov', description: 'Špecifikácia s 15 merateľnými požiadavkami, napísaná ešte pred kreslením' },
           { name: 'Hľadanie chýb', description: 'Hľadanie porúch v hardvéri aj v softvéri' },
           { name: 'Spoľahlivosť', description: 'Vibrácie, počasie a dlhodobé používanie na skutočných vozidlách' },
-          { name: 'Testovanie', description: 'Každú predpoveď overím meraním a zapíšem rozdiel' },
+          { name: 'Testovanie', description: 'Predpovede si zapíšem pred testom, aby bolo s čím porovnať výsledky' },
         ],
       },
     ],
@@ -268,7 +267,25 @@ export const sk = {
 
   contact: {
     heading: 'Napíšte mi',
-    text: 'Vždy rád počujem o nových projektoch a príležitostiach. Či už máte otázku, alebo ma chcete len pozdraviť, pokojne sa ozvite!',
+    text: 'Hľadám stáže v leteckom a kozmickom priemysle, pracovné skúsenosti a inžinierske súťaže. Ak máte príležitosť, otázku k niektorej z mojich stavieb alebo sa chcete opýtať na doučovanie, napíšte mi e-mail.',
+  },
+
+  work: {
+    heading: 'Pracovné skúsenosti',
+    roles: {
+      berkeley: {
+        role: 'Prax v stavebnom inžinierstve',
+        dates: 'Jún až júl 2026',
+        summary:
+          'Týždeň na dvoch stavbách v Londýne, Bermondsey Place a Trent Park: vytyčovanie s totálnou stanicou Leica, kontrola kvality betónu a skúšky kociek a tvarové kódy výstuže. Spísal som z toho 20-stranovú technickú prezentáciu.',
+      },
+      kras: {
+        role: 'Platená práca pre firmu',
+        dates: '2024 až dodnes',
+        summary:
+          'Stolárska práca s elektrickým náradím a základné inštalatérske a elektrikárske práce. Firme som aj navrhol, postavil a spravujem webovú stránku.',
+      },
+    } as Record<string, { role: string; dates: string; summary: string }>,
   },
 
   projectDetail: {
@@ -291,9 +308,9 @@ export const sk = {
         title: 'Modulárna kvadrokoptéra',
         tagline: 'Návrh a stavba od základných princípov',
         summary:
-          'Rozpracovaný inžiniersky projekt: navrhujem kvadrokoptéru (dron so štyrmi vrtuľami) z fyzikálnych rovníc a porovnávacích štúdií. Smerujem k výrobe z hliníka na CNC stroji a z uhlíkových vlákien a k overeniu letovými skúškami. Všetko dokumentujem od začiatku do konca: od špecifikácie cez výpočty a výrobu až po letové skúšky.',
+          'Dlhodobý inžiniersky projekt: navrhujem kvadrokoptéru (dron so štyrmi vrtuľami) z fyzikálnych rovníc a porovnávacích štúdií. Smerujem k výrobe z hliníka na CNC stroji a z uhlíkových vlákien a k overeniu letovými skúškami. Všetko dokumentujem od začiatku do konca: od špecifikácie cez výpočty a výrobu až po letové skúšky. Od augusta 2026 je projekt pozastavený a budem v ňom pokračovať najbližšie dva roky popri A-levels.',
         stats: [
-          { label: 'Stav', value: 'Fáza výpočtov, letové skúšky na jeseň 2026' },
+          { label: 'Stav', value: 'Pozastavené, pokračujem popri A-levels (2026 až 2028)' },
           { label: 'Metóda návrhu', value: 'Od základných princípov' },
           { label: 'Plánovaná výroba', value: 'CNC hliník a uhlíkové vlákna' },
           { label: 'Odbor', value: 'Letectvo a strojárstvo' },
@@ -302,7 +319,7 @@ export const sk = {
         highlights: [
           'Ešte predtým, než som začal kresliť v CAD programe, som napísal úplnú špecifikáciu výrobku s 15 merateľnými požiadavkami (stabilita vo visení, pomer ťahu k hmotnosti, celková hmotnosť, rezerva voči rezonancii ramien).',
           'Pripravil som sadu výpočtov od základných princípov: hybnostná teória pohonu, rezonancia ramien, predpätie skrutiek, ťažisko a zotrvačnosť, ohyb sendvičových panelov. Každý z nich počas stavby overím meraním.',
-          'Robím prvé porovnávacie štúdie (kedy zadať CNC výrobu, orientácia vrtúľ, priemer rámu oproti veľkosti vrtúľ, materiál svoriek), aby som znížil riziko skôr, než miniem rozpočet.',
+          'Začal som porovnávacie štúdie (kedy zadať CNC výrobu, orientácia vrtúľ, priemer rámu oproti veľkosti vrtúľ, materiál svoriek), aby som znížil riziko skôr, než miniem rozpočet.',
           'Stretol som sa s výskumníkmi z Imperial College London, aby preverili, či je projekt uskutočniteľný, skôr než ho rozšírim.',
         ],
         timeline: [
@@ -310,13 +327,13 @@ export const sk = {
             phase: '01',
             title: 'Koncept a požiadavky',
             description:
-              'Hotovo. Špecifikácia s 15 merateľnými požiadavkami je napísaná, uskutočniteľnosť som prebral s výskumníkmi z Imperial College London a stanovil som rozpočet (približne 700 libier) a časový plán na 10 týždňov.',
+              'Hotovo. Špecifikácia s 15 merateľnými požiadavkami je napísaná, uskutočniteľnosť som prebral s výskumníkmi z Imperial College London a stanovil som rozpočet približne 700 libier.',
           },
           {
             phase: '02',
             title: 'Výpočty a návrh',
             description:
-              'Prebieha. Začínam dimenzovaním pohonu podľa hybnostnej teórie a štúdiou, ktorá spolu rieši priemer rámu a veľkosť vrtúľ (rozhodnutie č. 1).',
+              'Pozastavené. Začal som dimenzovaním pohonu podľa hybnostnej teórie a štúdiou, ktorá spolu rieši priemer rámu a veľkosť vrtúľ (rozhodnutie č. 1). Odtiaľto budem pokračovať popri A-levels.',
           },
           {
             phase: '03',
@@ -333,7 +350,7 @@ export const sk = {
         title: 'Elektrická enduro motorka',
         tagline: 'Stavba vlastnými rukami od nuly',
         summary:
-          'Kompletná stavba elektrickej enduro motorky na 72 V od nuly: batéria na mieru, motor QS205 v náboji kolesa, riadiaca jednotka Fardriver ND72450, ručne krimpované vysokonapäťové káble a tri fázy vylepšovania, od prvého funkčného pokusu až po výkonný pohon.',
+          'Kompletná stavba elektrickej enduro motorky na 72 V od nuly: batéria NBPower 72 V, motor QS205 v náboji kolesa, riadiaca jednotka Fardriver ND72450, ručne krimpované signálne káble a tri fázy vylepšovania, od prvého funkčného pokusu až po výkonný pohon.',
         stats: [
           { label: 'Napätie systému', value: '72 V' },
           { label: 'Motor', value: 'QS Motor QS205 v náboji kolesa' },
@@ -345,33 +362,33 @@ export const sk = {
           'Riadenie BLDC motora',
           'Fardriver ND72450',
           'QS Motor QS205',
-          'Vysokonapäťové káble a krimpovanie',
+          'Vysokonapäťové a signálne káble',
           'Batériové systémy',
         ],
         highlights: [
-          'Navrhol a poskladal som vlastnú 72 V batériu od jednotlivých článkov.',
-          'Spojil som motor QS205 s riadiacou jednotkou Fardriver ND72450, aby mala motorka ťah potrebný do terénu.',
-          'Všetky vysokonapäťové káble som ručne nakrimpoval a zaizoloval na profesionálnej bezpečnostnej úrovni.',
-          'Prešiel som tromi fázami stavby, od prvého funkčného pokusu až po vyladený výkonný pohon.',
+          'Medzi stavbami som skúšal vlastnoručne poskladanú 72 V batériu, potom som ju predal a prešiel na poriadnu batériu NBPower 72 V 30 Ah 100 A.',
+          'Spojil som motor QS205 s riadiacou jednotkou Fardriver ND72450 (do 450 A v špičke), nastavenou na 100 A z batérie a 300 A vo fázach, aby sedela k batérii.',
+          'Ručne som nakrimpoval nízkonapäťové signálne káble vrátane vlastného prepojenia plynu zo Surronu na Fardriver.',
+          'Prešiel som tromi fázami stavby, od prvého funkčného pokusu až po výkonný pohon.',
         ],
         timeline: [
           {
             phase: '01',
             title: 'Fáza 0: overenie, že to pôjde',
             description:
-              'Máj až august 2025. Zohnal som lacný motor do náboja kolesa, obyčajnú 80 A riadiacu jednotku a batériu NBPower 72 V 30 Ah 100 A na mieru. Rám som staval od holého kovu, zavesený na popruhoch zo stropu, každý spoj som ručne spájkoval a motorku som rozbehol na prvú jazdu.',
+              'Máj až august 2025. Zohnal som lacný motor do náboja kolesa, obyčajnú 80 A riadiacu jednotku a batériu NBPower 72 V 30 Ah 100 A. Rám som staval od holého kovu, zavesený na popruhoch zo stropu, každý spoj som ručne spájkoval a motorku som rozbehol na prvú jazdu.',
           },
           {
             phase: '02',
             title: 'Fáza 1: darcovské bicykle a opravy',
             description:
-              'September až december 2025. Kúpil som dva havarované elektrobicykle, aby som ich rozobral na diely a predal, a k tomu pokazený motor a batériu na opravu a ďalší predaj, aby som z toho zaplatil ďalšie vylepšenie. Zohnal som aj použitú riadiacu jednotku Sabvaton, ktorá však prišla nefunkčná.',
+              'September až december 2025. Kúpil som dva havarované elektrobicykle, aby som ich rozobral na diely a predal, a k tomu pokazený motor a batériu na opravu a ďalší predaj, aby som z toho zaplatil ďalšie vylepšenie. Zohnal som aj použitú riadiacu jednotku Sabvaton, ktorá však prišla nefunkčná, a skúšal som vlastnoručne poskladanú batériu, ktorú som potom predal a zostal pri poriadnej továrenskej.',
           },
           {
             phase: '03',
             title: 'Fáza 2: prechod na QS205 a Fardriver',
             description:
-              'Jún 2026. Lacný motor a riadiacu jednotku som vymenil za motor QS Motor QS205 a jednotku Fardriver ND72450 (200 A trvalo, 450 A v špičke). Všetky spoje som zmenil zo spájkovaných na krimpované, nastavil som plyn na novú jednotku a dokončil jej automatickú kalibráciu s motorom.',
+              'Jún 2026. Lacný motor a riadiacu jednotku som vymenil za motor QS Motor QS205 a jednotku Fardriver ND72450 (do 450 A v špičke, nastavenú na 100 A z batérie a 300 A vo fázach, aby sedela k batérii). Nízkonapäťové signálne spoje som zmenil zo spájkovaných na krimpované, nastavil som plyn na novú jednotku a dokončil jej automatickú kalibráciu s motorom.',
           },
         ],
         challenges: [
@@ -379,7 +396,7 @@ export const sk = {
             challenge:
               'Obyčajná 80 A riadiaca jednotka z fázy 0 celú prvú stavbu brzdila batériu NBPower, ktorá zvládne 100 A. Batéria nikdy nebola slabým miestom.',
             solution:
-              'Zistil som, že úzkym hrdlom je riadiaca jednotka, a vo fáze 2 som ju vymenil za Fardriver ND72450 (200 A trvalo, 450 A v špičke). Batéria tak konečne môže ukázať, čo vie.',
+              'Zistil som, že úzkym hrdlom je riadiaca jednotka, a vo fáze 2 som ju vymenil za Fardriver ND72450. Zvládne 450 A v špičke a nastavil som ju na 100 A z batérie a 300 A vo fázach, takže batéria beží naplno, ale nie je preťažená.',
           },
           {
             challenge:
@@ -394,7 +411,7 @@ export const sk = {
           },
         ],
         outcomeText:
-          'Hotová motorka: batéria na mieru, motor v náboji kolesa a riadiaca jednotka sú plne prepojené. Je vyskúšaná na stojane a podľa mojich výpočtov od základných princípov by mala dosiahnuť približne 55 míľ za hodinu (asi 89 km/h) a zrýchliť z 0 na 30 míľ za hodinu (asi 48 km/h) približne za 3,6 sekundy. Je pripravená na prvú jazdu v teréne s meracími prístrojmi.',
+          'Hotová motorka: batéria, motor v náboji kolesa a riadiaca jednotka sú plne prepojené. Je vyskúšaná na stojane a podľa mojich výpočtov od základných princípov by mala dosiahnuť približne 55 míľ za hodinu (asi 89 km/h) a zrýchliť z 0 na 30 míľ za hodinu (asi 48 km/h) približne za 3,6 sekundy. Je pripravená na prvú jazdu v teréne s meracími prístrojmi.',
       },
     } as Record<
       string,

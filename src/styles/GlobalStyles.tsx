@@ -2,8 +2,6 @@ import { Global, css } from '@emotion/react';
 import { theme } from './theme';
 
 const globalStyles = css`
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap');
-
   *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -11,6 +9,7 @@ const globalStyles = css`
   }
 
   html {
+    color-scheme: dark;
     scroll-behavior: smooth;
     font-size: 16px;
     overflow-x: hidden;

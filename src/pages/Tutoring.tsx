@@ -30,10 +30,10 @@ const buildJsonLd = () => ({
         '@type': 'Person',
         name: 'Alfred Leigh',
         url: 'https://alfred-leigh.co.uk/',
-        email: 'alfie@alfred-leigh.co.uk',
+        email: 'alfxzmail@gmail.com',
         homeLocation: { '@type': 'Place', name: 'Epping, Essex' },
       },
-      areaServed: stations.map((s) => ({ '@type': 'Place', name: `${s}, London` })),
+      areaServed: stations.map((s) => ({ '@type': 'Place', name: `${s}, ${s === 'Woodford' ? 'London' : 'Essex'}` })),
     },
     {
       '@type': 'FAQPage',

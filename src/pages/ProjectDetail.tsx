@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { FaGithub, FaExternalLinkAlt, FaCheckCircle } from 'react-icons/fa';
 import { theme } from '../styles/theme';
@@ -339,6 +340,15 @@ const ProjectDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const sk = useSk();
   const base = slug ? getProjectBySlug(slug) : undefined;
+
+  useEffect(() => {
+    if (!base || sk) return;
+    const previous = document.title;
+    document.title = `${base.title} | Alfred Leigh`;
+    return () => {
+      document.title = previous;
+    };
+  }, [base, sk]);
 
   if (!base) {
     return <Navigate to={sk ? '/sk' : '/'} replace />;

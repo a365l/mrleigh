@@ -147,17 +147,17 @@ const milestones: Milestone[] = [
     id: 'first-code',
     age: 'Age 11',
     title: 'First Code',
-    description: 'Completed a CodeAcademy C++ course and earned my first certificate. Python, HTML/CSS, and basic Kotlin followed soon after.',
+    description: 'Completed a Codecademy C++ course and earned my first certificate. Python, HTML/CSS, and basic Kotlin followed soon after.',
     icon: <FaCode aria-hidden="true" />,
   },
   {
     id: 'first-solder',
     age: 'Age 13',
     title: 'First Solder',
-    description: 'Just recently upgraded from a cheap no-name pen to a Weller, and was practising on a scrap piece of PCB, teaching myself the basics one burnt fingertip at a time.',
+    description: 'Had just upgraded from a cheap no-name pen to a basic Weller iron, and was practising on a scrap piece of PCB - teaching myself the basics one burnt fingertip at a time.',
     icon: <FaTools aria-hidden="true" />,
     photos: [
-      { src: firstSolderImg, caption: 'A Weller soldering pen, magnifying glasses, and questionable technique on a scrap PCB.' },
+      { src: firstSolderImg, caption: 'Practising on a scrap PCB: magnifying glasses on, questionable technique.' },
     ],
   },
   {
@@ -184,12 +184,12 @@ const milestones: Milestone[] = [
     id: 'roboscan',
     age: 'Age 14-15',
     title: 'Roboscan',
-    description: 'Built my first proper project: a Sub-GHz, RF, NFC, and IR multi-tool that taught me real network and signal-security practices.',
+    description: 'Built my first proper project: a sub-GHz RF, NFC and IR multi-tool that taught me real network and signal-security practices.',
     icon: <FaBroadcastTower aria-hidden="true" />,
     photos: [
       { src: roboscanPartsImg, caption: 'Got all the parts to build it - Pi Pico, breadboard, LCD, jumper wires.' },
       { src: roboscanDeviceImg, caption: 'Alive on the breadboard: the boot menu running on the LCD.' },
-      { src: roboscanAliveImg, caption: 'Working, and running its boot menu. Family image on desk blurred for privacy reasons.' },
+      { src: roboscanAliveImg, caption: 'Up and running at my desk. Family image on desk blurred for privacy reasons.' },
     ],
   },
   {
@@ -203,7 +203,7 @@ const milestones: Milestone[] = [
     id: 'first-principles',
     age: 'Present',
     title: 'First-Principles Engineering',
-    description: 'Now designing and building a modular quadcopter and a 72V electric enduro motorcycle from first principles - and teaching myself professional practices like PDS documents, trade studies, and failure logs.',
+    description: 'Building a 72V electric enduro motorcycle, with a first-principles modular quadcopter to carry on through sixth form - and teaching myself professional practices like PDS documents, trade studies, and failure logs.',
     icon: <FaDraftingCompass aria-hidden="true" />,
   },
 ];

@@ -72,6 +72,11 @@ const Logo = styled(motion.div)`
   font-family: ${theme.fonts.heading};
   font-size: 1.5rem;
   font-weight: 700;
+
+  a {
+    color: inherit;
+    font-weight: inherit;
+  }
 `;
 
 const BackLink = styled(Link)`
@@ -124,7 +129,7 @@ export const ProjectLayout = ({ children }: ProjectLayoutProps) => {
       <Header role="banner">
         <Nav role="navigation" aria-label="Project navigation">
           <div className="container">
-            <Logo role="heading" aria-level={1}>{sk ? sk.layout.logo : 'Portfolio'}</Logo>
+            <Logo><Link to={sk ? '/sk/' : '/'}>Alfred Leigh</Link></Logo>
             <BackLink to={sk ? '/sk/#projects' : '/#projects'} aria-label={sk ? sk.projectDetail.back : 'Back to all projects'}>
               <FaArrowLeft aria-hidden="true" />
               {sk ? sk.projectDetail.back : 'Back to Projects'}

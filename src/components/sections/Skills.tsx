@@ -185,7 +185,7 @@ const skillCategories = [
       { name: 'System Design', icon: <FaProjectDiagram />, description: 'PDS with 15 quantified requirements, written before touching CAD' },
       { name: 'Debugging', icon: <FaBug />, description: 'Isolating faults across hardware and software' },
       { name: 'Reliability', icon: <FaShieldAlt />, description: 'Vibration, weather exposure, long-term use on real vehicles' },
-      { name: 'Testing', icon: <FaClipboardCheck />, description: 'Every prediction gets a measurement - test-vs-prediction logs' },
+      { name: 'Testing', icon: <FaClipboardCheck />, description: 'Predictions written down before testing, so results have something to be checked against' },
     ],
   },
 ];

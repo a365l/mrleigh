@@ -204,17 +204,17 @@ const Contact = () => {
             >
               {sk
                 ? sk.contact.text
-                : "I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, feel free to reach out!"}
+                : "I'm looking for aerospace placements, work experience and engineering competitions to get involved in. If you have an opportunity, a question about one of my builds, or want to ask about tutoring, email me."}
             </ContactText>
             <ContactEmail 
-              href="mailto:alfie@alfred-leigh.co.uk"
+              href="mailto:alfxzmail@gmail.com"
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              aria-label="Send me an email at alfie@alfred-leigh.co.uk"
+              aria-label="Send me an email at alfxzmail@gmail.com"
             >
               <FaEnvelope aria-hidden="true" />
-              <span>alfie@alfred-leigh.co.uk</span>
+              <span>alfxzmail@gmail.com</span>
             </ContactEmail>
             <SocialLinks 
               variants={itemVariants}

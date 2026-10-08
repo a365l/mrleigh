@@ -100,6 +100,11 @@ const Logo = styled(motion.div)`
   font-family: ${theme.fonts.heading};
   font-size: 1.5rem;
   font-weight: 700;
+
+  a {
+    color: inherit;
+    font-weight: inherit;
+  }
 `;
 
 const NavLinks = styled.div<{ open: boolean }>`
@@ -273,10 +278,8 @@ export const Layout = ({ children, sections }: LayoutProps) => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              role="heading"
-              aria-level={1}
             >
-              {sk ? sk.layout.logo : 'Portfolio'}
+              <a href={home}>Alfred Leigh</a>
             </Logo>
             <MenuButton
               open={menuOpen}
@@ -306,7 +309,7 @@ export const Layout = ({ children, sections }: LayoutProps) => {
       <FloatingNav sections={sections ?? sk?.layout.sections} />
       <Footer role="contentinfo">
         <div className="container">
-          <p>© {new Date().getFullYear()} Alfie Leigh. {sk ? sk.layout.rights : 'All rights reserved.'}</p>
+          <p>© {new Date().getFullYear()} Alfred Leigh. {sk ? sk.layout.rights : 'All rights reserved.'}</p>
           {sk && (
             <p>
               <a href="/" style={{ textDecoration: 'underline' }}>{sk.layout.english}</a>

@@ -2,13 +2,11 @@
 // Edit prices, subjects, FAQ answers and stations here — not in the components.
 
 export const tutoringConfig = {
-  // TODO: paste your Web3Forms access key (web3forms.com — free, unlimited,
-  // emails every enquiry to the address you register). While this is empty the
-  // form falls back to opening the visitor's email client instead.
+  // Web3Forms (web3forms.com) emails each enquiry to the address registered
+  // with this key. If it's emptied, the form falls back to the visitor's mail app.
   web3formsAccessKey: 'f7d45ec1-6d2a-4d65-ae8f-a4cf0a890406',
-  email: 'alfie@alfred-leigh.co.uk',
-  // TODO: the GCSE boards you actually sat, e.g. ['AQA', 'Edexcel'].
-  // Leave empty for a board-agnostic FAQ answer.
+  email: 'alfxzmail@gmail.com',
+  // GCSE boards I sat (varies by subject). Empty gives a board-agnostic FAQ answer.
   examBoards: ['AQA', 'Edexcel', 'OCR'],
   // Set to e.g. 'Two weekly slots left this term' to show an urgency banner
   // above the pricing tiers. Empty string hides it.

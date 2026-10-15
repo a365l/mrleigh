@@ -355,23 +355,57 @@ const MilestoneDescription = styled.p`
   font-size: 0.95rem;
 `;
 
+/**
+ * The photo reveal reads as a real control rather than a quiet text link: it
+ * carries thumbnails of the actual photos behind it, so it is obvious both that
+ * something is there and what it is before anyone clicks.
+ */
 const PhotoToggle = styled.button`
   display: inline-flex;
   align-items: center;
-  gap: ${theme.spacing.xs};
-  margin-top: ${theme.spacing.sm};
+  gap: ${theme.spacing.sm};
+  margin-top: ${theme.spacing.md};
+  padding: 5px 14px 5px 5px;
   color: ${theme.colors.accent};
   font-size: 0.85rem;
   font-weight: 600;
-  border-radius: 20px;
-  padding: 4px 10px;
-  background: ${theme.colors.glass.card};
+  border-radius: 999px;
+  background: rgba(246, 177, 122, 0.1);
+  border: 1px solid rgba(246, 177, 122, 0.45);
+  cursor: pointer;
   transition: all ${theme.transitions.default};
+
+  svg {
+    font-size: 0.7rem;
+    transition: transform ${theme.transitions.default};
+  }
 
   &:hover,
   &[aria-expanded='true'] {
     background: ${theme.colors.gradient.accent};
     color: ${theme.colors.textDark};
+    border-color: transparent;
+  }
+
+  &[aria-expanded='true'] svg {
+    transform: rotate(180deg);
+  }
+`;
+
+const ThumbStack = styled.span`
+  display: inline-flex;
+  flex-shrink: 0;
+`;
+
+const StackThumb = styled.img`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid ${theme.colors.primary};
+
+  &:not(:first-of-type) {
+    margin-left: -12px;
   }
 `;
 
@@ -409,35 +443,34 @@ const fadeSide = (fromLeft: boolean) => ({
 
 const MoreWrapper = styled.div`
   max-width: 900px;
-  margin: ${theme.spacing.xl} auto 0;
-  text-align: center;
+  margin: calc(${theme.spacing.xl} * 1.25) auto 0;
 `;
 
-const MoreToggle = styled.button`
-  display: inline-flex;
-  align-items: center;
-  gap: ${theme.spacing.sm};
+const MoreHeading = styled(motion.h3)`
+  color: ${theme.colors.light};
+  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+  margin-bottom: ${theme.spacing.xs};
+  position: relative;
+  padding-top: ${theme.spacing.lg};
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: ${theme.colors.accent};
+    border-radius: 2px;
+  }
+`;
+
+const MoreIntro = styled(motion.p)`
   color: ${theme.colors.textLight};
-  opacity: 0.8;
-  font-size: 0.9rem;
-  font-weight: 500;
-  padding: ${theme.spacing.sm} ${theme.spacing.lg};
-  border-radius: 30px;
-  background: ${theme.colors.glass.background};
-  transition: all ${theme.transitions.default};
-
-  svg {
-    transition: transform ${theme.transitions.default};
-  }
-
-  &:hover {
-    opacity: 1;
-    background: ${theme.colors.glass.card};
-  }
-
-  &[aria-expanded='true'] svg {
-    transform: rotate(180deg);
-  }
+  opacity: 0.75;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 640px;
 `;
 
 const SideProjectsGrid = styled(motion.div)`
@@ -448,12 +481,17 @@ const SideProjectsGrid = styled(motion.div)`
   text-align: left;
 `;
 
-const SideProjectCard = styled.div`
+const SideProjectCard = styled(motion.div)`
   background: ${theme.colors.glass.background};
   backdrop-filter: blur(8px);
   border-radius: 12px;
   padding: ${theme.spacing.md};
-  opacity: 0.9;
+  transition: transform ${theme.transitions.default}, box-shadow ${theme.transitions.default};
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(246, 177, 122, 0.12);
+  }
 `;
 
 const SideProjectHeader = styled.div`
@@ -503,7 +541,6 @@ const SideProjectThumb = styled.img`
 
 const Journey = () => {
   const [openId, setOpenId] = useState<string | null>(null);
-  const [showMore, setShowMore] = useState(false);
   const sk = useSk();
 
   // Under /sk, lay the Slovak text over the English records (same photos).
@@ -552,7 +589,7 @@ const Journey = () => {
         >
           {sk
             ? sk.journey.intro
-            : "Engineering hasn't been a subject I studied - it's been a hobby I never put down. Here's how it grew from a kid pulling apart an electronics kit into the projects on this page today."}
+            : "Engineering hasn't been a subject I studied - it's been a hobby I never put down. Here's how it grew from a kid pulling apart an electronics kit into the projects on this page today. Where you see thumbnails on a card, click them to open my original photos from the time."}
         </SectionSubtitle>
 
         <TimelineList role="list">
@@ -579,7 +616,19 @@ const Journey = () => {
                         aria-expanded={isOpen}
                         onClick={() => setOpenId(isOpen ? null : milestone.id)}
                       >
-                        {isOpen ? (sk ? sk.journey.hideEvidence : 'Hide evidence') : (sk ? sk.journey.showEvidence : 'Show evidence')}
+                        <ThumbStack aria-hidden="true">
+                          {milestone.photos.slice(0, 3).map((photo) => (
+                            <StackThumb key={photo.src} src={photo.src} alt="" loading="lazy" />
+                          ))}
+                        </ThumbStack>
+                        {isOpen
+                          ? (sk ? sk.journey.hideEvidence : 'Hide photos')
+                          : (sk
+                              ? sk.journey.showEvidence(milestone.photos.length)
+                              : milestone.photos.length === 1
+                                ? 'See the photo'
+                                : `See the ${milestone.photos.length} photos`)}
+                        <FaChevronDown aria-hidden="true" />
                       </PhotoToggle>
                       {isOpen && (
                         <PhotoGallery
@@ -605,40 +654,49 @@ const Journey = () => {
         </TimelineList>
 
         <MoreWrapper>
-          <MoreToggle
-            type="button"
-            aria-expanded={showMore}
-            onClick={() => setShowMore((prev) => !prev)}
+          <MoreHeading
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
           >
-            {showMore
-              ? (sk ? sk.journey.hideMore : 'Hide the smaller side projects')
-              : (sk ? sk.journey.showMore(sideProjects.length) : `A few more side projects (${sideProjects.length})`)}
-            <FaChevronDown aria-hidden="true" />
-          </MoreToggle>
+            {sk ? sk.journey.moreHeading : "Other Things I've Built"}
+          </MoreHeading>
+          <MoreIntro
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+          >
+            {sk
+              ? sk.journey.moreIntro
+              : "Smaller builds that never got their own case study. They are here because the habit matters more than any one of them: if something looked interesting, I took it apart or made one."}
+          </MoreIntro>
 
-          {showMore && (
-            <SideProjectsGrid
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              {localSideProjects.map((project) => (
-                <SideProjectCard key={project.id}>
-                  <SideProjectHeader>
-                    <SideProjectIcon>{project.icon}</SideProjectIcon>
-                    <SideProjectTitle>{project.title}</SideProjectTitle>
-                  </SideProjectHeader>
-                  <SideProjectDescription>{project.description}</SideProjectDescription>
-                  <SideProjectPhotos>
-                    {project.photos.map((photo) => (
-                      <SideProjectThumb key={photo.src} src={photo.src} alt={photo.caption} title={photo.caption} />
-                    ))}
-                  </SideProjectPhotos>
-                </SideProjectCard>
-              ))}
-            </SideProjectsGrid>
-          )}
+          <SideProjectsGrid
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
+          >
+            {localSideProjects.map((project) => (
+              <SideProjectCard
+                key={project.id}
+                variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4 } } }}
+              >
+                <SideProjectHeader>
+                  <SideProjectIcon>{project.icon}</SideProjectIcon>
+                  <SideProjectTitle>{project.title}</SideProjectTitle>
+                </SideProjectHeader>
+                <SideProjectDescription>{project.description}</SideProjectDescription>
+                <SideProjectPhotos>
+                  {project.photos.map((photo) => (
+                    <SideProjectThumb key={photo.src} src={photo.src} alt={photo.caption} title={photo.caption} loading="lazy" />
+                  ))}
+                </SideProjectPhotos>
+              </SideProjectCard>
+            ))}
+          </SideProjectsGrid>
         </MoreWrapper>
       </div>
     </JourneySection>

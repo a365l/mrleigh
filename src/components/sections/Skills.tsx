@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import { theme } from '../../styles/theme';
-import { useSk } from '../../i18n/lang';
 import {
   FaCode,
   FaMicrochip,
@@ -190,15 +189,6 @@ const skillCategories = [
   },
 ];
 const Skills = () => {
-  const sk = useSk();
-  // Under /sk, lay the Slovak text over the English categories (same icons).
-  const localCategories = skillCategories.map((base, i) => {
-    const tr = sk?.skills.categories[i];
-    return tr
-      ? { ...base, title: tr.title, skills: base.skills.map((skill, j) => ({ ...skill, ...tr.skills[j] })) }
-      : base;
-  });
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -230,7 +220,7 @@ const Skills = () => {
         role="heading"
         aria-level={2}
       >
-        {sk ? sk.skills.heading : 'Skills & Expertise'}
+        Skills & Expertise
       </SectionTitle>
       <motion.div
         variants={containerVariants}
@@ -239,7 +229,7 @@ const Skills = () => {
         viewport={{ once: true }}
       >
         <SkillsContainer role="list">
-          {localCategories.map((category, index) => (
+          {skillCategories.map((category, index) => (
             <SkillCategory 
               key={index} 
               variants={itemVariants}

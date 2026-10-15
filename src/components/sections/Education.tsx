@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { theme } from '../../styles/theme';
-import { useSk } from '../../i18n/lang';
 import { FaGraduationCap, FaFlask, FaBookOpen } from 'react-icons/fa';
 
 interface Result {
@@ -233,16 +232,6 @@ const ResultGroup = ({
 );
 
 const Education = () => {
-  const sk = useSk();
-  const localise = (results: Result[]) =>
-    sk
-      ? results.map((result) => ({
-          ...result,
-          subject: sk.education.subjects[result.subject] ?? result.subject,
-          note: result.note && (sk.education.notes[result.note] ?? result.note),
-        }))
-      : results;
-
   return (
     <EducationSection id="education" role="region" aria-label="Education">
       <div className="container">
@@ -254,7 +243,7 @@ const Education = () => {
           role="heading"
           aria-level={2}
         >
-          {sk ? sk.education.heading : 'Education'}
+          Education
         </SectionTitle>
         <SectionSubtitle
           initial={{ opacity: 0 }}
@@ -262,38 +251,37 @@ const Education = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          {sk
-            ? `${sk.education.intro} ${sk.education.gradeNote}`
-            : 'GCSEs sat June 2026 at Debden Park High School - grade 8s in maths, physics, chemistry and computer science, the four subjects the rest of this site is built on.'}
+          GCSEs sat June 2026 at Debden Park High School - grade 8s in maths, physics,
+          chemistry and computer science, the four subjects the rest of this site is built on.
         </SectionSubtitle>
 
         <Inner>
           <StatRow>
             <Stat initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
               <StatValue>{allResults.length}</StatValue>
-              <StatLabel>{sk ? sk.education.statExams : 'GCSEs'}</StatLabel>
+              <StatLabel>GCSEs</StatLabel>
             </Stat>
             <Stat initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
               <StatValue>{gradeEights}</StatValue>
-              <StatLabel>{sk ? sk.education.statEights : 'Grade 8s'}</StatLabel>
+              <StatLabel>Grade 8s</StatLabel>
             </Stat>
             <Stat initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
               <StatValue>
                 {gradeSevenPlus}/{allResults.length}
               </StatValue>
-              <StatLabel>{sk ? sk.education.statSevenPlus : 'Grade 7+'}</StatLabel>
+              <StatLabel>Grade 7+</StatLabel>
             </Stat>
           </StatRow>
 
           <ResultGroup
-            title={sk ? sk.education.stemTitle : 'STEM'}
+            title="STEM"
             icon={<FaFlask aria-hidden="true" />}
-            results={localise(stemResults)}
+            results={stemResults}
           />
           <ResultGroup
-            title={sk ? sk.education.otherTitle : 'Humanities & Other'}
+            title="Humanities & Other"
             icon={<FaBookOpen aria-hidden="true" />}
-            results={localise(otherResults)}
+            results={otherResults}
           />
 
           <Card initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp}>
@@ -301,16 +289,15 @@ const Education = () => {
               <CardIcon>
                 <FaGraduationCap aria-hidden="true" />
               </CardIcon>
-              <CardTitle>{sk ? sk.education.nowTitle : 'Now: A-levels, Year 12 (2026-2028)'}</CardTitle>
+              <CardTitle>Now: A-levels, Year 12 (2026-2028)</CardTitle>
             </CardHeader>
             <NextStep>
-              {sk
-                ? sk.education.nowText
-                : 'Maths, Further Maths, Physics and Computer Science - chosen to line up with an aerospace engineering degree, and to feed straight back into the builds on this page.'}
+              Maths, Further Maths, Physics and Computer Science - chosen to line up with an
+              aerospace engineering degree, and to feed straight back into the builds on this page.
             </NextStep>
           </Card>
 
-          <Footnote>{sk ? sk.education.footnote : 'Grades as issued on my statement of results, 20 August 2026.'}</Footnote>
+          <Footnote>Grades as issued on my statement of results, 20 August 2026.</Footnote>
         </Inner>
       </div>
     </EducationSection>

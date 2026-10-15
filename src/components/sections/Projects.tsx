@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { theme } from '../../styles/theme';
-import { useSk } from '../../i18n/lang';
 import { FaGithub, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
 import droneImg from '../../assets/droneimg.png';
 import ebikeImg from '../../assets/ebikeimg.jpg';
@@ -243,13 +242,6 @@ const projects: Project[] = [
 ];
 
 const Projects = () => {
-  const sk = useSk();
-  // Under /sk, lay the Slovak text over the English cards.
-  const localProjects = projects.map((base) => {
-    const tr = sk?.projects.items[base.slug];
-    return tr ? { ...base, ...tr } : base;
-  });
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -282,7 +274,7 @@ const Projects = () => {
           role="heading"
           aria-level={2}
         >
-          {sk ? sk.projects.heading : 'Featured Projects'}
+          Featured Projects
         </SectionTitle>
         <motion.div
           variants={containerVariants}
@@ -291,7 +283,7 @@ const Projects = () => {
           viewport={{ once: true }}
         >
           <ProjectGrid role="list">
-          {localProjects.map((project) => (
+          {projects.map((project) => (
             <ProjectCard 
               key={project.id} 
               variants={itemVariants}
@@ -317,10 +309,10 @@ const Projects = () => {
                   ))}
                 </TechStack>
                 <CaseStudyLink
-                  to={`${sk ? '/sk' : ''}/projects/${project.slug}`}
+                  to={`/projects/${project.slug}`}
                   aria-label={`View full case study for ${project.title}`}
                 >
-                  {sk ? sk.projects.viewCaseStudy : 'View Case Study'}
+                  View Case Study
                   <FaArrowRight aria-hidden="true" />
                 </CaseStudyLink>
                 {(project.githubUrl || project.liveUrl) && (

@@ -2,9 +2,8 @@ import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { theme } from '../../styles/theme';
-import { useSk } from '../../i18n/lang';
 
-// Slim homepage banner — the tutoring entry point. Deliberately compact so it
+// Slim homepage banner - the tutoring entry point. Deliberately compact so it
 // doesn't dilute the recruiter-facing scroll.
 const Strip = styled.section`
   padding: ${theme.spacing.lg} 0;
@@ -64,7 +63,6 @@ const StripLink = styled(Link)`
 `;
 
 export const TutoringStrip = () => {
-  const sk = useSk();
 
   return (
     <Strip aria-label="Tutoring">
@@ -75,18 +73,12 @@ export const TutoringStrip = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          {sk ? (
-            <p>
-              <strong>{sk.strip.lead}</strong> {sk.strip.text}
-            </p>
-          ) : (
-            <p>
-              <strong>I also tutor.</strong> GCSE Maths, Physics &amp; Computer
-              Science, online or along the eastern Central line. First session
-              free.
-            </p>
-          )}
-          <StripLink to="/tutoring">{sk ? sk.strip.link : 'Tutoring →'}</StripLink>
+          <p>
+            <strong>I also tutor.</strong> GCSE Maths, Physics &amp; Computer
+            Science, online or along the eastern Central line. First session
+            free.
+          </p>
+          <StripLink to="/tutoring">Tutoring →</StripLink>
         </StripCard>
       </div>
     </Strip>

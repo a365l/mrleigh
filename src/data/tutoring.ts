@@ -1,8 +1,8 @@
 // Single source of truth for everything on /tutoring.
-// Edit prices, subjects, FAQ answers and stations here — not in the components.
+// Edit prices, subjects, FAQ answers and stations here - not in the components.
 
 export const tutoringConfig = {
-  // TODO: paste your Web3Forms access key (web3forms.com — free, unlimited,
+  // TODO: paste your Web3Forms access key (web3forms.com - free, unlimited,
   // emails every enquiry to the address you register). While this is empty the
   // form falls back to opening the visitor's email client instead.
   web3formsAccessKey: 'f7d45ec1-6d2a-4d65-ae8f-a4cf0a890406',

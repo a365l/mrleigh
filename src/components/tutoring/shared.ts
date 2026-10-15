@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { theme } from '../../styles/theme';
 
 // Shared building blocks for the /tutoring page. Denser than the homepage
-// sections (padding-based, not min-height: 100vh) — it reads as a landing
+// sections (padding-based, not min-height: 100vh) - it reads as a landing
 // page, not a scroll experience.
 
 export const Section = styled.section`

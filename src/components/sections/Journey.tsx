@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { theme } from '../../styles/theme';
-import { useSk } from '../../i18n/lang';
 import {
   FaDesktop,
   FaCode,
@@ -597,33 +596,6 @@ const SideProjectExternalLink = styled.a`
 
 const Journey = () => {
   const [openId, setOpenId] = useState<string | null>(null);
-  const sk = useSk();
-
-  // Under /sk, lay the Slovak text over the English records (same photos).
-  const localMilestones = milestones.map((base) => {
-    const tr = sk?.journey.milestones[base.id];
-    return tr
-      ? {
-          ...base,
-          age: tr.age,
-          title: tr.title,
-          description: tr.description,
-          photos: base.photos?.map((photo, i) => ({ ...photo, caption: tr.captions[i] ?? photo.caption })),
-        }
-      : base;
-  });
-  const localSideProjects = sideProjects.map((base) => {
-    const tr = sk?.journey.sideProjects[base.id];
-    return tr
-      ? {
-          ...base,
-          title: tr.title,
-          description: tr.description,
-          photos: base.photos.map((photo, i) => ({ ...photo, caption: tr.captions[i] ?? photo.caption })),
-          links: base.links?.map((link, i) => ({ ...link, label: tr.linkLabels?.[i] ?? link.label })),
-        }
-      : base;
-  });
 
   return (
     <JourneySection id="journey" role="region" aria-label="My Journey">
@@ -636,7 +608,7 @@ const Journey = () => {
           role="heading"
           aria-level={2}
         >
-          {sk ? sk.journey.heading : 'My Journey'}
+          My Journey
         </SectionTitle>
         <SectionSubtitle
           initial={{ opacity: 0 }}
@@ -644,13 +616,14 @@ const Journey = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          {sk
-            ? sk.journey.intro
-            : "Engineering hasn't been a subject I studied - it's been a hobby I never put down. Here's how it grew from a kid pulling apart an electronics kit into the projects on this page today. Where you see thumbnails on a card, click them to open my original photos from the time."}
+          Engineering hasn't been a subject I studied - it's been a hobby I never put down.
+          Here's how it grew from a kid pulling apart an electronics kit into the projects on
+          this page today. Where you see thumbnails on a card, click them to open my original
+          photos from the time.
         </SectionSubtitle>
 
         <TimelineList role="list">
-          {localMilestones.map((milestone, index) => {
+          {milestones.map((milestone, index) => {
             const isOpen = openId === milestone.id;
             return (
               <TimelineRow
@@ -679,12 +652,10 @@ const Journey = () => {
                           ))}
                         </ThumbStack>
                         {isOpen
-                          ? (sk ? sk.journey.hideEvidence : 'Hide photos')
-                          : (sk
-                              ? sk.journey.showEvidence(milestone.photos.length)
-                              : milestone.photos.length === 1
-                                ? 'See the photo'
-                                : `See the ${milestone.photos.length} photos`)}
+                          ? 'Hide photos'
+                          : milestone.photos.length === 1
+                            ? 'See the photo'
+                            : `See the ${milestone.photos.length} photos`}
                         <FaChevronDown aria-hidden="true" />
                       </PhotoToggle>
                       {isOpen && (
@@ -717,7 +688,7 @@ const Journey = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
           >
-            {sk ? sk.journey.moreHeading : "Other Things I've Built"}
+            Other Things I've Built
           </MoreHeading>
           <MoreIntro
             initial={{ opacity: 0 }}
@@ -725,9 +696,9 @@ const Journey = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.1 }}
           >
-            {sk
-              ? sk.journey.moreIntro
-              : "Smaller builds that never got their own case study. They are here because the habit matters more than any one of them: if something looked interesting, I took it apart or made one."}
+            Smaller builds that never got their own case study. They are here because the habit
+            matters more than any one of them: if something looked interesting, I took it apart
+            or made one.
           </MoreIntro>
 
           <SideProjectsGrid
@@ -736,7 +707,7 @@ const Journey = () => {
             viewport={{ once: true, amount: 0.15 }}
             variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
           >
-            {localSideProjects.map((project) => (
+            {sideProjects.map((project) => (
               <SideProjectCard
                 key={project.id}
                 variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4 } } }}
@@ -755,7 +726,7 @@ const Journey = () => {
                   <SideProjectLinks>
                     {project.links.map((link) =>
                       link.internal ? (
-                        <SideProjectRouteLink key={link.href} to={`${sk ? '/sk' : ''}${link.href}`}>
+                        <SideProjectRouteLink key={link.href} to={link.href}>
                           {link.label}
                           <FaArrowRight aria-hidden="true" />
                         </SideProjectRouteLink>

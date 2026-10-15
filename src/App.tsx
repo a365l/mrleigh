@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from './components/layout/Layout';
 import { Hero } from './components/sections/Hero';
 import { TutoringStrip } from './components/sections/TutoringStrip';
@@ -7,7 +7,6 @@ import { useScrollToHash } from './hooks/useScrollToHash';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from './styles/theme';
-import { useSk } from './i18n/lang';
 import styled from '@emotion/styled';
 
 // Lazy load non-critical components
@@ -18,7 +17,6 @@ const Education = lazy(() => import('./components/sections/Education'));
 const Contact = lazy(() => import('./components/sections/Contact'));
 const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
 const Tutoring = lazy(() => import('./pages/Tutoring'));
-const SkSite = lazy(() => import('./pages/SkSite'));
 
 // Loading fallback component
 const LoadingFallback = styled.div`
@@ -39,7 +37,6 @@ const LoadingFallback = styled.div`
 const Home = () => {
   // Handles /#section links arriving from other pages (e.g. /tutoring).
   useScrollToHash();
-  const sk = useSk();
 
   return (
   <Layout>
@@ -47,20 +44,20 @@ const Home = () => {
     <Hero />
 
     {/* Wrap non-critical sections in Suspense */}
-    <Suspense fallback={<LoadingFallback>{sk ? sk.layout.loading : 'Loading journey...'}</LoadingFallback>}>
+    <Suspense fallback={<LoadingFallback>Loading journey...</LoadingFallback>}>
       <Journey />
     </Suspense>
-    <Suspense fallback={<LoadingFallback>{sk ? sk.layout.loading : 'Loading projects...'}</LoadingFallback>}>
+    <Suspense fallback={<LoadingFallback>Loading projects...</LoadingFallback>}>
       <Projects />
     </Suspense>
-    <Suspense fallback={<LoadingFallback>{sk ? sk.layout.loading : 'Loading skills...'}</LoadingFallback>}>
+    <Suspense fallback={<LoadingFallback>Loading skills...</LoadingFallback>}>
       <Skills />
     </Suspense>
-    <Suspense fallback={<LoadingFallback>{sk ? sk.layout.loading : 'Loading education...'}</LoadingFallback>}>
+    <Suspense fallback={<LoadingFallback>Loading education...</LoadingFallback>}>
       <Education />
     </Suspense>
     <TutoringStrip />
-    <Suspense fallback={<LoadingFallback>{sk ? sk.layout.loading : 'Loading contact...'}</LoadingFallback>}>
+    <Suspense fallback={<LoadingFallback>Loading contact...</LoadingFallback>}>
       <Contact />
     </Suspense>
   </Layout>
@@ -90,28 +87,9 @@ function App() {
               </Suspense>
             }
           />
-          {/* Unlisted Slovak version: the same pages with Slovak copy. Noindex,
-              and nothing on the English site links to it. */}
-          <Route
-            path="/sk"
-            element={
-              <Suspense fallback={<LoadingFallback>Načítava sa...</LoadingFallback>}>
-                <SkSite>
-                  <Home />
-                </SkSite>
-              </Suspense>
-            }
-          />
-          <Route
-            path="/sk/projects/:slug"
-            element={
-              <Suspense fallback={<LoadingFallback>Načítava sa...</LoadingFallback>}>
-                <SkSite>
-                  <ProjectDetail />
-                </SkSite>
-              </Suspense>
-            }
-          />
+          {/* Anything else, including the retired /sk URLs, goes to the home page
+              rather than rendering a blank screen. */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

@@ -236,7 +236,7 @@ export const BookingForm = () => {
       return;
     }
 
-    // No Web3Forms key yet — fall back to the visitor's email client.
+    // No Web3Forms key yet - fall back to the visitor's email client.
     if (!tutoringConfig.web3formsAccessKey) {
       const body = encodeURIComponent(summaryLines().join('\n'));
       const subject = encodeURIComponent('Tutoring enquiry via alfred-leigh.co.uk');
@@ -323,7 +323,7 @@ export const BookingForm = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {/* Honeypot — hidden from humans, tempting to bots */}
+          {/* Honeypot - hidden from humans, tempting to bots */}
           <input
             type="checkbox"
             name="botcheck"

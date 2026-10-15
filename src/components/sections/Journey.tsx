@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { theme } from '../../styles/theme';
 import { useSk } from '../../i18n/lang';
 import {
@@ -16,9 +17,11 @@ import {
   FaRobot,
   FaGlobe,
   FaChevronDown,
+  FaArrowRight,
+  FaExternalLinkAlt,
   FaLightbulb,
   FaTractor,
-  FaCouch,
+  FaBrain,
   FaGraduationCap,
 } from 'react-icons/fa';
 import firstSparkImg from '../../assets/journey-first-spark.jpg';
@@ -38,8 +41,8 @@ import repair2Img from '../../assets/journey-repair-2.jpg';
 import repair3Img from '../../assets/journey-hardware-repair-3.jpg';
 import cryptoBotImg from '../../assets/journey-crypto-bot.jpg';
 import webAppImg from '../../assets/journey-webapp.jpg';
-import diyAssembly1Img from '../../assets/journey-diy-assembly-1.jpg';
-import diyAssembly2Img from '../../assets/journey-diy-assembly-2.jpg';
+import studyTrackerImg from '../../assets/studytracker.jpg';
+import studyTrackerTopicsImg from '../../assets/studytracker-topics.jpg';
 
 interface EvidencePhoto {
   src: string;
@@ -55,15 +58,38 @@ interface Milestone {
   photos?: EvidencePhoto[];
 }
 
+interface SideProjectLink {
+  label: string;
+  href: string;
+  /** Internal routes use the router; everything else opens in a new tab. */
+  internal?: boolean;
+}
+
 interface SideProject {
   id: string;
   title: string;
   description: string;
   icon: React.ReactNode;
   photos: EvidencePhoto[];
+  links?: SideProjectLink[];
 }
 
 const sideProjects: SideProject[] = [
+  {
+    id: 'study-tracker',
+    title: 'A-Level Study Tracker',
+    description:
+      'A desktop app I specified and directed through AI, then put into daily use. 478 topics across three A-level specs, revision scheduled by spaced repetition, and every one of its 666 revision links verified rather than trusted.',
+    icon: <FaBrain aria-hidden="true" />,
+    photos: [
+      { src: studyTrackerImg, caption: 'The overview, with progress across all three subjects.' },
+      { src: studyTrackerTopicsImg, caption: 'Maths topics, each with its stage, confidence rating and next review.' },
+    ],
+    links: [
+      { label: 'Read the case study', href: '/projects/study-tracker', internal: true },
+      { label: 'Try the demo', href: '/study-tracker-demo/web/index.html' },
+    ],
+  },
   {
     id: 'pc-building',
     title: 'PC Building',
@@ -98,16 +124,6 @@ const sideProjects: SideProject[] = [
     description: 'Built small web apps and sites just to see if I could.',
     icon: <FaGlobe aria-hidden="true" />,
     photos: [{ src: webAppImg, caption: 'A small goal-tracking app I put together.' }],
-  },
-  {
-    id: 'diy-assembly',
-    title: 'DIY Assembly',
-    description: 'Flat-pack furniture and equipment builds, just for the practice reading a manual and getting it right.',
-    icon: <FaCouch aria-hidden="true" />,
-    photos: [
-      { src: diyAssembly1Img, caption: 'Bunk bed frame assembly.' },
-      { src: diyAssembly2Img, caption: 'Putting together an outdoor gym rig.' },
-    ],
   },
 ];
 
@@ -539,6 +555,46 @@ const SideProjectThumb = styled.img`
   border-radius: 8px;
 `;
 
+const SideProjectLinks = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: ${theme.spacing.sm};
+  margin-top: ${theme.spacing.md};
+`;
+
+const sideLinkStyles = `
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(246, 177, 122, 0.1);
+  border: 1px solid rgba(246, 177, 122, 0.45);
+  color: #F6B17A;
+  transition: all 0.3s ease;
+
+  svg {
+    font-size: 0.65rem;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, #F6B17A 0%, #f8c396 100%);
+    color: #2A2D3E;
+    border-color: transparent;
+    transform: translateY(-1px);
+  }
+`;
+
+const SideProjectRouteLink = styled(Link)`
+  ${sideLinkStyles}
+`;
+
+const SideProjectExternalLink = styled.a`
+  ${sideLinkStyles}
+`;
+
 const Journey = () => {
   const [openId, setOpenId] = useState<string | null>(null);
   const sk = useSk();
@@ -564,6 +620,7 @@ const Journey = () => {
           title: tr.title,
           description: tr.description,
           photos: base.photos.map((photo, i) => ({ ...photo, caption: tr.captions[i] ?? photo.caption })),
+          links: base.links?.map((link, i) => ({ ...link, label: tr.linkLabels?.[i] ?? link.label })),
         }
       : base;
   });
@@ -694,6 +751,23 @@ const Journey = () => {
                     <SideProjectThumb key={photo.src} src={photo.src} alt={photo.caption} title={photo.caption} loading="lazy" />
                   ))}
                 </SideProjectPhotos>
+                {project.links && project.links.length > 0 && (
+                  <SideProjectLinks>
+                    {project.links.map((link) =>
+                      link.internal ? (
+                        <SideProjectRouteLink key={link.href} to={`${sk ? '/sk' : ''}${link.href}`}>
+                          {link.label}
+                          <FaArrowRight aria-hidden="true" />
+                        </SideProjectRouteLink>
+                      ) : (
+                        <SideProjectExternalLink key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
+                          {link.label}
+                          <FaExternalLinkAlt aria-hidden="true" />
+                        </SideProjectExternalLink>
+                      ),
+                    )}
+                  </SideProjectLinks>
+                )}
               </SideProjectCard>
             ))}
           </SideProjectsGrid>

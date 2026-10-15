@@ -6,7 +6,6 @@ import { useSk } from '../../i18n/lang';
 import { FaGithub, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
 import droneImg from '../../assets/droneimg.png';
 import ebikeImg from '../../assets/ebikeimg.jpg';
-import studyTrackerImg from '../../assets/studytracker.jpg';
 
 const ProjectsSection = styled.section`
   min-height: 100vh;
@@ -239,15 +238,6 @@ const projects: Project[] = [
     image: ebikeImg,
     techStack: ["High Voltage Electronics", "BLDC Motor Control", "Fardriver ND72450", "QS Motor QS205", "HV Wiring & Crimping", "Battery Systems"],
     githubUrl: "https://github.com/a365l/enduro-emotorcycle-build",
-    liveUrl: "",
-  },
-  {
-    id: 3,
-    slug: "study-tracker",
-    title: "A-Level Study Tracker - Specifying and Directing an AI Build",
-    subtitle: "A desktop app I specified, directed and shipped using AI as the implementation tool, now in daily use. 478 topics across three A-level specifications, revision scheduled by spaced repetition, 666 revision links each HTTP-verified, and all data kept on my own machine.",
-    image: studyTrackerImg,
-    techStack: ["AI-Directed Development", "Python (stdlib only)", "Vanilla JavaScript", "Spaced Repetition", "Local-First Data"],
     liveUrl: "",
   },
 ];

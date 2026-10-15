@@ -497,7 +497,7 @@ const ProjectDetail = () => {
             {project.liveUrl && (
               <CTALinkSecondary href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                 <FaExternalLinkAlt aria-hidden="true" />
-                Live Site
+                {project.liveLabel ?? 'Live Site'}
               </CTALinkSecondary>
             )}
           </CTASection>

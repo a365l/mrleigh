@@ -38,6 +38,8 @@ export interface ProjectDetail {
   /** Omitted for projects that are not public, e.g. ones holding personal data. */
   githubUrl?: string;
   liveUrl?: string;
+  /** Overrides the default "Live Site" wording on the liveUrl button. */
+  liveLabel?: string;
 }
 
 export const projectDetails: ProjectDetail[] = [
@@ -148,7 +150,9 @@ export const projectDetails: ProjectDetail[] = [
       },
     ],
     outcomeImage: studyTrackerTopicsImg,
-    outcomeText: 'The Maths view in daily use, running on generated demo data here rather than my own. Every unit carries its spec reference, its topic count and its review state, so the next hour of revision is chosen by what is actually due rather than by what feels appealing.',
+    outcomeText: 'The Maths view in daily use, running on generated demo data here rather than my own. Every unit carries its spec reference, its topic count and its review state, so the next hour of revision is chosen by what is actually due rather than by what feels appealing. The demo below is this same app, running entirely in your browser.',
+    liveUrl: '/study-tracker-demo/web/index.html',
+    liveLabel: 'Try the live demo',
   },
 ];
 

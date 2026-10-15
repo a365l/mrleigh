@@ -133,6 +133,16 @@ export const sk = {
       },
     } as Record<string, { age: string; title: string; description: string; captions: string[] }>,
     sideProjects: {
+      'study-tracker': {
+        title: 'Sledovanie učenia na maturitu',
+        description:
+          'Program pre počítač, ktorý som zadal a viedol cez umelú inteligenciu, a dnes ho používam každý deň. Sleduje 478 tém z troch maturitných predmetov, plánuje opakovanie v rozostupoch a každý zo svojich 666 odkazov na materiály má overený, nie len prevzatý.',
+        captions: [
+          'Prehľad s pokrokom vo všetkých troch predmetoch.',
+          'Témy z matematiky, každá so svojím stavom, hodnotením a ďalším opakovaním.',
+        ],
+        linkLabels: ['Prečítať si celý projekt', 'Vyskúšať ukážku'],
+      },
       'pc-building': {
         title: 'Stavba počítačov',
         description:
@@ -159,13 +169,7 @@ export const sk = {
         description: 'Vytvoril som malé webové aplikácie a stránky, len aby som zistil, či to dokážem.',
         captions: ['Malá aplikácia na sledovanie cieľov, ktorú som si urobil.'],
       },
-      'diy-assembly': {
-        title: 'Skladanie nábytku a zariadení',
-        description:
-          'Skladanie nábytku a zariadení z krabice, len ako cvičenie v tom, ako si prečítať návod a urobiť to správne.',
-        captions: ['Skladanie poschodovej postele.', 'Skladanie vonkajšej posilňovacej zostavy.'],
-      },
-    } as Record<string, { title: string; description: string; captions: string[] }>,
+    } as Record<string, { title: string; description: string; captions: string[]; linkLabels?: string[] }>,
   },
 
   projects: {
@@ -189,18 +193,6 @@ export const sk = {
           'QS Motor QS205',
           'Vysokonapäťové káble a krimpovanie',
           'Batériové systémy',
-        ],
-      },
-      'study-tracker': {
-        title: 'Sledovanie učenia na maturitu: zadanie a vedenie stavby cez umelú inteligenciu',
-        subtitle:
-          'Program pre počítač, ktorý som zadal, viedol a dokončil s pomocou umelej inteligencie, a dnes ho používam každý deň. Sleduje 478 tém z troch maturitných predmetov, plánuje opakovanie v rozostupoch, obsahuje 666 odkazov na materiály, z ktorých každý je overený, a všetky dáta zostávajú na mojom počítači.',
-        techStack: [
-          'Vedenie umelej inteligencie',
-          'Python (len štandardná knižnica)',
-          'Čistý JavaScript',
-          'Opakovanie v rozostupoch',
-          'Dáta len na vlastnom počítači',
         ],
       },
     } as Record<string, { title: string; subtitle: string; techStack: string[] }>,

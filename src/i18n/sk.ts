@@ -48,11 +48,12 @@ export const sk = {
   journey: {
     heading: 'Moja cesta',
     intro:
-      'Inžinierstvo pre mňa nikdy nebolo len predmetom v škole. Je to záľuba, ktorú som nikdy neodložil. Takto to rástlo, od malého chlapca, ktorý rozoberal elektronickú stavebnicu, až po projekty, ktoré sú dnes na tejto stránke.',
-    showEvidence: 'Ukázať fotky',
+      'Inžinierstvo pre mňa nikdy nebolo len predmetom v škole. Je to záľuba, ktorú som nikdy neodložil. Takto to rástlo, od malého chlapca, ktorý rozoberal elektronickú stavebnicu, až po projekty, ktoré sú dnes na tejto stránke. Keď na karte uvidíš malé obrázky, klikni na ne a otvoria sa moje pôvodné fotky z tých čias.',
+    showEvidence: (count: number) => (count === 1 ? 'Pozrieť fotku' : count < 5 ? `Pozrieť ${count} fotky` : `Pozrieť ${count} fotiek`),
     hideEvidence: 'Skryť fotky',
-    showMore: (count: number) => `Ešte pár menších projektov (${count})`,
-    hideMore: 'Skryť menšie projekty',
+    moreHeading: 'Čo som ešte postavil',
+    moreIntro:
+      'Menšie projekty, ktoré nemajú vlastnú stránku. Sú tu preto, lebo dôležitejší než ktorýkoľvek z nich je ten zvyk: keď ma niečo zaujalo, rozobral som to alebo som si to vyrobil.',
     milestones: {
       'first-spark': {
         age: '5 rokov',
@@ -188,6 +189,18 @@ export const sk = {
           'QS Motor QS205',
           'Vysokonapäťové káble a krimpovanie',
           'Batériové systémy',
+        ],
+      },
+      'study-tracker': {
+        title: 'Sledovanie učenia na maturitu: zadanie a vedenie stavby cez umelú inteligenciu',
+        subtitle:
+          'Program pre počítač, ktorý som zadal, viedol a dokončil s pomocou umelej inteligencie, a dnes ho používam každý deň. Sleduje 478 tém z troch maturitných predmetov, plánuje opakovanie v rozostupoch, obsahuje 666 odkazov na materiály, z ktorých každý je overený, a všetky dáta zostávajú na mojom počítači.',
+        techStack: [
+          'Vedenie umelej inteligencie',
+          'Python (len štandardná knižnica)',
+          'Čistý JavaScript',
+          'Opakovanie v rozostupoch',
+          'Dáta len na vlastnom počítači',
         ],
       },
     } as Record<string, { title: string; subtitle: string; techStack: string[] }>,

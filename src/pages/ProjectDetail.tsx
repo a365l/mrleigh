@@ -488,10 +488,12 @@ const ProjectDetail = () => {
       <Section>
         <div className="container">
           <CTASection initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-            <CTALink href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-              <FaGithub aria-hidden="true" />
-              {sk ? sk.projectDetail.github : 'View Source on GitHub'}
-            </CTALink>
+            {project.githubUrl && (
+              <CTALink href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                <FaGithub aria-hidden="true" />
+                {sk ? sk.projectDetail.github : 'View Source on GitHub'}
+              </CTALink>
+            )}
             {project.liveUrl && (
               <CTALinkSecondary href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                 <FaExternalLinkAlt aria-hidden="true" />

@@ -50,9 +50,20 @@ if (!html.includes('noindex, nofollow')) {
   throw new Error('postbuild-sk: refusing to write /sk without a noindex tag');
 }
 
-// The Slovak home page plus one copy per project page (keep in step with the
-// slugs in src/data/projectDetails.ts).
-const pages = ['sk', 'sk/projects/quadcopter', 'sk/projects/enduro-motorcycle'];
+// The Slovak home page plus one copy per project page. The slugs are read
+// straight out of projectDetails.ts rather than listed here, so adding a
+// project cannot silently leave its /sk page falling back to 404.html.
+const projectSource = readFileSync(
+  resolve(process.cwd(), 'src/data/projectDetails.ts'),
+  'utf8',
+);
+const slugs = [...projectSource.matchAll(/^\s*slug:\s*'([a-z0-9-]+)',/gm)].map((m) => m[1]);
+
+if (!slugs.length) {
+  throw new Error('postbuild-sk: found no project slugs in src/data/projectDetails.ts');
+}
+
+const pages = ['sk', ...slugs.map((slug) => `sk/projects/${slug}`)];
 
 for (const page of pages) {
   mkdirSync(resolve(dist, page), { recursive: true });

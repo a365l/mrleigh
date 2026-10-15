@@ -1,6 +1,8 @@
 import droneImg from '../assets/droneimg.png';
 import ebikeImg from '../assets/ebikeimg.jpg';
 import enduroFinalImg from '../assets/enduro-final.jpg';
+import studyTrackerImg from '../assets/studytracker.jpg';
+import studyTrackerTopicsImg from '../assets/studytracker-topics.jpg';
 import { quadcopterEngineeringLog, type LogEntry } from './engineeringLog';
 
 export interface StatItem {
@@ -33,7 +35,8 @@ export interface ProjectDetail {
   challenges: ChallengeItem[];
   outcomeImage?: string;
   outcomeText?: string;
-  githubUrl: string;
+  /** Omitted for projects that are not public, e.g. ones holding personal data. */
+  githubUrl?: string;
   liveUrl?: string;
 }
 
@@ -103,6 +106,51 @@ export const projectDetails: ProjectDetail[] = [
     outcomeText: 'The finished build: custom battery, hub motor, and controller fully integrated - bench-tested with predictions of ~55 mph and ~3.6 s 0-30 derived from first principles, ready for the first instrumented trail ride.',
     githubUrl: 'https://github.com/a365l/enduro-emotorcycle-build',
   },
+  {
+    slug: 'study-tracker',
+    title: 'A-Level Study Tracker',
+    tagline: 'Specifying and Directing an AI Build',
+    heroImage: studyTrackerImg,
+    summary:
+      'A desktop application I specified, directed and shipped using AI as the implementation tool, then put into daily use. It tracks every topic in my Maths, Further Maths and Physics A-levels against the real exam specifications, schedules revision by spaced repetition, and keeps all of its data on my own machine. The engineering interest here is not the code volume, it is the decisions: what to build, what to refuse to build, and how to verify that what came back was actually correct.',
+    stats: [
+      { label: 'Status', value: 'In daily use since Sept 2026' },
+      { label: 'Scope', value: '478 topics, 101 units, 3 specs' },
+      { label: 'Revision Links', value: '666, every one HTTP-verified' },
+      { label: 'Dependencies', value: 'Zero, Python standard library' },
+    ],
+    techStack: ['AI-Directed Development', 'Python (stdlib only)', 'Vanilla JavaScript', 'Spaced Repetition', 'Local-First Data', 'Canvas & SVG Visualisation'],
+    highlights: [
+      'Scoped the whole thing against the real specifications: 478 topics across 101 units, mapped to Edexcel 9MA0 Maths, Edexcel 9FM0 Further Maths and OCR H556 Physics, so progress is tracked against what is actually examined rather than against textbook chapters',
+      'Treated AI as an implementation tool, not an oracle: I wrote the specification, chose the architecture and data model, reviewed every design decision, and corrected the output where it was wrong or over-engineered',
+      'Refused to trust generated data: the 666 revision links are HTTP-checked at build time and anything not answering 200 or 206 is dropped, because a revision tool that sends you to dead pages is worse than no tool',
+      'Wrote up a full hosted two-way sync design (Cloudflare Workers, D1, PWA, tombstones for deletions) and then deliberately did not build it, listing three cheaper options that solve most of the problem first',
+    ],
+    timeline: [
+      { phase: '01', title: 'Problem & Specification', description: 'Sept 2026. Started from a real problem: hundreds of A-level topics and no reliable sense of which ones had actually gone in. Wrote the requirements before any code, including the non-negotiables, that it must work offline, hold its data locally, and never need an account.' },
+      { phase: '02', title: 'Curriculum Modelling', description: 'Built the data model around courses, units and topics keyed by stable slugs, so renaming a topic does not silently wipe its progress. Encoded all three A-level specifications as JSON, 478 topics in total.' },
+      { phase: '03', title: 'AI-Directed Implementation', description: 'Drove the build through AI, reviewing output rather than accepting it. Around 3,400 lines of Python and JavaScript, with a hard constraint of Python standard library only, so there is nothing to install and nothing to break on a reinstall.' },
+      { phase: '04', title: 'Verification & Hardening', description: 'HTTP-checked every revision link, added a trash with undo and restore, 30 rolling daily backups, and a pointer file that moves the data folder to OneDrive. Local-only server on 127.0.0.1 behind a per-session secret token.' },
+      { phase: '05', title: 'Daily Use & Restraint', description: 'Oct 2026 onward. In use every study day. Hosted phone sync is designed and documented but deliberately unbuilt, because three simpler options cover most of the need at no cost.' },
+    ],
+    challenges: [
+      {
+        challenge: 'AI will happily generate a plausible-looking list of revision links, and a large share of them are dead, redirected or point at the wrong topic. Shipping those would have made the tool actively harmful, sending me to broken pages mid-revision.',
+        solution: 'Built the resource list as a verified artefact instead of generated text. A build script parses the real Maths Genie and Physics & Maths Tutor pages, HTTP-checks every candidate link concurrently, and drops anything that does not answer 200 or 206. The 666 links that survived are the ones that actually resolve.',
+      },
+      {
+        challenge: 'The first instinct was a hosted web app with accounts and a database, which is what you reach for by default and what AI suggests readily. For a single user who studies at one desk, that is a large amount of infrastructure, cost and failure surface for very little gain.',
+        solution: 'Chose a local-only architecture: a Python standard library server bound to 127.0.0.1 on a fixed port with a per-session secret token, opened in an Edge app window so it behaves like a native app. No account, no hosting bill, no outage. The sync design is written up in full for when the need is real.',
+      },
+      {
+        challenge: 'Tracking "done" as a single checkbox is useless for revision, because having been taught something and being able to answer an unseen exam question on it cold are completely different states.',
+        solution: 'Separated progress from confidence. A five-stage pipeline records how far a topic has been worked (Taught, Notes, Practised, Confident), while a red/amber/green rating drives when it comes back for review, at 2, 7 and 21 days. Rating a topic also starts a study session automatically, so the log fills itself in.',
+      },
+    ],
+    outcomeImage: studyTrackerTopicsImg,
+    outcomeText: 'The Maths view in daily use, running on generated demo data here rather than my own. Every unit carries its spec reference, its topic count and its review state, so the next hour of revision is chosen by what is actually due rather than by what feels appealing.',
+  },
 ];
 
 export const getProjectBySlug = (slug: string) => projectDetails.find((p) => p.slug === slug);
+

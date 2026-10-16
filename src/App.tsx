@@ -14,6 +14,7 @@ const Journey = lazy(() => import('./components/sections/Journey'));
 const Projects = lazy(() => import('./components/sections/Projects'));
 const Skills = lazy(() => import('./components/sections/Skills'));
 const Education = lazy(() => import('./components/sections/Education'));
+const Work = lazy(() => import('./components/sections/Work'));
 const Contact = lazy(() => import('./components/sections/Contact'));
 const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
 const Tutoring = lazy(() => import('./pages/Tutoring'));
@@ -55,6 +56,9 @@ const Home = () => {
     </Suspense>
     <Suspense fallback={<LoadingFallback>Loading education...</LoadingFallback>}>
       <Education />
+    </Suspense>
+    <Suspense fallback={null}>
+      <Work />
     </Suspense>
     <TutoringStrip />
     <Suspense fallback={<LoadingFallback>Loading contact...</LoadingFallback>}>

@@ -182,7 +182,7 @@ export const FloatingNav = ({ sections = defaultSections }: FloatingNavProps) =>
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [sections]);
 
   const handleKeyDown = (e: React.KeyboardEvent, sectionId: string) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -202,14 +202,7 @@ export const FloatingNav = ({ sections = defaultSections }: FloatingNavProps) =>
 
   return (
     <>
-      <ProgressBar 
-        style={{ scaleX }} 
-        role="progressbar" 
-        aria-label="Reading progress"
-        aria-valuemin={0}
-        aria-valuemax={100}
-        aria-valuenow={Math.round(scrollYProgress.get() * 100)}
-      />
+      <ProgressBar style={{ scaleX }} aria-hidden="true" />
       <div 
         id="section-announcer" 
         className="sr-only" 

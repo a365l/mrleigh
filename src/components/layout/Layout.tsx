@@ -99,6 +99,11 @@ const Logo = styled(motion.div)`
   font-family: ${theme.fonts.heading};
   font-size: 1.5rem;
   font-weight: 700;
+
+  a {
+    color: inherit;
+    font-weight: inherit;
+  }
 `;
 
 const NavLinks = styled.div<{ open: boolean }>`
@@ -269,10 +274,8 @@ export const Layout = ({ children, sections }: LayoutProps) => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              role="heading"
-              aria-level={1}
             >
-              Portfolio
+              <a href="/">Alfred Leigh</a>
             </Logo>
             <MenuButton
               open={menuOpen}
@@ -302,7 +305,7 @@ export const Layout = ({ children, sections }: LayoutProps) => {
       <FloatingNav sections={sections} />
       <Footer role="contentinfo">
         <div className="container">
-          <p>© {new Date().getFullYear()} Alfie Leigh. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Alfred Leigh. All rights reserved.</p>
         </div>
       </Footer>
     </LayoutWrapper>

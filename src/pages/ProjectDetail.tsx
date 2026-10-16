@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { FaGithub, FaExternalLinkAlt, FaCheckCircle } from 'react-icons/fa';
 import { theme } from '../styles/theme';
@@ -337,6 +338,15 @@ const CTALinkSecondary = styled(CTALink)`
 const ProjectDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const project = slug ? getProjectBySlug(slug) : undefined;
+
+  useEffect(() => {
+    if (!project) return;
+    const previous = document.title;
+    document.title = `${project.title} | Alfred Leigh`;
+    return () => {
+      document.title = previous;
+    };
+  }, [project]);
 
   if (!project) {
     return <Navigate to="/" replace />;

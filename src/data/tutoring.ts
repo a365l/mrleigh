@@ -112,7 +112,7 @@ const boardsAnswer = tutoringConfig.examBoards.length
 export const faqs: Faq[] = [
   {
     q: 'Who does the teaching?',
-    a: 'Me. I am Alfred, a Year 12 taking Maths, Further Maths, Physics and Computer Science at sixth form in Debden. Not an agency, no middleman: the person you enquire with is the person who turns up.',
+    a: 'Me. I am Alfred, a Year 12 taking Maths, Further Maths and Physics at sixth form in Debden. Not an agency, no middleman: the person you enquire with is the person who turns up.',
   },
   {
     q: 'What happens in the free first session?',

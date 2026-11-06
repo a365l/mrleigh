@@ -292,7 +292,7 @@ const Education = () => {
               <CardTitle>Now: A-levels, Year 12 (2026-2028)</CardTitle>
             </CardHeader>
             <NextStep>
-              Maths, Further Maths, Physics and Computer Science - chosen to line up with an
+              Maths, Further Maths and Physics - chosen to line up with an
               aerospace engineering degree, and to feed straight back into the builds on this page.
             </NextStep>
           </Card>

@@ -211,7 +211,7 @@ const milestones: Milestone[] = [
     id: 'gcse-results',
     age: 'Age 16',
     title: 'GCSE Results',
-    description: 'Nine GCSEs, eight of them grade 7 or above - including grade 8s in Maths, Physics, Chemistry and Computer Science. Enough to take Maths, Further Maths, Physics and Computer Science at A-level.',
+    description: 'Nine GCSEs, eight of them grade 7 or above - including grade 8s in Maths, Physics, Chemistry and Computer Science. Enough to take Maths, Further Maths and Physics at A-level.',
     icon: <FaGraduationCap aria-hidden="true" />,
   },
   {

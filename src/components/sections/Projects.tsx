@@ -5,6 +5,7 @@ import { theme } from '../../styles/theme';
 import { FaGithub, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
 import droneImg from '../../assets/droneimg.png';
 import ebikeImg from '../../assets/ebikeimg.jpg';
+import epqPlaceholder from '../../assets/epq-placeholder.svg';
 import OtherProjects from './OtherProjects';
 
 const ProjectsSection = styled.section`
@@ -77,7 +78,7 @@ const ProjectCard = styled(motion.div)`
 const ProjectImage = styled.div<{ imageUrl: string }>`
   width: 100%;
   height: 180px;
-  background-image: url(${props => props.imageUrl});
+  background-image: url("${props => props.imageUrl}");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -245,7 +246,7 @@ const projects: Project[] = [
     slug: "epq",
     title: "EPQ: Propulsion Model Validation",
     subtitle: "Started October 2026, planning complete and the build starting. My Level 3 EPQ asks how accurately a first-principles model predicts quadcopter propulsion when fed manufacturer data versus data I measure myself on a thrust stand. Python simulation plus a written report, validated against the UIUC propeller database.",
-    image: droneImg,
+    image: epqPlaceholder,
     techStack: ["Momentum Theory", "Blade Element Momentum Theory", "Python", "Experimental Validation"],
     githubUrl: "https://github.com/a365l/epq-propulsion-model",
     liveUrl: "",

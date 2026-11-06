@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-label="Placeholder pattern">
+  <defs>
+    <!-- Uniform across the whole canvas, so any crop looks the same -->
+    <pattern id="fine" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#F6B17A" stroke-width="1" stroke-opacity="0.14"/>
+    </pattern>
+    <pattern id="coarse" width="192" height="192" patternUnits="userSpaceOnUse">
+      <path d="M192 0H0V192" fill="none" stroke="#F6B17A" stroke-width="1.5" stroke-opacity="0.26"/>
+      <circle cx="0" cy="0" r="3" fill="#F6B17A" fill-opacity="0.38"/>
+      <path d="M96 86V106M86 96H106" stroke="#F6B17A" stroke-width="1.25" stroke-opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="1200" fill="#2A2D3E"/>
+  <rect width="1200" height="1200" fill="url(#fine)"/>
+  <rect width="1200" height="1200" fill="url(#coarse)"/>
+</svg>

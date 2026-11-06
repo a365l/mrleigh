@@ -3,6 +3,7 @@ import ebikeImg from '../assets/ebikeimg.jpg';
 import enduroFinalImg from '../assets/enduro-final.jpg';
 import studyTrackerImg from '../assets/studytracker.jpg';
 import studyTrackerTopicsImg from '../assets/studytracker-topics.jpg';
+import epqPlaceholder from '../assets/epq-placeholder.svg';
 import { quadcopterEngineeringLog, type LogEntry } from './engineeringLog';
 
 export interface StatItem {
@@ -159,7 +160,7 @@ export const projectDetails: ProjectDetail[] = [
     slug: 'epq',
     title: 'EPQ: Propulsion Model Validation',
     tagline: 'Predicting Thrust From First Principles, Then Measuring It',
-    heroImage: droneImg,
+    heroImage: epqPlaceholder,
     summary:
       'My Level 3 Extended Project Qualification, started October 2026, asking how accurately a first-principles model can predict quadcopter propulsion performance when fed manufacturer data versus data I measure myself. The deliverable is a Python simulation plus a written report. Manufacturers publish thrust and current figures measured on their own bench, and builders size whole aircraft around them, so the question is how far those numbers can be trusted and which modelling assumption breaks first.',
     stats: [

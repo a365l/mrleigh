@@ -41,7 +41,7 @@ const HeroSection = styled.section`
 const HeroImage = styled.div<{ imageUrl: string }>`
   position: absolute;
   inset: 0;
-  background-image: url(${(props) => props.imageUrl});
+  background-image: url("${(props) => props.imageUrl}");
   background-size: cover;
   background-position: center;
 `;

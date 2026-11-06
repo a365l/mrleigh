@@ -5,6 +5,7 @@ import { theme } from '../../styles/theme';
 import { FaGithub, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
 import droneImg from '../../assets/droneimg.png';
 import ebikeImg from '../../assets/ebikeimg.jpg';
+import OtherProjects from './OtherProjects';
 
 const ProjectsSection = styled.section`
   min-height: 100vh;
@@ -346,6 +347,8 @@ const Projects = () => {
           ))}
           </ProjectGrid>
         </motion.div>
+
+        <OtherProjects />
       </div>
     </ProjectsSection>
   );

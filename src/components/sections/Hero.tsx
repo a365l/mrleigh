@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { theme } from '../../styles/theme';
 import { keyframes } from '@emotion/react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaFileDownload } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaFileDownload, FaArrowRight } from 'react-icons/fa';
 
 const HeroSection = styled.section`
   min-height: calc(100vh - 4.5rem);
@@ -82,23 +82,50 @@ const MetaLine = styled.p`
   margin-bottom: ${theme.spacing.md};
 `;
 
-const CVButton = styled.a`
-  animation: ${fadeUpKeyframes} 0.5s ease-out 0.5s forwards;
+const CTARow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: ${theme.spacing.md};
+  margin-bottom: ${theme.spacing.lg};
+`;
+
+const ProjectsButton = styled.a`
+  animation: ${fadeUpKeyframes} 0.5s ease-out 0.45s forwards;
   opacity: 0;
   display: inline-flex;
   align-items: center;
   gap: ${theme.spacing.sm};
   background: ${theme.colors.gradient.accent};
   color: ${theme.colors.textDark};
-  font-weight: 600;
+  font-weight: 700;
   padding: ${theme.spacing.sm} ${theme.spacing.lg};
   border-radius: 50px;
-  margin-bottom: ${theme.spacing.lg};
   transition: all ${theme.transitions.default};
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(246, 177, 122, 0.3);
+    box-shadow: 0 8px 20px rgba(246, 177, 122, 0.35);
+  }
+`;
+
+const CVButton = styled.a`
+  animation: ${fadeUpKeyframes} 0.5s ease-out 0.5s forwards;
+  opacity: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: ${theme.spacing.sm};
+  background: transparent;
+  border: 1px solid rgba(246, 177, 122, 0.5);
+  color: ${theme.colors.accent};
+  font-weight: 600;
+  padding: ${theme.spacing.sm} ${theme.spacing.lg};
+  border-radius: 50px;
+  transition: all ${theme.transitions.default};
+
+  &:hover {
+    transform: translateY(-2px);
+    background: ${theme.colors.glass.card};
   }
 `;
 
@@ -165,10 +192,16 @@ export const Hero = () => {
             <Description role="paragraph">
              I design and build real hardware from first principles - currently a from-scratch quadcopter and a 72V electric enduro motorcycle. Solving hard problems with clean, reliable systems that perform in the real world is what keeps me engaged.
             </Description>
-            <CVButton href="/Alfred-Leigh-CV.pdf" download aria-label="Download my CV as a PDF">
+            <CTARow>
+              <ProjectsButton href="/#projects" aria-label="Jump to my featured projects">
+                <FaArrowRight aria-hidden="true" />
+                See the projects
+              </ProjectsButton>
+              <CVButton href="/Alfred-Leigh-CV.pdf" download aria-label="Download my CV as a PDF">
                 <FaFileDownload aria-hidden="true" />
-              Download CV
-            </CVButton>
+                Download CV
+              </CVButton>
+            </CTARow>
             <SocialLinks role="list" aria-label="Social media links">
               <a 
                 href="https://github.com/a365l" 

@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import { FaGithub, FaExternalLinkAlt, FaCheckCircle } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaCheckCircle, FaArrowDown } from 'react-icons/fa';
 import { theme } from '../styles/theme';
 import { ProjectLayout } from '../components/layout/ProjectLayout';
 import EngineeringLog from '../components/sections/EngineeringLog';
@@ -79,6 +79,29 @@ const Title = styled(motion.h1)`
   font-size: clamp(2.25rem, 5vw, 3.75rem);
   color: ${theme.colors.light};
   line-height: 1.1;
+`;
+
+const OutcomeJump = styled(motion.a)`
+  display: inline-flex;
+  align-items: center;
+  gap: ${theme.spacing.sm};
+  margin-top: ${theme.spacing.md};
+  padding: ${theme.spacing.sm} ${theme.spacing.lg};
+  border-radius: 50px;
+  background: ${theme.colors.gradient.accent};
+  color: ${theme.colors.textDark};
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all ${theme.transitions.default};
+
+  svg {
+    font-size: 0.75rem;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(246, 177, 122, 0.3);
+  }
 `;
 
 const Section = styled.section`
@@ -365,6 +388,21 @@ const ProjectDetail = () => {
               <Title initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}>
                 {project.title}
               </Title>
+              {project.outcomeImage && (
+                <OutcomeJump
+                  href="#outcome"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('outcome')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.25 }}
+                >
+                  <FaArrowDown aria-hidden="true" />
+                  See the outcome
+                </OutcomeJump>
+              )}
             </HeroCard>
           </HeroContent>
         </div>
@@ -460,7 +498,7 @@ const ProjectDetail = () => {
       )}
 
       {project.outcomeImage && (
-        <Section>
+        <Section id="outcome" style={{ scrollMarginTop: '90px' }}>
           <div className="container">
             <SectionTitle initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               The Outcome

@@ -294,6 +294,8 @@ const Education = () => {
             <NextStep>
               Maths, Further Maths and Physics - chosen to line up with an
               aerospace engineering degree, and to feed straight back into the builds on this page.
+              Alongside them I am taking a Level 3 Extended Project Qualification on quadcopter
+              propulsion modelling, started October 2026.
             </NextStep>
           </Card>
 

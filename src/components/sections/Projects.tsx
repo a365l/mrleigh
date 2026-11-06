@@ -240,6 +240,16 @@ const projects: Project[] = [
     githubUrl: "https://github.com/a365l/enduro-emotorcycle-build",
     liveUrl: "",
   },
+  {
+    id: 3,
+    slug: "epq",
+    title: "EPQ: Propulsion Model Validation",
+    subtitle: "Started October 2026, planning complete and the build starting. My Level 3 EPQ asks how accurately a first-principles model predicts quadcopter propulsion when fed manufacturer data versus data I measure myself on a thrust stand. Python simulation plus a written report, validated against the UIUC propeller database.",
+    image: droneImg,
+    techStack: ["Momentum Theory", "Blade Element Momentum Theory", "Python", "Experimental Validation"],
+    githubUrl: "https://github.com/a365l/epq-propulsion-model",
+    liveUrl: "",
+  },
 ];
 
 const Projects = () => {

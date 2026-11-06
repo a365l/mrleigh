@@ -24,6 +24,11 @@ const pages = [
     title: 'A-Level Study Tracker - Specifying and Directing an AI Build | Alfred Leigh',
     desc: 'A desktop app specified and directed through AI, then used daily: 478 topics across three A-level specs, spaced-repetition reviews, 666 HTTP-verified revision links, and local-only data.',
   },
+  {
+    slug: 'epq',
+    title: 'EPQ: Quadcopter Propulsion Model Validation | Alfred Leigh',
+    desc: 'A Level 3 Extended Project Qualification asking how accurately first-principles modelling predicts quadcopter propulsion performance from manufacturer versus measured component data. Python simulation and thrust stand validation.',
+  },
 ];
 
 for (const { slug, title, desc } of pages) {

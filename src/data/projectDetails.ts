@@ -155,6 +155,49 @@ export const projectDetails: ProjectDetail[] = [
     liveUrl: '/study-tracker-demo/web/index.html',
     liveLabel: 'Try the live demo',
   },
+  {
+    slug: 'epq',
+    title: 'EPQ: Propulsion Model Validation',
+    tagline: 'Predicting Thrust From First Principles, Then Measuring It',
+    heroImage: droneImg,
+    summary:
+      'My Level 3 Extended Project Qualification, started October 2026, asking how accurately a first-principles model can predict quadcopter propulsion performance when fed manufacturer data versus data I measure myself. The deliverable is a Python simulation plus a written report. Manufacturers publish thrust and current figures measured on their own bench, and builders size whole aircraft around them, so the question is how far those numbers can be trusted and which modelling assumption breaks first.',
+    stats: [
+      { label: 'Status', value: 'Planning complete, build starting' },
+      { label: 'Qualification', value: 'Level 3 EPQ, Pearson Edexcel' },
+      { label: 'Deliverable', value: 'Python simulation + written report' },
+      { label: 'Validation', value: 'UIUC database + own thrust stand' },
+    ],
+    techStack: ['Momentum Theory', 'Blade Element Momentum Theory', 'Python', 'NumPy & SciPy', 'Experimental Validation', 'Data Analysis'],
+    highlights: [
+      'Framed around a question with a genuinely uncertain answer rather than a foregone conclusion: the useful result is not whether the model works, but where prediction and measurement diverge, by how much, and which assumption is responsible',
+      'Split into three levels of increasing rigour so the project degrades safely. Level 1 is complete and submittable on its own, and everything above it adds depth rather than becoming a dependency if I fall behind schedule',
+      'Propeller selection is constrained by the UIUC propeller database: a propeller only goes on the thrust stand if published data already exists for it, because otherwise there is nothing independent to validate the measurements against',
+      'Deliberately scoped so it does not depend on my personal quadcopter build. The two share a subject area and nothing else, so no work is counted twice and each stands on its own',
+    ],
+    timeline: [
+      { phase: '01', title: 'Origin', description: 'June 2026. A visit to the drone engineering lab at Imperial College London, where a researcher advised starting smaller than a full aircraft and building a thrust stand first, to get hands on Reynolds numbers and blade element theory. That advice is what the project is now built around.' },
+      { phase: '02', title: 'Scoping', description: 'October 2026. Chose the question, then narrowed it to propulsion simulation and thrust stand measurement specifically, so the EPQ does not lean on my personal build. Settled the format as an artifact plus a written report.' },
+      { phase: '03', title: 'Level 1 - Momentum Theory', description: 'The simplest defensible first-principles model: the rotor as an actuator disk adding momentum to the air, with no account of blade geometry, profile drag or tip losses. Establishes the baseline that everything else is measured against.' },
+      { phase: '04', title: 'Level 2 - Resolving the Propeller', description: '2A interpolates the UIUC database for a specific propeller and cross-checks it against my own thrust stand runs. 2B goes further with Blade Element Momentum Theory, resolving twist, chord distribution and profile losses that Level 1 averages away.' },
+      { phase: '05', title: 'Level 3 - Whole System', description: 'Stretch goal, only if Levels 1 and 2 finish ahead of schedule. Adds motor and battery behaviour to predict real endurance rather than instantaneous thrust.' },
+    ],
+    challenges: [
+      {
+        challenge: 'An EPQ has a fixed deadline and I had never built a validated physics model before, so a single monolithic project risked arriving at the deadline with nothing submittable.',
+        solution: 'Designed it as three levels, each a complete piece of work. If the schedule slips, Level 1 alone answers the question with momentum theory. If it holds, Levels 2 and 3 add rigour. The fallback is built into the structure rather than improvised later.',
+      },
+      {
+        challenge: 'The obvious move was to make the EPQ about the quadcopter I am already building, which would have been faster but would have made two pieces of work depend on each other and blurred what was done for which.',
+        solution: 'Narrowed the EPQ to propulsion modelling and bench measurement only. It shares a subject area with the build and nothing else, so each stands alone and neither double-counts the other.',
+      },
+      {
+        challenge: 'A model can be made to agree with measurements by tuning it, which proves nothing.',
+        solution: 'Validate against a third-party reference as well as my own data. The UIUC propeller database is independent of both my model and my thrust stand, so agreement across all three means something that agreement between my own two numbers would not.',
+      },
+    ],
+    githubUrl: 'https://github.com/a365l/epq-propulsion-model',
+  },
 ];
 
 export const getProjectBySlug = (slug: string) => projectDetails.find((p) => p.slug === slug);

@@ -13,6 +13,14 @@ interface Role {
 
 const roles: Role[] = [
   {
+    id: 'bae',
+    org: 'BAE Systems',
+    role: 'Early Careers virtual work experience',
+    dates: 'Nov 2026',
+    summary:
+      'Five days on a disaster-relief brief, designing SAR-2: an uncrewed search and rescue aircraft with 100 km range that had to pack into a 1000 x 500 x 500 mm box. My first concept, a boat mothership, broke the size limit, so I scrapped it and moved to a VTOL with an aerofoil wing for range. Modelled it in CAD with a winch-lowered rescue pod and infrared camera, then ran stall speed, cruise power and battery energy numbers to check 100 km was actually reachable.',
+  },
+  {
     id: 'berkeley',
     org: 'Berkeley Group',
     role: 'Civil engineering placement',
